@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Succession Planning | RTO Advisory</title>
+  <meta name="description" content="Preserve your legacy through strategic succession planning. Ensure your business thrives for generations—with or without you.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/typography.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+      color: var(--color-text-inverse);
+      padding: var(--spacing-5xl) var(--section-padding-x);
+      text-align: center;
+      margin-top: 70px;
+    }
+    
+    .page-hero h1 {
+      color: var(--color-text-inverse);
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-hero p {
+      font-size: var(--font-size-xl);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content-section {
+      padding: var(--spacing-4xl) var(--section-padding-x);
+    }
+    
+    .content-section.bg-secondary {
+      background-color: var(--color-bg-secondary);
+    }
+    
+    .service-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-accent-500);
+    }
+    
+    .service-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .service-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .service-card ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .phase-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .phase-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    @media (min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .benefit-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .benefit-card h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-lg);
+    }
+    
+    .benefit-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .benefit-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .benefit-card ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .scenario-box {
+      background-color: var(--color-primary-50);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      border-left: 4px solid var(--color-primary-500);
+    }
+    
+    .scenario-box h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .engagement-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-2xl);
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--color-accent-500);
+    }
+    
+    .engagement-card h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .engagement-card .description {
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text-secondary);
+    }
+    
+    .engagement-card .investment-highlight {
+      background-color: var(--color-primary-50);
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--border-radius-md);
+      margin-top: var(--spacing-md);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-700);
+    }
+    
+    .stats-highlight {
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary-700);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../../index.html" class="site-logo" aria-label="Home">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>RTO Advisory</span>
+      </a>
+      
+      <nav class="main-nav" role="navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="../why-rto.html" class="nav-link">Why RTO?</a></li>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu">
+              <a href="exit-readiness.html" class="nav-link">Exit Readiness Assessment</a>
+              <a href="value-optimization.html" class="nav-link">Strategic Value Optimization</a>
+              <a href="transaction-advisory.html" class="nav-link">Transaction Advisory & Management</a>
+              <a href="succession-planning.html" class="nav-link active">Succession Planning</a>
+            </div>
+          </li>
+          
+          <li class="nav-item"><a href="../case-studies.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="../team.html" class="nav-link">Team</a></li>
+          <li class="nav-item"><a href="../insights.html" class="nav-link">Insights</a></li>
+          <li class="nav-item"><a href="../contact.html" class="btn btn-primary">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container container-narrow">
+      <h1>Preserve Your Legacy Through Strategic Succession Planning</h1>
+      <p>
+        Ensure your business thrives for generations—with or without you
+      </p>
+    </div>
+  </section>
+  
+  <!-- INTRODUCTION -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Succession Planning</h2>
+        <p class="section-subtitle">
+          Succession planning isn't just about exit transactions—it's about ensuring your business continues to thrive whether you sell to outsiders, transfer to family, transition to management, or plan a staged exit over multiple years.
+        </p>
+        <p class="section-subtitle">
+          Only <span class="stats-highlight">34%</span> of family businesses have documented succession plans, and less than <span class="stats-highlight">15%</span> successfully transition to the next generation. The difference isn't luck—it's strategic planning and disciplined execution.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- SUCCESSION PLANNING SERVICES -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Succession Planning Services</h2>
+      </div>
+      
+      <div style="margin-top: var(--spacing-2xl);">
+        <div class="service-card" data-animate>
+          <h3>Family Business Succession</h3>
+          <ul>
+            <li>Multi-generational ownership transition strategies</li>
+            <li>Fair market value vs. gift/estate tax planning</li>
+            <li>Active vs. passive family member equity structures</li>
+            <li>Governance frameworks and family councils</li>
+            <li>Conflict resolution and communication protocols</li>
+            <li>Buy-sell agreements and valuation mechanisms</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Management Transition & Buyouts</h3>
+          <ul>
+            <li>Management team assessment and development</li>
+            <li>Management buyout (MBO) structuring and financing</li>
+            <li>Equity incentive and phantom stock programs</li>
+            <li>Staged ownership transition planning</li>
+            <li>Performance-based earnout structures</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Executive Development & Knowledge Transfer</h3>
+          <ul>
+            <li>Leadership capability assessment</li>
+            <li>Successor identification and development plans</li>
+            <li>Mentoring and transition timelines</li>
+            <li>Critical knowledge documentation</li>
+            <li>Customer and vendor relationship transitions</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Contingency & Emergency Planning</h3>
+          <ul>
+            <li>Key person risk assessment and mitigation</li>
+            <li>Emergency succession protocols</li>
+            <li>Buy-sell agreement design and funding</li>
+            <li>Life insurance and estate planning coordination</li>
+            <li>Business continuity planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- THE PROCESS -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">The RTO Succession Planning Process</h2>
+      </div>
+      
+      <div style="margin-top: var(--spacing-2xl);">
+        <div class="phase-card" data-animate>
+          <h3>Phase 1: Current State Assessment</h3>
+          <ul>
+            <li>Ownership structure and equity analysis</li>
+            <li>Management capability evaluation</li>
+            <li>Financial capacity assessment</li>
+            <li>Family dynamics and objectives (if applicable)</li>
+            <li>Tax and estate planning review</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card" data-animate>
+          <h3>Phase 2: Succession Strategy Development</h3>
+          <ul>
+            <li>Transition timeline and milestones</li>
+            <li>Ownership transfer mechanisms</li>
+            <li>Leadership development requirements</li>
+            <li>Governance structure design</li>
+            <li>Financial and tax structure optimization</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card" data-animate>
+          <h3>Phase 3: Implementation Planning</h3>
+          <ul>
+            <li>Legal documentation requirements</li>
+            <li>Financial modeling and funding strategies</li>
+            <li>Communication plans (family, management, employees)</li>
+            <li>Risk mitigation and contingency planning</li>
+            <li>Professional service provider coordination</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card" data-animate>
+          <h3>Phase 4: Execution Support</h3>
+          <ul>
+            <li>Ongoing advisory through transition</li>
+            <li>Quarterly progress reviews and adjustments</li>
+            <li>Issue resolution and problem-solving</li>
+            <li>Stakeholder communication management</li>
+            <li>Milestone achievement verification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHY SUCCESSION PLANNING MATTERS -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Why Succession Planning Matters</h2>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card" data-animate>
+          <h3>For Business Owners:</h3>
+          <ul>
+            <li>Maintain control of your timeline and terms</li>
+            <li>Minimize tax burden through strategic planning</li>
+            <li>Preserve family harmony and relationships</li>
+            <li>Ensure business continuity and value preservation</li>
+            <li>Create flexibility for staged or partial exits</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card" data-animate>
+          <h3>For Next-Generation Leaders:</h3>
+          <ul>
+            <li>Clear expectations and transition timelines</li>
+            <li>Defined development path and milestones</li>
+            <li>Fair and transparent equity structures</li>
+            <li>Decision-making authority frameworks</li>
+            <li>Support systems and mentoring</li>
+          </ul>
+        </div>
+        
+        <div class="benefit-card" data-animate>
+          <h3>For Your Business:</h3>
+          <ul>
+            <li>Reduced key person risk</li>
+            <li>Management team stability and retention</li>
+            <li>Preserved customer and vendor relationships</li>
+            <li>Continued strategic momentum</li>
+            <li>Protected company culture and values</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- COMMON SCENARIOS -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Common Succession Scenarios</h2>
+      </div>
+      
+      <div style="margin-top: var(--spacing-2xl);">
+        <div class="scenario-box" data-animate>
+          <h3>Scenario 1: Family Transition with Active Next-Gen</h3>
+          <p>Children working in the business want to take over; parents want to retire but need capital and fair treatment for inactive children.</p>
+        </div>
+        
+        <div class="scenario-box" data-animate>
+          <h3>Scenario 2: No Family Successor, Strong Management</h3>
+          <p>Management team wants to buy but lacks capital; owner wants to transition over 3-5 years with risk mitigation.</p>
+        </div>
+        
+        <div class="scenario-box" data-animate>
+          <h3>Scenario 3: Multiple Family Members, Competing Visions</h3>
+          <p>Siblings have different goals (some want to sell, others want to continue); need fair resolution and tax-efficient exit for those leaving.</p>
+        </div>
+        
+        <div class="scenario-box" data-animate>
+          <h3>Scenario 4: Sudden Disability or Death</h3>
+          <p>No formal plan exists; surviving family doesn't want to run business but needs to preserve value and execute orderly transition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ENGAGEMENT OPTIONS -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Engagement Options</h2>
+      </div>
+      
+      <div style="margin-top: var(--spacing-2xl);">
+        <div class="engagement-card" data-animate>
+          <h3>Comprehensive Succession Planning</h3>
+          <p class="description">12-24 month engagement covering strategy through implementation</p>
+          <p class="description">Coordination with estate attorneys, tax advisors, wealth managers</p>
+          <div class="investment-highlight">
+            Investment: $75,000-$150,000 or $7,500-$12,000/month retainer
+          </div>
+        </div>
+        
+        <div class="engagement-card" data-animate>
+          <h3>Succession Strategy Development</h3>
+          <p class="description">3-6 month engagement producing documented succession plan</p>
+          <p class="description">Includes stakeholder interviews, financial modeling, recommendation report</p>
+          <div class="investment-highlight">
+            Investment: $35,000-$60,000 fixed fee
+          </div>
+        </div>
+        
+        <div class="engagement-card" data-animate>
+          <h3>Ongoing Succession Advisory</h3>
+          <p class="description">Monthly or quarterly advisory for businesses in active transition</p>
+          <p class="description">Progress monitoring, issue resolution, stakeholder communication</p>
+          <div class="investment-highlight">
+            Investment: $5,000-$8,000/month
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- INTEGRATION WITH EXIT PLANNING -->
+  <section class="content-section">
+    <div class="container">
+      <div class="container-narrow" data-animate>
+        <h2 class="section-title">Integration with Exit Planning</h2>
+        <p class="section-subtitle">
+          Succession planning and exit planning aren't mutually exclusive—they're complementary. Many owners pursue internal succession first (transitioning to family or management over 3-5 years) while maintaining external sale optionality.
+        </p>
+        <p class="section-subtitle">
+          We help you design flexible structures that preserve multiple options while maximizing value regardless of ultimate path chosen.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <div data-animate>
+        <h2 class="cta-title">Ready to secure your legacy?</h2>
+        <div class="flex justify-center gap-md" style="margin-top: var(--spacing-xl);">
+          <a href="../contact.html" class="btn btn-accent btn-lg">Schedule Your Succession Planning Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Company Info -->
+        <div class="footer-column footer-about">
+          <div class="footer-logo">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>RTO Advisory</span>
+          </div>
+          <p class="footer-description">
+            Strategic Business Advisory & Valuation Services. Fee-based, conflict-free advice for business owners.
+          </p>
+        </div>
+        
+        <!-- Services Links -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Links -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="../why-rto.html">Why RTO?</a></li>
+            <li><a href="../fee-structure.html">Fee Structure</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../insights.html">Insights & Articles</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Links -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../about.html">About RTO Advisory</a></li>
+            <li><a href="../team.html">Our Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <a href="tel:+1-555-RTO-ADVS">+1-555-RTO-ADVS</a>
+            </li>
+            <li>
+              <a href="mailto:contact@rtoadvisory.com">contact@rtoadvisory.com</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 RTO Advisory. All rights reserved.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+          <a href="../cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

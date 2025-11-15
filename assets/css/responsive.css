@@ -1,0 +1,338 @@
+/**
+ * Responsive Design
+ * Mobile-first breakpoints and adjustments
+ */
+
+/* ============================
+   BASE / MOBILE (< 640px)
+   Default styles are mobile-first
+   ============================ */
+
+/* Ensure mobile content stacks properly */
+.hero-cta {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.hero-cta .btn {
+  width: 100%;
+}
+
+/* ============================
+   SMALL (640px+)
+   ============================ */
+
+@media (min-width: 640px) {
+  /* Typography adjustments */
+  :root {
+    --font-size-base: 1rem;
+  }
+
+  /* Hero adjustments */
+  .hero-cta {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-cta .btn {
+    width: auto;
+  }
+
+  /* Footer adjustments */
+  .newsletter-form {
+    flex-direction: row;
+  }
+}
+
+/* ============================
+   MEDIUM (768px+)
+   Tablet portrait
+   ============================ */
+
+@media (min-width: 768px) {
+  /* Container padding */
+  :root {
+    --section-padding-x: 2rem;
+    --section-padding-y: 6rem;
+  }
+
+  /* Typography scale up */
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  /* Grid improvements */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer grid */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Transaction logos side by side */
+  .transaction-logos {
+    flex-direction: row;
+  }
+}
+
+/* ============================
+   LARGE (1024px+)
+   Tablet landscape / Desktop
+   ============================ */
+
+@media (min-width: 1024px) {
+  /* Container padding */
+  :root {
+    --section-padding-x: 3rem;
+  }
+
+  /* Typography */
+  .hero-title {
+    font-size: var(--font-size-6xl);
+  }
+
+  /* Navigation visible */
+  .main-nav {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  /* Stats grid full */
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Services grid */
+  .services-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer full grid */
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  }
+
+  /* Carousel improvements */
+  .carousel-slide {
+    padding: var(--spacing-2xl);
+  }
+}
+
+/* ============================
+   X-LARGE (1280px+)
+   Desktop
+   ============================ */
+
+@media (min-width: 1280px) {
+  /* Container max width enforced */
+  .container {
+    max-width: var(--container-max-width);
+  }
+
+  /* Larger sections */
+  :root {
+    --section-padding-y: 7rem;
+  }
+
+  /* Better service cards */
+  .services-section .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================
+   2X-LARGE (1536px+)
+   Large Desktop
+   ============================ */
+
+@media (min-width: 1536px) {
+  /* Even larger containers */
+  .container-wide {
+    max-width: var(--container-wide);
+  }
+
+  /* Typography scale */
+  .hero-title {
+    font-size: var(--font-size-7xl);
+  }
+}
+
+/* ============================
+   PRINT STYLES
+   ============================ */
+
+@media print {
+  /* Hide navigation and non-essential elements */
+  .site-header,
+  .mobile-menu-btn,
+  .carousel-controls,
+  .cta-section,
+  .site-footer {
+    display: none;
+  }
+
+  /* Adjust colors for print */
+  body {
+    color: #000;
+    background: #fff;
+  }
+
+  /* Remove backgrounds and shadows */
+  .card,
+  .stat-card,
+  .transaction-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  /* Page breaks */
+  .section {
+    page-break-inside: avoid;
+  }
+
+  /* Links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+
+/* ============================
+   REDUCED MOTION
+   ============================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .carousel-track {
+    transition: none;
+  }
+
+  .header-hidden {
+    transition: none;
+  }
+}
+
+/* ============================
+   HIGH CONTRAST MODE
+   ============================ */
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary-500: #000066;
+    --color-accent-500: #CC9900;
+    --color-border-medium: #000;
+  }
+
+  .card,
+  .btn,
+  .form-input {
+    border-width: var(--border-width-medium);
+  }
+}
+
+/* ============================
+   LANDSCAPE ORIENTATION
+   ============================ */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-3xl) var(--section-padding-x);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ============================
+   TOUCH DEVICE ADJUSTMENTS
+   ============================ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .btn,
+  .nav-link,
+  .form-input,
+  .form-textarea {
+    min-height: 44px;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  /* Remove hover effects on touch devices */
+  .card:hover {
+    transform: none;
+  }
+
+  /* Dropdown behavior for touch */
+  /* Add specific touch handling in JavaScript */
+}
+
+/* ============================
+   RESPONSIVE UTILITIES
+   ============================ */
+
+/* Hide on mobile */
+.hidden-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+/* Hide on desktop */
+.hidden-desktop {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+/* Show only on mobile */
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Show only on desktop */
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+}
