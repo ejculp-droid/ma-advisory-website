@@ -11,27 +11,38 @@ export default defineStackbitConfig({
       contentDirs: ['content'],
       models: [
         {
-          name: 'Page',
-          type: 'page',
-          urlPath: '/{slug}',
-          filePath: 'content/pages/{slug}.json',
+          name: 'SiteSettings',
+          type: 'data',
+          label: 'Site Settings',
+          filePath: 'content/settings.json',
           fields: [
-            { name: 'title', type: 'string', required: true },
-            { name: 'heroTitle', type: 'string' },
-            { name: 'heroSubtitle', type: 'text' },
-            { name: 'heroButtonText', type: 'string' },
-            { name: 'sections', type: 'list', items: { type: 'object' } }
+            { name: 'site_title', type: 'string', label: 'Site Title' },
+            { name: 'site_description', type: 'text', label: 'Site Description' }
           ]
         },
         {
-          name: 'SiteConfig',
+          name: 'ContactInfo',
           type: 'data',
-          filePath: 'content/data/config.json',
+          label: 'Contact Information',
+          filePath: 'content/contact.json',
           fields: [
-            { name: 'siteName', type: 'string' },
-            { name: 'phone', type: 'string' },
-            { name: 'email', type: 'string' },
-            { name: 'address', type: 'text' }
+            { name: 'phone', type: 'string', label: 'Phone' },
+            { name: 'email', type: 'string', label: 'Email' },
+            { name: 'address1', type: 'string', label: 'Address Line 1' },
+            { name: 'address2', type: 'string', label: 'Address Line 2' },
+            { name: 'city', type: 'string', label: 'City' },
+            { name: 'state', type: 'string', label: 'State' },
+            { name: 'zip', type: 'string', label: 'Zip Code' }
+          ]
+        },
+        {
+          name: 'HomePage',
+          type: 'page',
+          label: 'Home Page',
+          urlPath: '/',
+          filePath: 'index.html',
+          fields: [
+            { name: 'title', type: 'string', label: 'Page Title' }
           ]
         }
       ]
