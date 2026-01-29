@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: ejculp-droid/ma-advisory-website
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
