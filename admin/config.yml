@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ejculp-droid/ma-advisory-website
   branch: main
 
 media_folder: "assets/images/uploads"
@@ -18,7 +19,7 @@ collections:
           - {label: "Hero Button Text", name: "hero_button", widget: "string"}
           - {label: "About Section Title", name: "about_title", widget: "string"}
           - {label: "About Section Text", name: "about_text", widget: "markdown"}
-          
+
       - label: "Contact Information"
         name: "contact"
         file: "content/contact.json"
@@ -30,7 +31,7 @@ collections:
           - {label: "City", name: "city", widget: "string"}
           - {label: "State", name: "state", widget: "string"}
           - {label: "Zip", name: "zip", widget: "string"}
-  
+
   - name: "services"
     label: "Services"
     folder: "pages/services"
@@ -41,28 +42,3 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Featured Image", name: "image", widget: "image", required: false}
-      
-  - name: "team"
-    label: "Team Members"
-    folder: "content/team"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Bio", name: "bio", widget: "markdown"}
-      - {label: "Photo", name: "photo", widget: "image"}
-      - {label: "Email", name: "email", widget: "string", required: false}
-      - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
-      
-  - name: "settings"
-    label: "Site Settings"
-    files:
-      - label: "General Settings"
-        name: "general"
-        file: "content/settings.json"
-        fields:
-          - {label: "Site Title", name: "site_title", widget: "string"}
-          - {label: "Site Description", name: "site_description", widget: "text"}
-          - {label: "Logo", name: "logo", widget: "image", required: false}
-          - {label: "Favicon", name: "favicon", widget: "image", required: false}
