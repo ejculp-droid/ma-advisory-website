@@ -42,12 +42,33 @@ export default defineStackbitConfig({
           urlPath: '/',
           filePath: 'index.html',
           fields: [
-            { name: 'title', type: 'string', label: 'Page Title' }
+            { name: 'title', type: 'string', label: 'Page Title', required: true }
           ]
         }
       ]
     })
   ],
   pagesDir: 'pages',
-  dataDir: 'content'
+  dataDir: 'content',
+  siteMap: ({ documents, models }) => {
+    const pageModels = models.filter((m) => m.type === 'page');
+    
+    return documents
+      .filter((d) => pageModels.some(m => m.name === d.modelName))
+      .map((document) => {
+        // Map document to URL
+        let urlPath = '/';
+        
+        if (document.modelName === 'HomePage') {
+          urlPath = '/';
+        }
+        
+        return {
+          stableId: document.id,
+          urlPath: urlPath,
+          document,
+          isHomePage: document.modelName === 'HomePage'
+        };
+      });
+  }
 });
