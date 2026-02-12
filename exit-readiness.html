@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Exit Readiness Assessment | RTO Advisory</title>
+  <meta name="description" content="Discover where you stand and what it takes to maximize your exit value with our comprehensive Exit Readiness Assessment.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/typography.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+      color: var(--color-text-inverse);
+      padding: var(--spacing-5xl) var(--section-padding-x);
+      text-align: center;
+      margin-top: 70px;
+    }
+    
+    .page-hero h1 {
+      color: var(--color-text-inverse);
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-hero p {
+      font-size: var(--font-size-xl);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content-section {
+      padding: var(--spacing-4xl) var(--section-padding-x);
+    }
+    
+    .content-section.bg-secondary {
+      background-color: var(--color-bg-secondary);
+    }
+    
+    .evaluation-grid {
+      display: grid;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    @media (min-width: 768px) {
+      .evaluation-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .evaluation-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-accent-500);
+    }
+    
+    .evaluation-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .evaluation-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .evaluation-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .evaluation-card ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .process-timeline {
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .timeline-item {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-item h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .checklist li {
+      padding-left: 2rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.8;
+    }
+    
+    .checklist li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    
+    .investment-box {
+      background-color: var(--color-primary-50);
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .investment-box h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .investment-item {
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .investment-item strong {
+      color: var(--color-primary-700);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../../index.html" class="site-logo" aria-label="Home">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>RTO Advisory</span>
+      </a>
+      
+      <nav class="main-nav" role="navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="../why-rto.html" class="nav-link">Why RTO?</a></li>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu">
+              <a href="exit-readiness.html" class="nav-link active">Exit Readiness Assessment</a>
+              <a href="value-optimization.html" class="nav-link">Strategic Value Optimization</a>
+              <a href="transaction-advisory.html" class="nav-link">Transaction Advisory & Management</a>
+              <a href="succession-planning.html" class="nav-link">Succession Planning</a>
+            </div>
+          </li>
+          
+          <li class="nav-item"><a href="../case-studies.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="../team.html" class="nav-link">Team</a></li>
+          <li class="nav-item"><a href="../insights.html" class="nav-link">Insights</a></li>
+          <li class="nav-item"><a href="../contact.html" class="btn btn-primary">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container container-narrow">
+      <h1>Is Your Business Ready to Sell?</h1>
+      <p>
+        Discover where you stand and what it takes to maximize your exit value
+      </p>
+    </div>
+  </section>
+  
+  <!-- INTRODUCTION -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Exit Readiness Assessment</h2>
+        <p class="section-subtitle">
+          Most business owners don't know if they're truly prepared for a transaction until they're deep into negotiations—often too late to address value-destroying gaps. Our Exit Readiness Assessment provides an objective, comprehensive evaluation of your business's marketability and identifies the specific improvements that will maximize your transaction outcome.
+        </p>
+        <p class="section-subtitle">
+          Whether you've received an unsolicited offer, are planning an exit in 2-5 years, or simply want to understand your options, this assessment gives you clarity and a roadmap forward.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHAT WE EVALUATE -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">What We Evaluate</h2>
+      </div>
+      
+      <div class="evaluation-grid">
+        <div class="evaluation-card" data-animate>
+          <h3>Financial Readiness</h3>
+          <ul>
+            <li>Quality of earnings and financial reporting systems</li>
+            <li>Revenue concentration and customer diversification</li>
+            <li>Profitability trends and margin analysis</li>
+            <li>Working capital management and cash flow predictability</li>
+            <li>Historical financial documentation and audit readiness</li>
+          </ul>
+        </div>
+        
+        <div class="evaluation-card" data-animate>
+          <h3>Operational Readiness</h3>
+          <ul>
+            <li>Process documentation and systemization</li>
+            <li>Management team depth and succession capability</li>
+            <li>Key person dependencies and mitigation strategies</li>
+            <li>Technology infrastructure and scalability</li>
+            <li>Supplier and vendor relationship stability</li>
+          </ul>
+        </div>
+        
+        <div class="evaluation-card" data-animate>
+          <h3>Strategic Positioning</h3>
+          <ul>
+            <li>Market position and competitive differentiation</li>
+            <li>Growth trajectory and market opportunity</li>
+            <li>Customer retention and acquisition metrics</li>
+            <li>Intellectual property and competitive moats</li>
+            <li>Industry tailwinds and regulatory considerations</li>
+          </ul>
+        </div>
+        
+        <div class="evaluation-card" data-animate>
+          <h3>Legal & Compliance</h3>
+          <ul>
+            <li>Corporate structure and capitalization table clarity</li>
+            <li>Contract assignments and transferability</li>
+            <li>Regulatory compliance and permits</li>
+            <li>Litigation exposure and contingent liabilities</li>
+            <li>Employment agreements and equity arrangements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- THE ASSESSMENT PROCESS -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">The Assessment Process</h2>
+      </div>
+      
+      <div class="process-timeline">
+        <div class="timeline-item" data-animate>
+          <h3>Phase 1: Initial Discovery (Week 1)</h3>
+          <ul>
+            <li>Confidential business questionnaire</li>
+            <li>Financial documentation review</li>
+            <li>Management interviews</li>
+            <li>Preliminary gap analysis</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item" data-animate>
+          <h3>Phase 2: Deep Dive Analysis (Weeks 2-3)</h3>
+          <ul>
+            <li>Detailed financial modeling</li>
+            <li>Operational assessment</li>
+            <li>Competitive positioning analysis</li>
+            <li>Transaction readiness scoring</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item" data-animate>
+          <h3>Phase 3: Deliverables & Planning (Week 4)</h3>
+          <ul>
+            <li>Comprehensive readiness report</li>
+            <li>Gap analysis with prioritized recommendations</li>
+            <li>Preliminary valuation range</li>
+            <li>Strategic roadmap presentation</li>
+            <li>Timeline and resource requirements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHAT YOU RECEIVE -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">What You Receive</h2>
+      </div>
+      
+      <div class="container-narrow" data-animate>
+        <ul class="checklist">
+          <li>Comprehensive assessment report</li>
+          <li>Transaction readiness score (1-100 scale across key dimensions)</li>
+          <li>Preliminary valuation range based on current state</li>
+          <li>Prioritized improvement roadmap with timeline and impact analysis</li>
+          <li>Strategic recommendations for value maximization</li>
+          <li>Professional service provider requirements (legal, tax, etc.)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- INVESTMENT & NEXT STEPS -->
+  <section class="content-section">
+    <div class="container">
+      <div class="container-narrow">
+        <div class="investment-box" data-animate>
+          <h3>Investment & Next Steps</h3>
+          <div class="investment-item">
+            <strong>Engagement Structure:</strong> Fixed-fee project
+          </div>
+          <div class="investment-item">
+            <strong>Timeline:</strong> 4-6 weeks from kickoff
+          </div>
+          <div class="investment-item">
+            <strong>Investment:</strong> $25,000 - $50,000 (based on business complexity)
+          </div>
+          <p style="margin-top: var(--spacing-lg); font-style: italic;">
+            The assessment fee is fully credited toward any subsequent advisory engagement, making this a risk-free way to gain clarity on your readiness and options.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <div data-animate>
+        <h2 class="cta-title">Ready to discover where you stand?</h2>
+        <div class="flex justify-center gap-md" style="margin-top: var(--spacing-xl);">
+          <a href="../contact.html" class="btn btn-accent btn-lg">Schedule Your Confidential Assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Company Info -->
+        <div class="footer-column footer-about">
+          <div class="footer-logo">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>RTO Advisory</span>
+          </div>
+          <p class="footer-description">
+            Strategic Business Advisory & Valuation Services. Fee-based, conflict-free advice for business owners.
+          </p>
+        </div>
+        
+        <!-- Services Links -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Links -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="../why-rto.html">Why RTO?</a></li>
+            <li><a href="../fee-structure.html">Fee Structure</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../insights.html">Insights & Articles</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Links -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../about.html">About RTO Advisory</a></li>
+            <li><a href="../team.html">Our Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <a href="tel:+1-555-RTO-ADVS">+1-555-RTO-ADVS</a>
+            </li>
+            <li>
+              <a href="mailto:contact@rtoadvisory.com">contact@rtoadvisory.com</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 RTO Advisory. All rights reserved.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+          <a href="../cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

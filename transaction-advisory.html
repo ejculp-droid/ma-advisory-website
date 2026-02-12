@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Transaction Advisory & Management | RTO Advisory</title>
+  <meta name="description" content="Expert guidance through every stage of your transaction. From offer evaluation to closing, we're your quarterback.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/typography.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+  
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+      color: var(--color-text-inverse);
+      padding: var(--spacing-5xl) var(--section-padding-x);
+      text-align: center;
+      margin-top: 70px;
+    }
+    
+    .page-hero h1 {
+      color: var(--color-text-inverse);
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-hero p {
+      font-size: var(--font-size-xl);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content-section {
+      padding: var(--spacing-4xl) var(--section-padding-x);
+    }
+    
+    .content-section.bg-secondary {
+      background-color: var(--color-bg-secondary);
+    }
+    
+    .service-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-accent-500);
+    }
+    
+    .service-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .service-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .service-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .service-card ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .philosophy-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .philosophy-list li {
+      padding-left: 2rem;
+      position: relative;
+      margin-bottom: var(--spacing-md);
+      line-height: 1.8;
+    }
+    
+    .philosophy-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    
+    .scenario-grid {
+      display: grid;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    @media (min-width: 768px) {
+      .scenario-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .scenario-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    
+    .scenario-card h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .engagement-box {
+      background-color: var(--color-primary-50);
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .engagement-box h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .engagement-item {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .engagement-item h4 {
+      color: var(--color-primary-600);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .note-box {
+      background-color: var(--color-accent-50);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius-md);
+      border-left: 4px solid var(--color-accent-500);
+      margin-top: var(--spacing-2xl);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../../index.html" class="site-logo" aria-label="Home">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>RTO Advisory</span>
+      </a>
+      
+      <nav class="main-nav" role="navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="../why-rto.html" class="nav-link">Why RTO?</a></li>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu">
+              <a href="exit-readiness.html" class="nav-link">Exit Readiness Assessment</a>
+              <a href="value-optimization.html" class="nav-link">Strategic Value Optimization</a>
+              <a href="transaction-advisory.html" class="nav-link active">Transaction Advisory & Management</a>
+              <a href="succession-planning.html" class="nav-link">Succession Planning</a>
+            </div>
+          </li>
+          
+          <li class="nav-item"><a href="../case-studies.html" class="nav-link">Case Studies</a></li>
+          <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="../team.html" class="nav-link">Team</a></li>
+          <li class="nav-item"><a href="../insights.html" class="nav-link">Insights</a></li>
+          <li class="nav-item"><a href="../contact.html" class="btn btn-primary">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container container-narrow">
+      <h1>Expert Guidance Through Every Stage of Your Transaction</h1>
+      <p>
+        From offer evaluation to closing, we're your quarterback
+      </p>
+    </div>
+  </section>
+  
+  <!-- INTRODUCTION -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Transaction Advisory & Management</h2>
+        <p class="section-subtitle">
+          Whether you've received an unsolicited offer, identified a potential buyer, or are preparing to engage the market, navigating an M&A transaction requires specialized expertise and disciplined process management.
+        </p>
+        <p class="section-subtitle">
+          RTO Advisory serves as your transaction quarterback—coordinating all advisors, managing the process, protecting your interests, and ensuring you achieve optimal terms while preserving your legacy.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TRANSACTION ADVISORY SERVICES -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Our Transaction Advisory Services</h2>
+      </div>
+      
+      <div style="margin-top: var(--spacing-2xl);">
+        <div class="service-card" data-animate>
+          <h3>Offer Evaluation & Negotiation Strategy</h3>
+          <p><em>When you've received an inbound offer or LOI:</em></p>
+          <ul style="margin-top: var(--spacing-md);">
+            <li>Independent valuation and fairness assessment</li>
+            <li>Deal structure analysis (cash, earnouts, seller notes, equity rollover)</li>
+            <li>Comparable transaction benchmarking</li>
+            <li>Negotiation strategy and leverage points</li>
+            <li>Red flag identification</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Business Valuation & Positioning</h3>
+          <ul>
+            <li>Comprehensive enterprise valuation (DCF, market multiples, asset-based)</li>
+            <li>Investment memorandum/CIM development</li>
+            <li>Management presentation creation</li>
+            <li>Financial model and projections</li>
+            <li>Industry and competitive analysis</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Due Diligence Management</h3>
+          <ul>
+            <li>Due diligence request list preparation</li>
+            <li>Virtual data room organization</li>
+            <li>Response coordination across all advisors</li>
+            <li>Issue identification and resolution</li>
+            <li>Confidentiality management</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Deal Structure Optimization</h3>
+          <ul>
+            <li>Tax-efficient transaction structuring</li>
+            <li>Earnout and performance milestone design</li>
+            <li>Employment and non-compete agreements</li>
+            <li>Seller financing and rollover equity terms</li>
+            <li>Risk allocation and indemnification</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Professional Team Coordination</h3>
+          <p><em>We serve as your single point of contact, managing:</em></p>
+          <ul style="margin-top: var(--spacing-md);">
+            <li>M&A attorneys (purchase agreement, disclosure schedules)</li>
+            <li>Tax advisors (structure optimization, tax planning)</li>
+            <li>Wealth managers (proceeds deployment planning)</li>
+            <li>Industry consultants and specialists</li>
+            <li>Quality of earnings providers</li>
+            <li>Environmental and regulatory consultants</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Closing & Transition Support</h3>
+          <ul>
+            <li>Closing checklist and timeline management</li>
+            <li>Document review and execution coordination</li>
+            <li>Funds transfer and escrow management</li>
+            <li>Post-closing transition planning</li>
+            <li>Integration support and knowledge transfer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TRANSACTION TYPES -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Transaction Types We Support</h2>
+      </div>
+      
+      <div class="value-grid" style="margin-top: var(--spacing-2xl);">
+        <div class="service-card" data-animate>
+          <h3>Strategic Sales</h3>
+          <ul>
+            <li>Corporate acquisitions</li>
+            <li>Management buyouts (MBOs)</li>
+            <li>Recapitalizations</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Financial Sponsor Transactions</h3>
+          <ul>
+            <li>Private equity acquisitions (platform and add-on)</li>
+            <li>Search fund purchases</li>
+            <li>Family office investments</li>
+          </ul>
+        </div>
+        
+        <div class="service-card" data-animate>
+          <h3>Succession Transactions</h3>
+          <ul>
+            <li>Family transfers and gifting strategies</li>
+            <li>Management succession and equity transitions</li>
+            <li>Partial sales and staged exits</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHEN TO ENGAGE US -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">When to Engage Us</h2>
+      </div>
+      
+      <div class="scenario-grid">
+        <div class="scenario-card" data-animate>
+          <h3>Scenario 1: You've Received an Offer</h3>
+          <p>We provide independent evaluation within 2 weeks to help you understand if it's fair, what leverage you have, and whether to proceed.</p>
+        </div>
+        
+        <div class="scenario-card" data-animate>
+          <h3>Scenario 2: You Have a Buyer in Mind</h3>
+          <p>We structure the engagement, coordinate due diligence, and negotiate terms that protect your interests and legacy priorities.</p>
+        </div>
+        
+        <div class="scenario-card" data-animate>
+          <h3>Scenario 3: You're Preparing to Transact</h3>
+          <p>We develop your positioning materials, coordinate advisors, and manage the entire process from preparation through closing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TRANSACTION PHILOSOPHY -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Our Transaction Philosophy</h2>
+      </div>
+      
+      <div class="container-narrow" data-animate>
+        <ul class="philosophy-list">
+          <li><strong>Independence First</strong> - Fee-based advice aligned with your interests</li>
+          <li><strong>Legacy Protection</strong> - Transaction structures that honor your priorities</li>
+          <li><strong>Process Discipline</strong> - Rigorous project management and timeline control</li>
+          <li><strong>Advisor Coordination</strong> - Single quarterback managing all specialists</li>
+          <li><strong>Confidentiality</strong> - Strict protocols protecting business operations</li>
+          <li><strong>Strategic Flexibility</strong> - Walk-away power through thorough preparation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ENGAGEMENT STRUCTURE -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="container-narrow">
+        <div class="engagement-box" data-animate>
+          <h3>Engagement Structure</h3>
+          
+          <div class="engagement-item">
+            <h4>Transaction Advisory Retainer</h4>
+            <p>$35,000-$75,000 depending on transaction complexity</p>
+            <p>Covers process management, coordination, and advisory through closing</p>
+            <p><em>Optional success fee for value optimization above baseline</em></p>
+          </div>
+          
+          <div class="engagement-item">
+            <h4>Offer Evaluation (Standalone)</h4>
+            <p>$10,000-$15,000 fixed fee</p>
+            <p>2-week deliverable</p>
+            <p><em>Credited toward full transaction engagement if you proceed</em></p>
+          </div>
+        </div>
+        
+        <div class="note-box" data-animate>
+          <p><strong>Important Note:</strong> We provide advisory and process management services—we do not source buyers or operate as broker-dealers. If buyer identification is required, we can recommend appropriate intermediaries and manage that relationship on your behalf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <div data-animate>
+        <h2 class="cta-title">Ready to discuss your transaction?</h2>
+        <div class="flex justify-center gap-md" style="margin-top: var(--spacing-xl);">
+          <a href="../contact.html" class="btn btn-accent btn-lg">Schedule Your Transaction Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Company Info -->
+        <div class="footer-column footer-about">
+          <div class="footer-logo">
+            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>RTO Advisory</span>
+          </div>
+          <p class="footer-description">
+            Strategic Business Advisory & Valuation Services. Fee-based, conflict-free advice for business owners.
+          </p>
+        </div>
+        
+        <!-- Services Links -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Links -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="../why-rto.html">Why RTO?</a></li>
+            <li><a href="../fee-structure.html">Fee Structure</a></li>
+            <li><a href="../case-studies.html">Case Studies</a></li>
+            <li><a href="../insights.html">Insights & Articles</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Links -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="../about.html">About RTO Advisory</a></li>
+            <li><a href="../team.html">Our Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact">
+            <li>
+              <a href="tel:+1-555-RTO-ADVS">+1-555-RTO-ADVS</a>
+            </li>
+            <li>
+              <a href="mailto:contact@rtoadvisory.com">contact@rtoadvisory.com</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          &copy; 2025 RTO Advisory. All rights reserved.
+        </p>
+        <div class="footer-bottom-links">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+          <a href="../cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="../../assets/js/navigation.js"></script>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
