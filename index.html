@@ -61,6 +61,28 @@
     "areaServed": "United States"
   }
   </script>
+  
+  <style>
+    .cta-description a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .cta-description a:hover {
+      text-decoration: underline;
+    }
+
+    .site-footer a,
+    .footer-bottom-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover,
+    .footer-bottom-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   
@@ -103,10 +125,11 @@
             </div>
           </li>
           
+          
+          
+          
           <li class="nav-item">
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="fee-structure.html" class="nav-link">Fee Structure</a></li>
-          <li class="nav-item"><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+            <a href="pages/contact.html" class="btn btn-primary">Contact Us</a>
           </li>
         </ul>
       </nav>
@@ -439,7 +462,7 @@
   <!-- ============================
        FOOTER
        ============================ -->
-   <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
         <!-- Company Info -->
@@ -461,10 +484,10 @@
         <div class="footer-column">
           <h3>Services</h3>
           <ul class="footer-links">
-            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
-            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
-            <li><a href="services/transaction-advisory.html">Transaction Advisory & Management</a></li>
-            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+            <li><a href="pages/services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="pages/services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="pages/services/transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="pages/services/succession-planning.html">Succession Planning</a></li>
           </ul>
         </div>
         
@@ -472,8 +495,8 @@
         <div class="footer-column">
           <h3>Resources</h3>
           <ul class="footer-links">
-            <li><a href="why-rto.html">Why RTO?</a></li>
-            <li><a href="fee-structure.html">Fee Structure</a></li>
+            <li><a href="pages/why-rto.html">Why RTO?</a></li>
+            <li><a href="pages/fee-structure.html">Fee Structure</a></li>
           </ul>
         </div>
         
@@ -481,8 +504,9 @@
         <div class="footer-column">
           <h3>Company</h3>
           <ul class="footer-links">
-            <li><a href="about.html">About RTO Advisory</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="pages/about.html">About RTO Advisory</a></li>
+            <li><a href="pages/why-fee-based.html">Why Fee-Based?</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -491,17 +515,17 @@
       <div class="footer-bottom">
         <p>&copy; 2025 Return To Owner Advisory. All rights reserved.</p>
         <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-          <a href="cookies.html">Cookie Policy</a>
+          <a href="pages/privacy.html">Privacy Policy</a>
+          <a href="pages/terms.html">Terms of Service</a>
+          <a href="pages/cookies.html">Cookie Policy</a>
         </div>
       </div>
     </div>
   </footer>
   
   <!-- JavaScript -->
-  <script src="../assets/js/navigation.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
   
   <!-- Netlify Identity Redirect -->
   <script>
@@ -515,5 +539,6 @@
       });
     }
   </script>
+  
 </body>
 </html>
