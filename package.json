@@ -8,8 +8,8 @@
     "start": "npx http-server . -p 3000 -c-1"
   },
   "dependencies": {
-    "@stackbit/types": "^2.0.0",
-    "@stackbit/cms-git": "^2.0.0"
+    "@stackbit/types": "^0.6.0",
+    "@stackbit/cms-git": "^0.6.0"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
