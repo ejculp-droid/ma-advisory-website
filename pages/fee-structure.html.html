@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Fee Structure | RTO Advisory</title>
+  <meta name="description" content="Transparent, fee-based pricing for business owners who want conflict-free advice and disciplined execution.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/typography.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+      color: var(--color-text-inverse);
+      padding: var(--spacing-5xl) var(--section-padding-x);
+      text-align: center;
+      margin-top: 70px;
+    }
+    
+    .page-hero h1 {
+      color: var(--color-text-inverse);
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-hero p {
+      font-size: var(--font-size-xl);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .content-section {
+      padding: var(--spacing-4xl) var(--section-padding-x);
+    }
+    
+    .content-section.bg-secondary {
+      background-color: var(--color-bg-secondary);
+    }
+    
+    .value-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xl);
+      justify-content: center;
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .value-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-accent-500);
+      flex: 1 1 320px;
+      max-width: 520px;
+    }
+    
+    .value-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .value-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .value-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .value-card ul li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .phase-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .phase-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .engagement-models {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xl);
+      justify-content: center;
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .engagement-card {
+      background-color: var(--color-bg-primary);
+      padding: var(--spacing-2xl);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid var(--color-accent-500);
+      flex: 1 1 320px;
+      max-width: 520px;
+    }
+    
+    .engagement-card h3 {
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .engagement-card .duration {
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .engagement-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .engagement-card ul li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.6;
+    }
+    
+    .engagement-card ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+    
+    .investment-highlight {
+      background-color: var(--color-primary-50);
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--border-radius-md);
+      margin-top: var(--spacing-md);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-700);
+    }
+
+    .site-footer .footer-content {
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .site-footer .footer-column {
+      flex: 0 1 220px;
+    }
+
+    .cta-description a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .cta-description a:hover {
+      text-decoration: underline;
+    }
+
+    .site-footer a,
+    .footer-bottom-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover,
+    .footer-bottom-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../index.html" class="site-logo" aria-label="Home">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+        </svg>
+        <span>RTO Advisory</span>
+      </a>
+      
+      <nav class="main-nav" role="navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="why-rto.html" class="nav-link">Why RTO?</a></li>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu">
+              <a href="services/exit-readiness.html" class="nav-link">Exit Readiness Assessment</a>
+              <a href="services/value-optimization.html" class="nav-link">Strategic Value Optimization</a>
+              <a href="services/transaction-advisory.html" class="nav-link">Transaction Advisory & Management</a>
+              <a href="services/succession-planning.html" class="nav-link">Succession Planning</a>
+            </div>
+          </li>
+          
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="fee-structure.html" class="nav-link">Fee Structure</a></li>
+          <li class="nav-item"><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container container-narrow">
+      <h1>Return To Owner Advisory - Fee Structure</h1>
+      <p>
+        Transparent, Fee-Based Pricing
+      </p>
+    </div>
+  </section>
+  
+  <!-- INTRODUCTION -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Transparent, Fee-Based Pricing</h2>
+        <p class="section-subtitle">
+          Unlike traditional commission-based business brokers, Return To Owner Advisory operates on a transparent
+          fee-based model that eliminates conflicts of interest and ensures all recommendations are purely in your
+          best interests.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- OUR FEE STRUCTURE -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Our Fee Structure</h2>
+      </div>
+      
+      <div class="section-header" data-animate>
+        <h3 class="section-title">Retainer-Based Engagements</h3>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Initial Assessment & Valuation</h3>
+          <ul>
+            <li><strong>Retainer Fee:</strong> $25,000 - $45,000</li>
+            <li>Comprehensive business valuation</li>
+            <li>Strategic assessment and opportunity analysis</li>
+            <li>Value enhancement roadmap</li>
+            <li><strong>Timeline:</strong> 4-6 weeks</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Strategic Exit Planning (Multi-Year)</h3>
+          <ul>
+            <li><strong>Retainer Fee:</strong> $50,000 - $75,000</li>
+            <li>Multi-year value optimization program</li>
+            <li>Quarterly strategic reviews</li>
+            <li>Transaction readiness preparation</li>
+            <li><strong>Timeline:</strong> 2-4 years</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>M&A Transaction Advisory</h3>
+          <ul>
+            <li><strong>Retainer Fee:</strong> $40,000 - $60,000</li>
+            <li>Full transaction process management</li>
+            <li>Due diligence coordination</li>
+            <li>Deal structuring and negotiation support</li>
+            <li><strong>Timeline:</strong> 6-18 months</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- MONTHLY ADVISORY RETAINERS -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Monthly Advisory Retainers</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Ongoing Strategic Advisory</h3>
+          <ul>
+            <li><strong>Monthly Retainer:</strong> $5,000 - $15,000</li>
+            <li>Continuous strategic guidance</li>
+            <li>Financial performance optimization</li>
+            <li>Growth strategy development</li>
+            <li>Management advisory services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PROJECT-BASED FIXED FEES -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Project-Based Fixed Fees</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Business Valuation Only</h3>
+          <ul>
+            <li><strong>Fixed Fee:</strong> $15,000 - $30,000</li>
+            <li>Comprehensive valuation report</li>
+            <li>Industry-standard methodologies (DCF, market multiples, asset-based)</li>
+            <li>Defensible for tax, transaction, or litigation purposes</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Due Diligence Support</h3>
+          <ul>
+            <li><strong>Fixed Fee:</strong> $20,000 - $40,000</li>
+            <li>Financial analysis and verification</li>
+            <li>Quality of earnings assessment</li>
+            <li>Documentation preparation</li>
+            <li>Risk identification</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Market Analysis & Positioning</h3>
+          <ul>
+            <li><strong>Fixed Fee:</strong> $10,000 - $25,000</li>
+            <li>Competitive landscape evaluation</li>
+            <li>Strategic positioning recommendations</li>
+            <li>Market presentation materials</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- HOURLY CONSULTING -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Hourly Consulting</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Expert Advisory Services</h3>
+          <ul>
+            <li><strong>Hourly Rate:</strong> $300 - $600/hour</li>
+            <li>Ad-hoc strategic consulting</li>
+            <li>Financial analysis</li>
+            <li>Transaction support</li>
+            <li>Management advisory</li>
+            <li><strong>Typical Engagements:</strong> 10-50 hours depending on scope</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHY FEE-BASED -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Why Fee-Based vs. Commission-Based?</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Commission-Based Brokers (Typical 8-12% of Sale Price)</h3>
+          <ul>
+            <li>Conflicts of Interest: Incentivized to push for quick sale</li>
+            <li>Timing Pressure: Motivation to sell now vs. when optimal</li>
+            <li>Lower Valuations Acceptable: Any sale generates commission</li>
+            <li>Limited Value Enhancement: No incentive to improve business first</li>
+            <li>Percentage-Based Costs: Fees scale with transaction size unnecessarily</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Fee-Based Advisory (RTO Advisory Model)</h3>
+          <ul>
+            <li>Aligned Interests: Paid for advice, not sale completion</li>
+            <li>Optimal Timing: Recommend selling only when truly right</li>
+            <li>Value Maximization: Focus on achieving best possible outcome</li>
+            <li>Strategic Preparation: Multi-year value enhancement programs</li>
+            <li>Transparent Costs: Fixed fees known upfront</li>
+            <li>No Pressure: Guidance based solely on your best interests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- WHAT'S INCLUDED -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">What's Included in Our Retainers?</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Strategic Exit Planning Retainer Includes</h3>
+          <ul>
+            <li>Comprehensive business valuation</li>
+            <li>Value gap analysis and enhancement opportunities</li>
+            <li>Financial performance optimization roadmap</li>
+            <li>Operational improvement recommendations</li>
+            <li>Management team assessment and development</li>
+            <li>Transaction readiness preparation</li>
+            <li>Quarterly strategic review meetings</li>
+            <li>Ongoing advisory support and guidance</li>
+            <li>Documentation and reporting</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>M&A Transaction Advisory Retainer Includes</h3>
+          <ul>
+            <li>Market analysis and positioning strategy</li>
+            <li>Confidential information memorandum preparation</li>
+            <li>Non-disclosure agreement (NDA) management</li>
+            <li>Data room organization and management</li>
+            <li>Due diligence coordination</li>
+            <li>Offer evaluation and negotiation support</li>
+            <li>Transaction structuring advisory</li>
+            <li>Closing coordination</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Business Valuation Retainer Includes</h3>
+          <ul>
+            <li>Financial analysis and normalization</li>
+            <li>Industry research and market analysis</li>
+            <li>Application of multiple valuation methodologies</li>
+            <li>Discounted Cash Flow (DCF)</li>
+            <li>Market multiples (comparable companies)</li>
+            <li>Precedent transactions</li>
+            <li>Asset-based approaches (when applicable)</li>
+            <li>Comprehensive valuation report (50-100 pages)</li>
+            <li>Executive summary and presentation</li>
+            <li>Support for discussions with CPAs, attorneys, or other advisors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="content-section bg-secondary">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Why should I pay upfront fees instead of just a success fee?</h3>
+          <p>
+            Upfront retainers ensure our advice is objective and in your best interests, not influenced by the
+            desire to close a transaction. Success fees alone create pressure to sell quickly rather than
+            optimize timing and value.
+          </p>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>How do your fees compare to commission-based brokers?</h3>
+          <p>
+            Commission-based brokers typically charge 8-12% of the sale price. On a $20M transaction, that's
+            $1.6M - $2.4M. Our total fees are typically $100K-400K, a fraction of the cost while delivering
+            superior value through strategic preparation.
+          </p>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>What if I decide not to sell after the engagement?</h3>
+          <p>
+            That's perfectly fine. Our goal is to provide objective advice. If the analysis shows selling isn't
+            optimal, we'll tell you and help you build value for a future exit when timing is right.
+          </p>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Can fees be paid over time?</h3>
+          <p>
+            Yes, we structure retainers to be paid in installments aligned with project milestones or monthly
+            for ongoing engagements.
+          </p>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Do you ever work on pure contingency?</h3>
+          <p>
+            No. Pure contingency arrangements create inherent conflicts of interest that undermine our ability
+            to provide objective, client-focused advice.
+          </p>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>What size companies do you work with?</h3>
+          <p>
+            We focus on middle-market companies typically with $5M - $100M in revenue or $2M - $20M in EBITDA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- GETTING STARTED -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <h2 class="section-title">Getting Started</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-card" data-animate>
+          <h3>Free Initial Consultation</h3>
+          <ul>
+            <li>Understand your situation and goals</li>
+            <li>Assess whether we're a good fit</li>
+            <li>Outline potential engagement scope</li>
+            <li>Provide transparent fee estimates</li>
+          </ul>
+        </div>
+        
+        <div class="value-card" data-animate>
+          <h3>Engagement Process</h3>
+          <ul>
+            <li>Initial Consultation (Free, 60 minutes)</li>
+            <li>Proposal & Fee Estimate (Clear scope and pricing)</li>
+            <li>Engagement Agreement (Transparent terms)</li>
+            <li>Project Kickoff (Begin work immediately)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CONTACT -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <div data-animate>
+        <h2 class="cta-title">Contact Us</h2>
+        <p class="cta-description">
+          Ready to discuss how our fee-based advisory model can help you maximize your business value?
+        </p>
+        <p class="cta-description">
+          <strong>Phone:</strong> <a href="tel:+18447269637">844-R-2-OWNER</a> | <strong>Email:</strong> <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+        </p>
+        <div class="flex justify-center gap-md" style="margin-top: var(--spacing-xl);">
+          <a href="../contact.html" class="btn btn-accent btn-lg">Schedule Your Free Consultation</a>
+        </div>
+        <p style="margin-top: var(--spacing-xl);">
+          Return To Owner Advisory - Transparent, fee-based business advisory for middle-market companies seeking
+          to maximize value and achieve successful exits.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Company Info -->
+        <div class="footer-column">
+          <h3>Return To Owner Advisory</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+            Fee-based business advisory helping middle-market companies maximize
+            value and achieve successful exits through transparent, conflict-free guidance.
+          </p>
+          <div class="mt-lg">
+            <p style="color: rgba(255, 255, 255, 0.8);">
+              <strong>Phone:</strong> <a href="tel:+18447269637">844-R-2-OWNER</a><br>
+              <strong>Email:</strong> <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </p>
+          </div>
+        </div>
+        
+        <!-- Services Links -->
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Links -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="why-rto.html">Why RTO?</a></li>
+            <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Links -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="why-fee-based.html">Why Fee-Based?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Return To Owner Advisory. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  
+  <!-- Netlify Identity Redirect -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
