@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initMobileMenu() {
   const menuBtn = document.querySelector('.mobile-menu-btn');
-  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileMenu = document.querySelector('.main-nav');
   const body = document.body;
   
   if (!menuBtn || !mobileMenu) return;
