@@ -123,6 +123,15 @@
       font-weight: bold;
       font-size: 1.2em;
     }
+    
+    .site-footer a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -155,6 +164,7 @@
           </li>
           
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="fee-structure.html" class="nav-link">Fee Structure</a></li>
           <li class="nav-item"><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
         </ul>
       </nav>
@@ -284,20 +294,43 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
+        <!-- Company Info -->
         <div class="footer-column">
           <h3>Return To Owner Advisory</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
-            Fee-based business advisory helping middle-market companies maximize 
-            value and achieve successful exits.
+          <p class="footer-description">
+            Fee-based business advisory helping middle-market companies maximize value and achieve successful exits through transparent, conflict-free guidance.
           </p>
+          <div style="margin-top: var(--spacing-md);">
+            <p style="margin-bottom: var(--spacing-sm);"><strong>Phone:</strong> <a href="tel:+18447269637">844-R-2-OWNER</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a></p>
+          </div>
         </div>
         
+        <!-- Services Links -->
         <div class="footer-column">
-          <h3>Quick Links</h3>
+          <h3>Services</h3>
           <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Links -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
             <li><a href="why-rto.html">Why RTO?</a></li>
             <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Links -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About RTO Advisory</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -305,6 +338,11 @@
       
       <div class="footer-bottom">
         <p>&copy; 2025 Return To Owner Advisory. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
       </div>
     </div>
   </footer>
