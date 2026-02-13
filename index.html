@@ -92,6 +92,26 @@
     .btn-secondary:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+      line-height: 1.1;
+    }
+
+    .hero-title .hero-line {
+      display: block;
+    }
+
+    .hero-title .hero-line + .hero-line {
+      margin-top: 0.35em;
+    }
+
+    .hero-subtitle {
+      max-width: 1100px;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
@@ -190,7 +210,10 @@
     <!-- HERO SECTION -->
     <section class="hero" data-sb-object-id="0" data-sb-object-kind="data" data-sb-field-path="root">
       <div class="hero-content">
-        <h1 class="hero-title" data-sb-field-path="title">Maximize Your Business Value. Return To Owner.</h1>
+        <h1 class="hero-title" data-sb-field-path="title">
+          <span class="hero-line">Maximize Your Business Value.</span>
+          <span class="hero-line">Return To Owner Advisory</span>
+        </h1>
         <p class="hero-subtitle" data-sb-field-path="subtitle">
           Fee-based advisory services helping middle-market companies optimize value, 
           prepare for exit, and achieve successful transitions—with transparent, 
@@ -199,30 +222,6 @@
         <div class="hero-cta">
           <a href="pages/contact.html" class="btn btn-accent btn-lg" data-sb-field-path="ctaPrimary">Schedule Consultation</a>
           <a href="pages/why-rto.html" class="btn btn-secondary btn-lg" data-sb-field-path="ctaSecondary">Why RTO?</a>
-        </div>
-      </div>
-    </section>
-    
-    <!-- STATS SECTION -->
-    <section class="stats-section" data-sb-object-id="1" data-sb-object-kind="data" data-sb-field-path="root">
-      <div class="container">
-        <div class="stats-grid" data-sb-field-path="stats">
-          <div class="stat-card" data-animate data-sb-object-id="0">
-            <div class="stat-number" data-counter="100" data-sb-field-path="number">0</div>
-            <div class="stat-label" data-sb-field-path="label">Fee-Based Model</div>
-          </div>
-          <div class="stat-card" data-animate data-sb-object-id="1">
-            <div class="stat-number" data-counter="25" data-sb-field-path="number">0</div>
-            <div class="stat-label" data-sb-field-path="label">Avg. Value Increase %</div>
-          </div>
-          <div class="stat-card" data-animate data-sb-object-id="2">
-            <div class="stat-number" data-counter="50" data-sb-field-path="number">0</div>
-            <div class="stat-label" data-sb-field-path="label">Middle-Market Clients</div>
-          </div>
-          <div class="stat-card" data-animate data-sb-object-id="3">
-            <div class="stat-number" data-counter="0" data-sb-field-path="number">0</div>
-            <div class="stat-label" data-sb-field-path="label">Commission Conflicts</div>
-          </div>
         </div>
       </div>
     </section>
@@ -244,12 +243,12 @@
               <path d="M9 11l3 3L22 4"></path>
               <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
             </svg>
-            <h3 class="service-title" data-sb-field-path="title">Business Valuation & Analysis</h3>
+            <h3 class="service-title" data-sb-field-path="title">Exit Readiness Assessment</h3>
             <p class="service-description" data-sb-field-path="description">
-              Comprehensive enterprise valuations using industry-standard methodologies 
-              including DCF, market multiples, and asset-based approaches.
+              Assess operational, financial, and leadership readiness to identify gaps
+              before engaging the market.
             </p>
-            <a href="pages/services/business-valuation.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
+            <a href="pages/services/exit-readiness.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
           </div>
           
           <div class="card" data-animate data-sb-object-id="1">
@@ -257,12 +256,12 @@
               <path d="M9 11l3 3L22 4"></path>
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
-            <h3 class="service-title" data-sb-field-path="title">Strategic Exit Planning</h3>
+            <h3 class="service-title" data-sb-field-path="title">Strategic Value Optimization</h3>
             <p class="service-description" data-sb-field-path="description">
-              Multi-year preparation strategies to maximize business value and 
-              optimize transaction readiness for successful exits.
+              Multi-year preparation to increase enterprise value and position for
+              stronger outcomes.
             </p>
-            <a href="pages/services/exit-planning.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
+            <a href="pages/services/value-optimization.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
           </div>
           
           <div class="card" data-animate data-sb-object-id="2">
@@ -271,24 +270,24 @@
               <circle cx="8.5" cy="7" r="4"></circle>
               <polyline points="17 11 19 13 23 9"></polyline>
             </svg>
-            <h3 class="service-title" data-sb-field-path="title">M&A Process Management</h3>
+            <h3 class="service-title" data-sb-field-path="title">Transaction Advisory &amp; Management</h3>
             <p class="service-description" data-sb-field-path="description">
-              Transaction structuring, buyer identification, deal process coordination, 
-              and due diligence support through closing.
+              Coordinate diligence, structure negotiations, and manage the process
+              through closing.
             </p>
-            <a href="pages/services/ma-advisory.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
+            <a href="pages/services/transaction-advisory.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
           </div>
           
           <div class="card" data-animate data-sb-object-id="3">
             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
             </svg>
-            <h3 class="service-title" data-sb-field-path="title">Strategic Consulting</h3>
+            <h3 class="service-title" data-sb-field-path="title">Succession Planning</h3>
             <p class="service-description" data-sb-field-path="description">
-              Financial performance optimization, growth strategy development, 
-              and management advisory services for sustainable value creation.
+              Structure leadership transitions and ownership planning to protect
+              continuity and long-term value.
             </p>
-            <a href="pages/services/strategic-consulting.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
+            <a href="pages/services/succession-planning.html" class="btn btn-ghost" data-sb-field-path="link">Learn More →</a>
           </div>
         </div>
       </div>
