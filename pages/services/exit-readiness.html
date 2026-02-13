@@ -153,6 +153,15 @@
     .investment-item strong {
       color: var(--color-primary-700);
     }
+
+    .site-footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -185,6 +194,7 @@
           </li>
           
           <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="../fee-structure.html" class="nav-link">Fee Structure</a></li>
           <li class="nav-item"><a href="../contact.html" class="btn btn-primary">Contact Us</a></li>
         </ul>
       </nav>
@@ -376,20 +386,21 @@
   
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-grid">
-        
+    <div class="container">
+      <div class="footer-content">
         <!-- Company Info -->
-        <div class="footer-column footer-about">
-          <div class="footer-logo">
-            <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-            </svg>
-            <span>RTO Advisory</span>
-          </div>
-          <p class="footer-description">
-            Strategic Business Advisory & Valuation Services. Fee-based, conflict-free advice for business owners.
+        <div class="footer-column">
+          <h3>Return To Owner Advisory</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+            Fee-based business advisory helping middle-market companies maximize
+            value and achieve successful exits through transparent, conflict-free guidance.
           </p>
+          <div class="mt-lg">
+            <p style="color: rgba(255, 255, 255, 0.8);">
+              <strong>Phone:</strong> <a href="tel:+18447269637">844-R-2-OWNER</a><br>
+              <strong>Email:</strong> <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </p>
+          </div>
         </div>
         
         <!-- Services Links -->
@@ -409,8 +420,6 @@
           <ul class="footer-links">
             <li><a href="../why-rto.html">Why RTO?</a></li>
             <li><a href="../fee-structure.html">Fee Structure</a></li>
-            <li><a href="../case-studies.html">Case Studies</a></li>
-            <li><a href="../insights.html">Insights & Articles</a></li>
           </ul>
         </div>
         
@@ -419,30 +428,14 @@
           <h3>Company</h3>
           <ul class="footer-links">
             <li><a href="../about.html">About RTO Advisory</a></li>
-            <li><a href="../team.html">Our Team</a></li>
             <li><a href="../contact.html">Contact</a></li>
           </ul>
         </div>
-        
-        <!-- Contact Info -->
-        <div class="footer-column">
-          <h3>Contact</h3>
-          <ul class="footer-contact">
-            <li>
-              <a href="tel:+1-555-RTO-ADVS">+1-555-RTO-ADVS</a>
-            </li>
-            <li>
-              <a href="mailto:contact@rtoadvisory.com">contact@rtoadvisory.com</a>
-            </li>
-          </ul>
-        </div>
-        
       </div>
       
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright">
-          &copy; 2025 RTO Advisory. All rights reserved.
-        </p>
+        <p>&copy; 2025 Return To Owner Advisory. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="../privacy.html">Privacy Policy</a>
           <a href="../terms.html">Terms of Service</a>
