@@ -82,6 +82,16 @@
     .footer-bottom-links a:hover {
       text-decoration: underline;
     }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+      background-color: transparent;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -125,8 +135,13 @@
             </div>
           </li>
           
+          <li class="nav-item">
+            <a href="pages/about.html" class="nav-link">About</a>
+          </li>
           
-          
+          <li class="nav-item">
+            <a href="pages/fee-structure.html" class="nav-link">Fee Structure</a>
+          </li>
           
           <li class="nav-item">
             <a href="pages/contact.html" class="btn btn-primary">Contact Us</a>
@@ -161,8 +176,6 @@
           </div>
                                       </li>
                             <li class="nav-item">
-                                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                                <li class="nav-item"><a href="fee-structure.html" class="nav-link">Fee Structure</a></li>
                                 <a href="pages/contact.html" class="nav-link">Contact Us</a>
                             </li>
                         </ul>
@@ -281,169 +294,6 @@
       </div>
     </section>
     
-    <!-- TRANSACTIONS SECTION -->
-    <section class="transactions-section" id="transactions" data-sb-object-id="3" data-sb-object-kind="data" data-sb-field-path="root">
-      <div class="container">
-        <div class="section-header" data-animate>
-          <h2 class="section-title" data-sb-field-path="sectionTitle">Client Success Stories</h2>
-          <p class="section-subtitle" data-sb-field-path="sectionSubtitle">
-            Real results from our fee-based advisory engagements helping middle-market companies achieve their goals.
-          </p>
-        </div>
-        
-        <div class="carousel">
-          <div class="carousel-track" data-sb-field-path="transactions">
-            <!-- Transaction 1 -->
-            <div class="carousel-slide" data-sb-object-id="0">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Company A
-                  </div>
-                  <span class="transaction-separator">→</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Acquirer B
-                  </div>
-                </div>
-                <h3 class="transaction-title" data-sb-field-path="title">Manufacturing Company Exit</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary" data-sb-field-path="industry">Manufacturing</span>
-                  <span class="badge badge-info" data-sb-field-path="serviceType">Exit Planning</span>
-                  <span class="badge badge-accent" data-sb-field-path="result">35% Value Increase</span>
-                </div>
-                <p class="card-body mt-lg" data-sb-field-path="description">
-                  3-year strategic exit planning engagement. Optimized operations, improved 
-                  financials, and positioned company for premium exit. Client achieved 35% 
-                  higher valuation than initial assessment.
-                </p>
-              </div>
-            </div>
-            
-            <!-- Transaction 2 -->
-            <div class="carousel-slide" data-sb-object-id="1">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Healthcare Co
-                  </div>
-                  <span class="transaction-separator">+</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Medical Group
-                  </div>
-                </div>
-                <h3 class="transaction-title" data-sb-field-path="title">Distribution Business Valuation</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary" data-sb-field-path="industry">Distribution</span>
-                  <span class="badge badge-info" data-sb-field-path="serviceType">Valuation</span>
-                  <span class="badge badge-accent" data-sb-field-path="result">$45M Enterprise Value</span>
-                </div>
-                <p class="card-body mt-lg" data-sb-field-path="description">
-                  Comprehensive business valuation for succession planning. Utilized DCF and 
-                  market multiple methodologies to establish fair market value. Enabled smooth 
-                  generational transition with clear financial framework.
-                </p>
-              </div>
-            </div>
-            
-            <!-- Transaction 3 -->
-            <div class="carousel-slide" data-sb-object-id="2">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Manufacturing Inc
-                  </div>
-                  <span class="transaction-separator">$</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Growth Capital
-                  </div>
-                </div>
-                <h3 class="transaction-title" data-sb-field-path="title">Technology Services M&A Advisory</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary" data-sb-field-path="industry">Technology</span>
-                  <span class="badge badge-info" data-sb-field-path="serviceType">M&A Advisory</span>
-                  <span class="badge badge-accent" data-sb-field-path="result">Successful Exit</span>
-                </div>
-                <p class="card-body mt-lg" data-sb-field-path="description">
-                  Fee-based M&A process management for mid-size tech services firm. \n                  Coordinated buyer identification, due diligence, and transaction structuring. \n                  Client achieved strategic exit to PE firm at optimal valuation.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-controls"></div>
-        </div>
-        
-        <div class="text-center mt-xl" data-animate>
-        </div>
-      </div>
-    </section>
-    
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials-section" id="testimonials" data-sb-object-id="4" data-sb-object-kind="data" data-sb-field-path="root">
-      <div class="container">
-        <div class="section-header" data-animate>
-          <h2 class="section-title" data-sb-field-path="sectionTitle">Client Testimonials</h2>
-          <p class="section-subtitle" data-sb-field-path="sectionSubtitle">
-            Hear from the business leaders we've helped achieve their goals.
-          </p>
-        </div>
-        
-        <div class="carousel">
-          <div class="carousel-track" data-sb-field-path="testimonials">
-            <!-- Testimonial 1 -->
-            <div class="carousel-slide" data-sb-object-id="0">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote" data-sb-field-path="quote">
-                  "The fee-based model was refreshing—no pressure to sell at the wrong time. 
-                  They focused on building our value over three years, and we achieved a 
-                  premium exit when we were ready. Worth every dollar."
-                </blockquote>
-                <div class="testimonial-author" data-sb-field-path="author">Robert Martinez</div>
-                <div class="testimonial-position" data-sb-field-path="position">Founder & CEO, Industrial Equipment Co.</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="carousel-slide" data-sb-object-id="1">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote" data-sb-field-path="quote">
-                  "Unlike commission-based brokers, they gave us honest advice about when to 
-                  sell—and when not to. Their strategic planning added millions to our exit 
-                  value. Best investment we made."
-                </blockquote>
-                <div class="testimonial-author" data-sb-field-path="author">Jennifer Chen</div>
-                <div class="testimonial-position" data-sb-field-path="position">Owner, Distribution Services LLC</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="carousel-slide" data-sb-object-id="2">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote" data-sb-field-path="quote">
-                  "Their transparent retainer structure meant no conflicts of interest. Every 
-                  recommendation was clearly in our best interests. The business valuation was 
-                  thorough, defensible, and exactly what we needed."
-                </blockquote>
-                <div class="testimonial-author" data-sb-field-path="author">David Thompson</div>
-                <div class="testimonial-position" data-sb-field-path="position">President, Technology Solutions Group</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-controls"></div>
-        </div>
-      </div>
-    </section>
-    
     <!-- CTA SECTION -->
     <section class="cta-section">
       <div class="container">
@@ -454,7 +304,7 @@
         </p>
         <div class="flex justify-center gap-md">
           <a href="pages/contact.html" class="btn btn-accent btn-lg">Schedule Free Consultation</a>
-          <a href="pages/fee-structure.html" class="btn btn-secondary btn-lg">Our Fee Structure</a>
+          <a href="pages/Fee%20Structure.html" class="btn btn-secondary btn-lg">Our Fee Structure</a>
         </div>
       </div>
     </section>
@@ -507,7 +357,6 @@
           <h3>Company</h3>
           <ul class="footer-links">
             <li><a href="pages/about.html">About RTO Advisory</a></li>
-            <li><a href="pages/why-fee-based.html">Why Fee-Based?</a></li>
             <li><a href="pages/contact.html">Contact</a></li>
           </ul>
         </div>
