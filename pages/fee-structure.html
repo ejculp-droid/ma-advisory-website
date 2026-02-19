@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   
   <style>
     .page-hero {
@@ -46,6 +47,10 @@
     .content-section {
       padding: var(--spacing-4xl) var(--section-padding-x);
     }
+
+    .content-section.intro-section {
+      padding-bottom: var(--spacing-2xl);
+    }
     
     .content-section.bg-secondary {
       background-color: var(--color-bg-secondary);
@@ -58,6 +63,35 @@
       justify-content: center;
       margin-top: var(--spacing-2xl);
     }
+
+    .value-grid-2x2 {
+      display: grid;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+
+    @media (min-width: 768px) {
+      .value-grid-2x2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .value-grid-2x2 .value-card {
+      max-width: none;
+    }
+
+    .accordion-grid {
+      display: grid;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .accordion-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     
     .value-card {
       background-color: var(--color-bg-primary);
@@ -68,10 +102,59 @@
       flex: 1 1 320px;
       max-width: 520px;
     }
+
+    .accordion-card {
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .accordion-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      margin-top: var(--spacing-md);
+    }
+
+    .accordion-card.expanded .accordion-content {
+      max-height: 1000px;
+    }
+
+    .accordion-card .accordion-hint {
+      display: inline-block;
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: var(--spacing-xs);
+    }
+
+    .accordion-card h3,
+    .accordion-card h4,
+    .accordion-card .accordion-hint {
+      text-align: center;
+    }
     
     .value-card h3 {
       color: var(--color-primary-500);
       margin-bottom: var(--spacing-md);
+    }
+
+    .value-card .title-note {
+      font-size: 0.85em;
+      font-weight: var(--font-weight-regular);
+      color: var(--color-text-secondary);
+    }
+
+    .value-card .card-eyebrow {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--spacing-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     
     .value-card ul {
@@ -92,6 +175,67 @@
       left: 0;
       color: var(--color-accent-500);
       font-weight: bold;
+    }
+
+    .phase-label {
+      color: var(--color-accent-500);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .schedule-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xl);
+      z-index: 9999;
+    }
+
+    .schedule-modal.is-open {
+      display: flex;
+    }
+
+    .schedule-modal-dialog {
+      background: #fff;
+      width: min(960px, 100%);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .schedule-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .schedule-modal-title {
+      margin: 0;
+      font-size: var(--font-size-lg);
+      color: var(--color-primary-500);
+    }
+
+    .schedule-modal-close {
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-secondary);
+    }
+
+    .schedule-modal-body {
+      padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    }
+
+    .schedule-modal .calendly-inline-widget {
+      width: 100%;
+      min-width: 320px;
+      height: 700px;
     }
     
     .phase-card {
@@ -189,7 +333,7 @@
 
     .site-footer a,
     .footer-bottom-links a {
-      color: inherit;
+      color: white;
       text-decoration: none;
     }
 
@@ -205,9 +349,7 @@
   <header class="site-header" role="banner">
     <div class="header-container">
       <a href="../index.html" class="site-logo" aria-label="Home">
-        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
+        <img src="../assets/images/favicon.png" alt="RTO Advisory" class="logo-image">
         <span>RTO Advisory</span>
       </a>
       
@@ -246,14 +388,11 @@
   <section class="page-hero">
     <div class="container container-narrow">
       <h1>Return To Owner Advisory - Fee Structure</h1>
-      <p>
-        Transparent, Fee-Based Pricing
-      </p>
     </div>
   </section>
   
   <!-- INTRODUCTION -->
-  <section class="content-section">
+  <section class="content-section intro-section">
     <div class="container">
       <div class="section-header" data-animate>
         <h2 class="section-title">Transparent, Fee-Based Pricing</h2>
@@ -270,17 +409,13 @@
   <section class="content-section bg-secondary">
     <div class="container">
       <div class="section-header" data-animate>
-        <h2 class="section-title">Our Fee Structure</h2>
-      </div>
-      
-      <div class="section-header" data-animate>
         <h3 class="section-title">Retainer-Based Engagements</h3>
       </div>
-      <div class="value-grid">
+      <div class="value-grid value-grid-2x2">
         <div class="value-card" data-animate>
           <h3>Initial Assessment & Valuation</h3>
           <ul>
-            <li><strong>Retainer Fee:</strong> $25,000 - $45,000</li>
+            <li><strong>Retainer Fee:</strong> Provided upon request</li>
             <li>Comprehensive business valuation</li>
             <li>Strategic assessment and opportunity analysis</li>
             <li>Value enhancement roadmap</li>
@@ -289,9 +424,9 @@
         </div>
         
         <div class="value-card" data-animate>
-          <h3>Strategic Exit Planning (Multi-Year)</h3>
+          <h3>Strategic Exit Planning <span class="title-note">(Multi-Year)</span></h3>
           <ul>
-            <li><strong>Retainer Fee:</strong> $50,000 - $75,000</li>
+            <li><strong>Retainer Fee:</strong> Provided upon request</li>
             <li>Multi-year value optimization program</li>
             <li>Quarterly strategic reviews</li>
             <li>Transaction readiness preparation</li>
@@ -302,29 +437,19 @@
         <div class="value-card" data-animate>
           <h3>M&A Transaction Advisory</h3>
           <ul>
-            <li><strong>Retainer Fee:</strong> $40,000 - $60,000</li>
+            <li><strong>Retainer Fee:</strong> Provided upon request</li>
             <li>Full transaction process management</li>
             <li>Due diligence coordination</li>
             <li>Deal structuring and negotiation support</li>
             <li><strong>Timeline:</strong> 6-18 months</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- MONTHLY ADVISORY RETAINERS -->
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header" data-animate>
-        <h2 class="section-title">Monthly Advisory Retainers</h2>
-      </div>
-      <div class="value-grid">
+
         <div class="value-card" data-animate>
-          <h3>Ongoing Strategic Advisory</h3>
+          <h3>Monthly Advisory Retainers</h3>
           <ul>
-            <li><strong>Monthly Retainer:</strong> $5,000 - $15,000</li>
-            <li>Continuous strategic guidance</li>
+            <li><strong>Monthly Retainer:</strong> Provided upon request</li>
+            <li>Ongoing Strategic Advisory</li>
             <li>Financial performance optimization</li>
             <li>Growth strategy development</li>
             <li>Management advisory services</li>
@@ -340,11 +465,11 @@
       <div class="section-header" data-animate>
         <h2 class="section-title">Project-Based Fixed Fees</h2>
       </div>
-      <div class="value-grid">
+      <div class="value-grid value-grid-2x2">
         <div class="value-card" data-animate>
           <h3>Business Valuation Only</h3>
           <ul>
-            <li><strong>Fixed Fee:</strong> $15,000 - $30,000</li>
+            <li><strong>Fixed Fee:</strong> Provided upon request</li>
             <li>Comprehensive valuation report</li>
             <li>Industry-standard methodologies (DCF, market multiples, asset-based)</li>
             <li>Defensible for tax, transaction, or litigation purposes</li>
@@ -354,7 +479,7 @@
         <div class="value-card" data-animate>
           <h3>Due Diligence Support</h3>
           <ul>
-            <li><strong>Fixed Fee:</strong> $20,000 - $40,000</li>
+            <li><strong>Fixed Fee:</strong> Provided upon request</li>
             <li>Financial analysis and verification</li>
             <li>Quality of earnings assessment</li>
             <li>Documentation preparation</li>
@@ -365,32 +490,20 @@
         <div class="value-card" data-animate>
           <h3>Market Analysis & Positioning</h3>
           <ul>
-            <li><strong>Fixed Fee:</strong> $10,000 - $25,000</li>
+            <li><strong>Fixed Fee:</strong> Provided upon request</li>
             <li>Competitive landscape evaluation</li>
             <li>Strategic positioning recommendations</li>
             <li>Market presentation materials</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- HOURLY CONSULTING -->
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header" data-animate>
-        <h2 class="section-title">Hourly Consulting</h2>
-      </div>
-      <div class="value-grid">
+
         <div class="value-card" data-animate>
-          <h3>Expert Advisory Services</h3>
+          <h3>Hourly Consulting</h3>
           <ul>
-            <li><strong>Hourly Rate:</strong> $300 - $600/hour</li>
-            <li>Ad-hoc strategic consulting</li>
+            <li><strong>Hourly Rate:</strong> Provided upon request</li>
             <li>Financial analysis</li>
             <li>Transaction support</li>
             <li>Management advisory</li>
-            <li><strong>Typical Engagements:</strong> 10-50 hours depending on scope</li>
           </ul>
         </div>
       </div>
@@ -403,87 +516,41 @@
       <div class="section-header" data-animate>
         <h2 class="section-title">Why Fee-Based vs. Commission-Based?</h2>
       </div>
-      <div class="value-grid">
-        <div class="value-card" data-animate>
-          <h3>Commission-Based Brokers (Typical 8-12% of Sale Price)</h3>
-          <ul>
-            <li>Conflicts of Interest: Incentivized to push for quick sale</li>
-            <li>Timing Pressure: Motivation to sell now vs. when optimal</li>
-            <li>Lower Valuations Acceptable: Any sale generates commission</li>
-            <li>Limited Value Enhancement: No incentive to improve business first</li>
-            <li>Percentage-Based Costs: Fees scale with transaction size unnecessarily</li>
-          </ul>
+      <div class="accordion-grid">
+        <div class="value-card accordion-card" data-animate>
+          <h3>Commission-Based Brokers</h3>
+          <h4>(Typical 8-12% of Sale Price)</h4>
+          <span class="accordion-hint">Click to expand</span>
+          <div class="accordion-content">
+            <ul>
+              <li>Conflicts of Interest: Incentivized to push for quick sale</li>
+              <li>Timing Pressure: Motivation to sell now vs. when optimal</li>
+              <li>Lower Valuations Acceptable: Any sale generates commission</li>
+              <li>Limited Value Enhancement: No incentive to improve business first</li>
+              <li>Percentage-Based Costs: Fees scale with transaction size unnecessarily</li>
+            </ul>
+          </div>
         </div>
         
-        <div class="value-card" data-animate>
-          <h3>Fee-Based Advisory (RTO Advisory Model)</h3>
-          <ul>
-            <li>Aligned Interests: Paid for advice, not sale completion</li>
-            <li>Optimal Timing: Recommend selling only when truly right</li>
-            <li>Value Maximization: Focus on achieving best possible outcome</li>
-            <li>Strategic Preparation: Multi-year value enhancement programs</li>
-            <li>Transparent Costs: Fixed fees known upfront</li>
-            <li>No Pressure: Guidance based solely on your best interests</li>
-          </ul>
+        <div class="value-card accordion-card" data-animate>
+          <h3>Fee-Based Advisory</h3>
+          <h4>(RTO Advisory Model)</h4>
+          <span class="accordion-hint">Click to expand</span>
+          <div class="accordion-content">
+            <ul>
+              <li>Aligned Interests: Paid for advice, not sale completion</li>
+              <li>Optimal Timing: Recommend selling only when truly right</li>
+              <li>Value Maximization: Focus on achieving best possible outcome</li>
+              <li>Strategic Preparation: Multi-year value enhancement programs</li>
+              <li>Transparent Costs: Fixed fees known upfront</li>
+              <li>No Pressure: Guidance based solely on your best interests</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- WHAT'S INCLUDED -->
-  <section class="content-section">
-    <div class="container">
-      <div class="section-header" data-animate>
-        <h2 class="section-title">What's Included in Our Retainers?</h2>
-      </div>
-      <div class="value-grid">
-        <div class="value-card" data-animate>
-          <h3>Strategic Exit Planning Retainer Includes</h3>
-          <ul>
-            <li>Comprehensive business valuation</li>
-            <li>Value gap analysis and enhancement opportunities</li>
-            <li>Financial performance optimization roadmap</li>
-            <li>Operational improvement recommendations</li>
-            <li>Management team assessment and development</li>
-            <li>Transaction readiness preparation</li>
-            <li>Quarterly strategic review meetings</li>
-            <li>Ongoing advisory support and guidance</li>
-            <li>Documentation and reporting</li>
-          </ul>
-        </div>
-        
-        <div class="value-card" data-animate>
-          <h3>M&A Transaction Advisory Retainer Includes</h3>
-          <ul>
-            <li>Market analysis and positioning strategy</li>
-            <li>Confidential information memorandum preparation</li>
-            <li>Non-disclosure agreement (NDA) management</li>
-            <li>Data room organization and management</li>
-            <li>Due diligence coordination</li>
-            <li>Offer evaluation and negotiation support</li>
-            <li>Transaction structuring advisory</li>
-            <li>Closing coordination</li>
-          </ul>
-        </div>
-        
-        <div class="value-card" data-animate>
-          <h3>Business Valuation Retainer Includes</h3>
-          <ul>
-            <li>Financial analysis and normalization</li>
-            <li>Industry research and market analysis</li>
-            <li>Application of multiple valuation methodologies</li>
-            <li>Discounted Cash Flow (DCF)</li>
-            <li>Market multiples (comparable companies)</li>
-            <li>Precedent transactions</li>
-            <li>Asset-based approaches (when applicable)</li>
-            <li>Comprehensive valuation report (50-100 pages)</li>
-            <li>Executive summary and presentation</li>
-            <li>Support for discussions with CPAs, attorneys, or other advisors</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
   
   <!-- FAQ -->
   <section class="content-section bg-secondary">
@@ -493,7 +560,7 @@
       </div>
       <div class="value-grid">
         <div class="value-card" data-animate>
-          <h3>Why should I pay upfront fees instead of just a success fee?</h3>
+          <h4>Why should I pay upfront fees instead of just a success fee?</h4>
           <p>
             Upfront retainers ensure our advice is objective and in your best interests, not influenced by the
             desire to close a transaction. Success fees alone create pressure to sell quickly rather than
@@ -502,42 +569,17 @@
         </div>
         
         <div class="value-card" data-animate>
-          <h3>How do your fees compare to commission-based brokers?</h3>
+          <h4>What if I decide not to sell after the engagement?</h4>
           <p>
-            Commission-based brokers typically charge 8-12% of the sale price. On a $20M transaction, that's
-            $1.6M - $2.4M. Our total fees are typically $100K-400K, a fraction of the cost while delivering
-            superior value through strategic preparation.
+            That's perfectly fine. Our goal is to provide objective, independent advice. If the analysis shows selling isn't
+            optimal, we'll tell you &mdash; and help you build value for a stronger exit when the timing is right.
           </p>
         </div>
         
         <div class="value-card" data-animate>
-          <h3>What if I decide not to sell after the engagement?</h3>
+          <h4>What size companies do you work with?</h4>
           <p>
-            That's perfectly fine. Our goal is to provide objective advice. If the analysis shows selling isn't
-            optimal, we'll tell you and help you build value for a future exit when timing is right.
-          </p>
-        </div>
-        
-        <div class="value-card" data-animate>
-          <h3>Can fees be paid over time?</h3>
-          <p>
-            Yes, we structure retainers to be paid in installments aligned with project milestones or monthly
-            for ongoing engagements.
-          </p>
-        </div>
-        
-        <div class="value-card" data-animate>
-          <h3>Do you ever work on pure contingency?</h3>
-          <p>
-            No. Pure contingency arrangements create inherent conflicts of interest that undermine our ability
-            to provide objective, client-focused advice.
-          </p>
-        </div>
-        
-        <div class="value-card" data-animate>
-          <h3>What size companies do you work with?</h3>
-          <p>
-            We focus on middle-market companies typically with $5M - $100M in revenue or $2M - $20M in EBITDA.
+            We advise owners of established small businesses and middle-market companies with $2M&ndash;$100M in annual revenue and $1M&ndash;$20M in EBITDA. Whether the engagement involves a valuation, merger, or transaction, RTO Advisory is built to maximize your Return To Owner.
           </p>
         </div>
       </div>
@@ -562,13 +604,13 @@
         </div>
         
         <div class="value-card" data-animate>
-          <h3>Engagement Process</h3>
-          <ul>
-            <li>Initial Consultation (Free, 60 minutes)</li>
-            <li>Proposal & Fee Estimate (Clear scope and pricing)</li>
-            <li>Engagement Agreement (Transparent terms)</li>
-            <li>Project Kickoff (Begin work immediately)</li>
-          </ul>
+            <h3>Engagement Process</h3>
+            <ul>
+              <li><span class="phase-label">Phase 1</span> - Initial Consultation (Free, 30 minutes)</li>
+              <li><span class="phase-label">Phase 2</span> - Proposal & Fee Estimate (Scope and Pricing)</li>
+              <li><span class="phase-label">Phase 3</span> - Engagement Agreement (Transparent Terms)</li>
+              <li><span class="phase-label">Phase 4</span> - Project Kickoff</li>
+            </ul>
         </div>
       </div>
     </div>
@@ -586,14 +628,23 @@
           <strong>Phone:</strong> <a href="tel:+18447269637">844-R-2-OWNER</a> | <strong>Email:</strong> <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
         </p>
         <div class="flex justify-center gap-md" style="margin-top: var(--spacing-xl);">
-          <a href="../contact.html" class="btn btn-accent btn-lg">Schedule Your Free Consultation</a>
+          <button type="button" class="btn btn-accent btn-lg" id="schedule-consultation-btn">Schedule Your Free Consultation</button>
         </div>
-        <p style="margin-top: var(--spacing-xl);">
-          RTO Advisory - Transparent, fee-based business advisory for middle-market companies seeking to maximize value and achieve successful exits.
-        </p>
       </div>
     </div>
   </section>
+
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="schedule-modal-dialog" role="document">
+      <div class="schedule-modal-header">
+        <h3 class="schedule-modal-title">Schedule Your Free Consultation</h3>
+        <button type="button" class="schedule-modal-close" id="schedule-modal-close" aria-label="Close scheduler">&times;</button>
+      </div>
+      <div class="schedule-modal-body">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min"></div>
+      </div>
+    </div>
+  </div>
   
   <!-- ============================
        FOOTER
@@ -641,6 +692,7 @@
           <h3>Company</h3>
           <ul class="footer-links">
             <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="why-fee-based.html">Why Fee-Based?</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -661,8 +713,67 @@
   <!-- JavaScript -->
   <script src="../assets/js/navigation.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    (function () {
+      const openBtn = document.getElementById('schedule-consultation-btn');
+      const modal = document.getElementById('schedule-modal');
+      const closeBtn = document.getElementById('schedule-modal-close');
+
+      if (!openBtn || !modal || !closeBtn) return;
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
   
   <!-- Netlify Identity Redirect -->
+  <script>
+    const accordionCards = document.querySelectorAll('.accordion-card');
+
+    accordionCards.forEach(card => {
+      card.addEventListener('click', () => {
+        accordionCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.classList.remove('expanded');
+            const otherHint = otherCard.querySelector('.accordion-hint');
+            if (otherHint) {
+              otherHint.textContent = 'Click to expand';
+            }
+          }
+        });
+        card.classList.toggle('expanded');
+        const hint = card.querySelector('.accordion-hint');
+        if (hint) {
+          hint.textContent = card.classList.contains('expanded')
+            ? 'Click to collapse'
+            : 'Click to expand';
+        }
+      });
+    });
+  </script>
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

@@ -27,13 +27,75 @@
       padding: var(--spacing-4xl) var(--section-padding-x);
     }
     
+    .challenge-grid {
+      display: grid;
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .challenge-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
     .challenge-card {
       background-color: var(--color-bg-primary);
       border-left: 4px solid var(--color-accent-500);
       padding: var(--spacing-xl);
-      margin-bottom: var(--spacing-xl);
       border-radius: var(--border-radius-lg);
       box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .challenge-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    
+    .challenge-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: 0;
+    }
+    
+    .challenge-card h3 {
+      color: var(--color-primary-500);
+      margin-bottom: 0;
+      transition: margin-bottom 0.3s ease;
+      flex: 1;
+    }
+    
+    .challenge-card .card-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--color-accent-500);
+      flex-shrink: 0;
+    }
+    
+    .challenge-card.expanded .card-icon {
+      margin-bottom: 0;
+    }
+    
+    .challenge-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .challenge-card.expanded .challenge-content {
+      max-height: 1000px;
+    }
+    
+    .challenge-content p {
+      margin-top: var(--spacing-md);
+    }
+    
+    .challenge-content p:first-child {
+      margin-top: 0;
     }
     
     .challenge-card h3 {
@@ -140,9 +202,7 @@
   <header class="site-header" role="banner">
     <div class="header-container">
       <a href="../index.html" class="site-logo" aria-label="Home">
-        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
+        <img src="../assets/images/favicon.png" alt="RTO Advisory" class="logo-image">
         <span>RTO Advisory</span>
       </a>
       
@@ -191,8 +251,14 @@
   <!-- ABOUT CONTENT -->
   <section class="challenge-section">
     <div class="container">
-      <div class="challenge-card" data-animate>
-        <h3>Our Approach</h3>
+      <div class="challenge-grid">
+        <div class="challenge-card" data-animate>
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"></path>
+            <polyline points="13 2 13 9 20 9"></polyline>
+          </svg>
+          <h3>Our Approach</h3>
+          <div class="challenge-content">
         <p>
           Everything we do centers on disciplined, intentional preparation. Strong outcomes are engineered through
           financial and operational refinement, strategic positioning, due diligence readiness, thoughtful deal
@@ -203,10 +269,18 @@
           negotiation, and structural decision is approached with the same diligence, rigor, and accountability we
           would apply to our own enterprise.
         </p>
+          </div>
       </div>
       
       <div class="challenge-card" data-animate>
-        <h3>Who We Work With</h3>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 010 7.75"></path>
+        </svg>
+        <h3>Who We Work With?</h3>
+        <div class="challenge-content">
         <p>
           RTO Advisory is not designed for every owner, and that selectivity is intentional. We hold ourselves to a
           high standard and expect the same level of discipline and engagement from the clients we represent.
@@ -217,10 +291,15 @@
           number of stakeholders owners must personally manage. The deeper the engagement, the stronger the
           alignment and the more effectively we can quarterback the process from start to finish.
         </p>
+        </div>
       </div>
       
       <div class="challenge-card" data-animate>
-        <h3>Why We Exist</h3>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <h3>Why We Exist?</h3>
+        <div class="challenge-content">
         <p>
           RTO Advisory exists to serve owners who require more than transactional representation. Our purpose is to
           maximize enterprise value while protecting relationships, culture, and the long-term integrity of the
@@ -234,10 +313,16 @@
         <p style="margin-top: var(--spacing-md);">
           When the timing is appropriate, we lead the transaction process with structure, clarity, and control.
         </p>
+        </div>
       </div>
       
       <div class="challenge-card" data-animate>
-        <h3>What We Do</h3>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path>
+        </svg>
+        <h3>What We Do?</h3>
+        <div class="challenge-content">
         <p>
           When a transaction becomes the right course of action, we act as the owner's deal captain, driving
           execution, coordinating advisors, managing diligence, structuring negotiations, and protecting the
@@ -249,10 +334,16 @@
           execution through closing. We operate across industries including manufacturing, logistics,
           transportation, financial services, technology, and professional services.
         </p>
+        </div>
       </div>
       
       <div class="challenge-card" data-animate>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
         <h3>Our Commitment</h3>
+        <div class="challenge-content">
         <p>
           Our commitment is unwavering: treat the business with the stewardship, diligence, and respect it
           deserves. Owners rely on us for disciplined execution, objective guidance, and an integrated
@@ -264,10 +355,16 @@
           accountability, and a partner who operates with ownership-level responsibility, RTO Advisory provides
           that standard.
         </p>
+        </div>
       </div>
       
       <div class="challenge-card" data-animate>
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
         <h3>About the Founder</h3>
+        <div class="challenge-content">
         <p>
           Elliott Culp is the Founder of RTO Advisory. He brings more than a decade of experience in commercial
           banking, wealth management, and transaction advisory. His work has included capital structure evaluation,
@@ -276,16 +373,15 @@
         </p>
         <p style="margin-top: var(--spacing-md);">
           He has guided owners through mergers, acquisitions, divestitures, and succession planning initiatives,
-          providing financial oversight and strategic direction throughout the transaction lifecycle. His
-          experience spans manufacturing, logistics, transportation, financial services, technology, and
-          professional service firms, offering a cross-sector perspective on enterprise value creation and
-          transition strategy.
+          providing financial oversight and strategic direction throughout the transaction lifecycle. His diverse indusrt experience offers a cross-sector perspective on enterprise value creation and transition strategy.
         </p>
         <p style="margin-top: var(--spacing-md);">
           Elliott holds degrees in psychology and sociology and earned an MBA in international business and
           finance, combining analytical discipline with a clear understanding of the human dynamics inherent in
           business transition.
         </p>
+        </div>
+      </div>
       </div>
     </div>
   </section>
@@ -350,6 +446,29 @@
   <!-- JavaScript -->
   <script src="../assets/js/navigation.js"></script>
   <script src="../assets/js/main.js"></script>
+  
+  <script>
+    // Accordion functionality for challenge cards
+    const cards = document.querySelectorAll('.challenge-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Close all other cards
+        cards.forEach(otherCard => {
+          if (otherCard !== this) {
+            otherCard.classList.remove('expanded');
+          }
+        });
+        // Toggle current card
+        this.classList.toggle('expanded');
+      });
+      
+      // Close on blur (when mouse leaves the card)
+      card.addEventListener('mouseleave', function() {
+        this.classList.remove('expanded');
+      });
+    });
+  </script>
   
 </body>
 </html>

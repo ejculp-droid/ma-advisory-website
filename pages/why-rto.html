@@ -20,25 +20,106 @@
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/layout.css">
   <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
   
   <style>
     .challenge-section {
       background-color: var(--color-bg-secondary);
-      padding: var(--spacing-4xl) var(--section-padding-x);
+      padding: var(--spacing-3xl) var(--section-padding-x);
     }
     
     .challenge-card {
       background-color: var(--color-bg-primary);
       border-left: 4px solid var(--color-accent-500);
-      padding: var(--spacing-xl);
-      margin-bottom: var(--spacing-xl);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
       border-radius: var(--border-radius-lg);
       box-shadow: var(--shadow-sm);
+    }
+
+    .challenge-grid-2x2 {
+      display: grid;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      align-items: stretch;
+    }
+
+    @media (min-width: 768px) {
+      .challenge-grid-2x2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .challenge-grid-2x2 .challenge-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .challenge-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: var(--spacing-md);
+      line-height: 1.8;
+    }
+
+    .challenge-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .challenge-list li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent-500);
+      font-weight: bold;
+    }
+
+    .info-stack {
+      display: grid;
+      flex: 1;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-sm);
+    }
+
+    .info-item {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+      padding: var(--spacing-md);
+      background-color: var(--color-bg-secondary);
+      border-radius: var(--border-radius-md);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .info-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      color: var(--color-accent-500);
+      flex-shrink: 0;
+    }
+
+    .info-text {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .info-text .stats-highlight {
+      display: inline-block;
     }
     
     .challenge-card h3 {
       color: var(--color-primary-500);
-      margin-bottom: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .challenge-card .info-title {
+      color: var(--color-primary-500);
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--spacing-sm);
     }
     
     .challenge-card h4 {
@@ -47,16 +128,426 @@
       margin-top: var(--spacing-lg);
       margin-bottom: var(--spacing-sm);
     }
+
+    .timeline-section {
+      padding: var(--spacing-3xl) var(--section-padding-x);
+      background-color: var(--color-bg-primary);
+    }
+
+    .timeline-list {
+      position: relative;
+      margin-top: var(--spacing-xl);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+
+    .timeline-path {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .timeline-path path {
+      stroke: var(--color-accent-500);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 1;
+      align-self: start;
+    }
+
+    @media (min-width: 1025px) {
+      /* Desktop: 6 columns so rows 1–2 hold three cards,
+         and row 3 centers two cards with symmetric gutters.
+      */
+
+      .timeline-list {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .timeline-item:nth-of-type(1) {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+      }
+
+      .timeline-item:nth-of-type(2) {
+        grid-column: 3 / span 2;
+        grid-row: 1;
+      }
+
+      .timeline-item:nth-of-type(3) {
+        grid-column: 5 / span 2;
+        grid-row: 1;
+      }
+
+      .timeline-item:nth-of-type(4) {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+      }
+
+      .timeline-item:nth-of-type(5) {
+        grid-column: 3 / span 2;
+        grid-row: 2;
+      }
+
+      .timeline-item:nth-of-type(6) {
+        grid-column: 5 / span 2;
+        grid-row: 2;
+      }
+
+      .timeline-item:nth-of-type(7) {
+        grid-column: 2 / span 2;
+        grid-row: 3;
+        justify-content: center;
+      }
+
+      .timeline-item:nth-of-type(8) {
+        grid-column: 4 / span 2;
+        grid-row: 3;
+        justify-content: center;
+      }
+    }
+
+    .timeline-card {
+      background-color: var(--color-bg-secondary);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      border-left: 4px solid var(--color-accent-500);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      max-width: 520px;
+      width: 100%;
+      align-self: start;
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .timeline-card:focus {
+      outline: 2px solid var(--color-accent-500);
+      outline-offset: 3px;
+    }
+
+    .timeline-item:nth-of-type(even) .timeline-card {
+      margin-left: auto;
+      border-left: none;
+      border-right: 4px solid var(--color-accent-500);
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xs);
+      flex-wrap: nowrap;
+    }
+
+    .timeline-step {
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent-500);
+    }
+
+    .timeline-card h3 {
+      margin: 0;
+      color: var(--color-primary-500);
+      font-size: var(--font-size-xl);
+      flex: 1;
+      min-width: 0;
+    }
+
+    .timeline-sub {
+      margin: 0;
+      color: var(--color-text-secondary);
+    }
+
+    .timeline-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .timeline-card.expanded .timeline-content {
+      max-height: 2000px;
+      margin-top: var(--spacing-sm);
+    }
+
+    .timeline-content h4 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 767px) {
+      .timeline-list {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-path {
+        display: none;
+      }
+
+      .timeline-item {
+        justify-content: flex-start;
+      }
+
+      .timeline-item:nth-of-type(even) .timeline-card {
+        margin-left: 0;
+        border-right: none;
+        border-left: 4px solid var(--color-accent-500);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .timeline-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    
+    .challenge-slider-wrapper {
+      margin-top: var(--spacing-xl);
+    }
+
+    .challenge-slider {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .challenge-track {
+      display: flex;
+      gap: var(--spacing-xl);
+      scroll-behavior: smooth;
+      white-space: nowrap;
+    }
+
+    .challenge-slide {
+      flex: 0 0 calc((100% - var(--spacing-xl) * 2) / 3);
+      background-color: var(--color-bg-secondary);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--color-accent-500);
+      white-space: normal;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .challenge-slide:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .challenge-slide:focus-visible {
+      outline: 2px solid var(--color-accent-500);
+      outline-offset: 3px;
+    }
+
+    .challenge-slide-header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .challenge-step {
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent-500);
+    }
+
+    .challenge-slide-title {
+      margin: 0;
+      color: var(--color-primary-500);
+      font-size: var(--font-size-xl);
+    }
+
+    .challenge-slide[data-index="1"] .challenge-slide-title,
+    .challenge-slide[data-index="8"] .challenge-slide-title {
+      margin-bottom: var(--spacing-md);
+    }
+
+    /* Subtitle: always clamped to 2 lines, even when expanded, to avoid flicker */
+    .challenge-slide-sub {
+      margin: 0;
+      color: var(--color-text-secondary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .challenge-slide-body {
+      margin-top: var(--spacing-md);
+    }
+
+    .challenge-slide-body h4 {
+      margin-top: 0;
+      margin-bottom: var(--spacing-md);
+      color: var(--color-accent-500);
+      font-size: var(--font-size-lg);
+    }
+
+    .challenge-slide-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100%;
+    }
+
+    .challenge-slide-cta .btn {
+      margin-top: var(--spacing-md);
+    }
+
+    /* Hide content (paragraphs, lists) by default */
+    .challenge-slide-body > p,
+    .challenge-slide-body > ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      margin: 0;
+    }
+
+    /* Show expanded content on click */
+    .challenge-slide.expanded .challenge-slide-body > p,
+    .challenge-slide.expanded .challenge-slide-body > ul {
+      max-height: 2000px;
+      margin-top: var(--spacing-md);
+    }
+
+    .challenge-slider-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .challenge-slider-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: none;
+      background-color: var(--color-accent-500);
+      color: #fff;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .challenge-slider-btn:hover {
+      background-color: var(--color-accent-600);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .challenge-slider-btn:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 3px;
+    }
+
+    .challenge-slider-status {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+    }
+
+    @media (max-width: 1024px) {
+      .challenge-slide {
+        flex: 0 0 calc((100% - var(--spacing-xl)) / 2);
+      }
+    }
+
+    @media (max-width: 767px) {
+      .challenge-slide {
+        flex: 0 0 100%;
+      }
+    }
     
     .stats-highlight {
       font-weight: var(--font-weight-bold);
       color: var(--color-primary-700);
     }
+
+    .schedule-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xl);
+      z-index: 9999;
+    }
+
+    .schedule-modal.is-open {
+      display: flex;
+    }
+
+    .schedule-modal-dialog {
+      background: #fff;
+      width: min(960px, 100%);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .schedule-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .schedule-modal-title {
+      margin: 0;
+      font-size: var(--font-size-lg);
+      color: var(--color-primary-500);
+    }
+
+    .schedule-modal-close {
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-secondary);
+    }
+
+    .schedule-modal-body {
+      padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    }
+
+    .schedule-modal .calendly-inline-widget {
+      width: 100%;
+      min-width: 320px;
+      height: 700px;
+    }
     
     .difference-grid {
       display: grid;
-      gap: var(--spacing-lg);
-      margin-top: var(--spacing-2xl);
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-xl);
     }
     
     @media (min-width: 768px) {
@@ -73,7 +564,7 @@
     
     .difference-item {
       text-align: center;
-      padding: var(--spacing-lg);
+      padding: var(--spacing-md);
     }
     
     .difference-item .icon {
@@ -142,6 +633,12 @@
     .site-footer a:hover {
       text-decoration: underline;
     }
+
+    .cta-section .cta-description {
+      max-width: 1050px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
@@ -150,9 +647,7 @@
   <header class="site-header" role="banner">
     <div class="header-container">
       <a href="../index.html" class="site-logo" aria-label="Home">
-        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
+        <img src="../assets/images/favicon.png" alt="RTO Advisory" class="logo-image">
         <span>RTO Advisory</span>
       </a>
       
@@ -210,31 +705,105 @@
         </p>
       </div>
       
-      <div class="challenge-card" data-animate>
-        <p><strong>The odds are stacked against you:</strong></p>
-        <ul style="margin-top: var(--spacing-md); line-height: 1.8;">
-          <li><span class="stats-highlight">60%</span> of business owners have no succession plan</li>
-          <li>Only <span class="stats-highlight">30%</span> of businesses listed for sale ever find a buyer</li>
-          <li>Traditional brokers charge <span class="stats-highlight">8-12% commissions</span> ($300,000+ on a $5M sale) while prioritizing quick deals over optimal outcomes</li>
-          <li>Less than <span class="stats-highlight">15%</span> of family businesses successfully transition to the next generation</li>
-        </ul>
-      </div>
-      
-      <div class="challenge-card" data-animate>
-        <p><strong>You're left wondering:</strong></p>
-        <ul style="margin-top: var(--spacing-md); line-height: 1.8;">
-          <li>How do I maximize the value of my life's work?</li>
-          <li>How do I know if I'm truly ready for a transaction?</li>
-          <li>How do I evaluate offers from PE firms or strategic buyers who've approached me?</li>
-          <li>How do I coordinate attorneys, accountants, bankers, and other advisors through this complex process?</li>
-          <li>How do I protect my employees and maintain our culture?</li>
-        </ul>
+      <div class="challenge-grid-2x2">
+        <div class="challenge-card" data-animate>
+          <h4 class="info-title">The Odds Are Stacked Against You</h4>
+          <div class="info-stack">
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 6v6l4 2"></path>
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+              </svg>
+              <p class="info-text">Nearly <span class="stats-highlight">80%</span> of owners have no written exit plan or advisory team guiding their transition, even though their business is their largest asset.</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h18v4H3z"></path>
+                <path d="M7 7v10"></path>
+                <path d="M12 7v6"></path>
+                <path d="M17 7v4"></path>
+                <path d="M3 21h18"></path>
+              </svg>
+              <p class="info-text"><span class="stats-highlight">60%</span> of business owners have no succession plan or exit strategy in place.</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v10"></path>
+                <path d="M8.5 10.5h7"></path>
+                <path d="M8.5 13.5h7"></path>
+              </svg>
+              <p class="info-text">Only <span class="stats-highlight">20-30%</span> of businesses listed for sale ever actually sell.</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19h16"></path>
+                <path d="M8 17V7"></path>
+                <path d="M12 17V5"></path>
+                <path d="M16 17v-8"></path>
+              </svg>
+              <p class="info-text">Less than <span class="stats-highlight">15-20%</span> of family businesses successfully transition to the next generation.</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v10"></path>
+                <path d="M8.5 10.5h7"></path>
+                <path d="M8.5 13.5h7"></path>
+              </svg>
+              <p class="info-text">Traditional brokers charge <span class="stats-highlight">8-12% commissions</span> ($300,000+ on a $5M sale) while prioritizing quick deals over optimal outcomes.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="challenge-card" data-animate>
+          <h4 class="info-title">You're Left Wondering</h4>
+          <div class="info-stack">
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3v18"></path>
+                <path d="M7 8h10"></path>
+                <path d="M7 16h10"></path>
+              </svg>
+              <p class="info-text">How do I maximize the value of my life's work?</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18"></path>
+                <path d="M12 3v18"></path>
+              </svg>
+              <p class="info-text">How do I know if I and the business are truly ready for a transaction?</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16"></path>
+                <path d="M4 12h10"></path>
+                <path d="M4 18h8"></path>
+              </svg>
+              <p class="info-text">How do I evaluate and compare offers from PE firms or strategic buyers who've approached me?</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="8" r="3"></circle>
+                <circle cx="16" cy="16" r="3"></circle>
+                <path d="M11 11l2 2"></path>
+              </svg>
+              <p class="info-text">How do I coordinate attorneys, accountants, bankers, and other advisors through this complex process?</p>
+            </div>
+            <div class="info-item">
+              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <p class="info-text">How do I protect my employees and preserve our culture through and after a sale?</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
   <!-- HOW RTO SOLVES THIS -->
-  <section style="padding: var(--section-padding-y) var(--section-padding-x);">
+  <section class="timeline-section">
     <div class="container">
       <div class="section-header" data-animate>
         <h2 class="section-title">How RTO Advisory Solves This</h2>
@@ -242,142 +811,228 @@
           We address each challenge with a fundamentally different approach:
         </p>
       </div>
-      
-      <!-- Challenge 1 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 1: You Don't Know Where to Start</h3>
-        <p><span class="stats-highlight">32%</span> of owners cite "lack of knowledge on where to start" as their biggest barrier</p>
-        
-        <h4>Our Solution:</h4>
-        <p>
-          We begin with a comprehensive business assessment and develop a customized 2-5 year roadmap that 
-          transforms your business from where it is today to maximum market readiness. You'll know exactly 
-          what needs to happen, when, and why—regardless of whether you already have a buyer in mind or are 
-          just beginning to explore your options.
-        </p>
-      </div>
-      
-      <!-- Challenge 2 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 2: You've Been Approached, But Don't Know If It's the Right Deal</h3>
-        <p>PE firms, strategic acquirers, or brokers have reached out, but you're unsure if their offer is fair or if you're prepared</p>
-        
-        <h4>Our Solution:</h4>
-        <p>We provide independent transaction readiness assessment and offer evaluation to help you understand:</p>
-        <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
-          <li>Whether your business is truly buyer-ready or if preparation would increase value</li>
-          <li>How the offer compares to market benchmarks and your business's potential</li>
-          <li>What gaps exist in financial reporting, operations, or documentation</li>
-          <li>Whether now is the right time or if strategic preparation would yield better outcomes</li>
-        </ul>
-        <p style="margin-top: var(--spacing-md); font-weight: var(--font-weight-semibold);">
-          You gain clarity and leverage—whether you proceed, decline, or negotiate from a position of strength.
-        </p>
-      </div>
-      
-      <!-- Challenge 3 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 3: You're Too Busy Running the Business</h3>
-        <p><span class="stats-highlight">45%</span> of owners say they're "too busy" to plan their exit</p>
-        
-        <h4>Our Solution:</h4>
-        <p>
-          We work alongside you and your team, implementing improvements without disrupting daily operations. 
-          Our systematic approach handles the strategic planning while you maintain focus on running your business profitably.
-        </p>
-      </div>
-      
-      <!-- Challenge 4 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 4: You're Worried About Leaving Money on the Table</h3>
-        <p>Most owners underestimate their business value or accept suboptimal deals due to lack of preparation</p>
-        
-        <h4>Our Solution:</h4>
-        <p>
-          Our multi-year value optimization process systematically enhances your business worth through financial 
-          performance improvements, operational efficiency, and strategic positioning. Businesses in the lower middle 
-          market sell for <span class="stats-highlight">4-15x EBITDA</span>—proper preparation can mean millions in additional proceeds.
-        </p>
-        <p style="margin-top: var(--spacing-md);">
-          Getting buyer-ready means more than clean financials—it means documented processes, scalable operations, 
-          strong management teams, and strategic positioning that maximizes competitive tension and valuation multiples.
-        </p>
-      </div>
-      
-      <!-- Challenge 5 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 5: You're Overwhelmed By the Complexity</h3>
-        <p>Exit transactions require coordinating attorneys, CPAs, wealth advisors, lenders, insurance professionals, and industry specialists</p>
-        
-        <h4>Our Solution:</h4>
-        <p>
-          We serve as your <strong>transaction quarterback</strong>—the single point of coordination managing all 
-          professional service providers throughout the entire process. We:
-        </p>
-        <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
-          <li>Assemble and manage your advisory team</li>
-          <li>Coordinate due diligence requests and responses</li>
-          <li>Ensure all parties stay aligned on timeline and objectives</li>
-          <li>Translate complex legal, tax, and financial concepts into actionable decisions</li>
-          <li>Keep the process moving forward while you focus on business operations</li>
-        </ul>
-        <p style="margin-top: var(--spacing-md); font-weight: var(--font-weight-semibold);">
-          You maintain one relationship with one trusted advisor, while we orchestrate the symphony of 
-          specialists required for a successful exit.
-        </p>
-      </div>
-      
-      <!-- Challenge 6 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 6: You Fear Losing Control of Your Legacy</h3>
-        <p>Your business reflects your values, standards, and commitment to employees and community</p>
-        
-        <h4>Our Solution:</h4>
-        <p>Whether you're working with a buyer you've identified, evaluating inbound offers, or preparing for a future transaction, we help you:</p>
-        <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
-          <li>Define your non-negotiable legacy priorities upfront</li>
-          <li>Structure transactions that protect what matters most</li>
-          <li>Evaluate buyer cultural fit and operational philosophy</li>
-          <li>Negotiate employment protections for key team members</li>
-          <li>Design earn-outs and transition agreements that preserve institutional knowledge</li>
-        </ul>
-      </div>
-      
-      <!-- Challenge 7 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 7: You Don't Trust Commission-Based Brokers</h3>
-        <p>Traditional brokers earn more when deals close quickly, creating conflicts with your long-term interests</p>
-        
-        <h4>Our Solution:</h4>
-        <p>
-          Our fee-based advisory model (<span class="stats-highlight">$25,000-$75,000 retainers</span>) means we 
-          earn compensation for providing sound strategic advice—not for rushing you into suboptimal transactions. 
-          We save you <span class="stats-highlight">50-90%</span> versus traditional broker commissions while ensuring 
-          recommendations serve only your interests.
-        </p>
-        <p style="margin-top: var(--spacing-md); font-style: italic; color: var(--color-text-secondary);">
-          <strong>Important distinction:</strong> We're not a matchmaking service or buyer-sourcing firm. We're strategic 
-          advisors who prepare you for success regardless of how your buyer emerges—whether through your own relationships, 
-          inbound approaches, or if you later choose to engage a broker or investment banker for formal buyer identification.
-        </p>
-      </div>
-      
-      <!-- Challenge 8 -->
-      <div class="challenge-card" data-animate>
-        <h3>Challenge 8: You Want to Exit on Your Terms</h3>
-        <p>You've earned the right to retire when and how you choose, not when the market or a buyer dictates</p>
-        
-        <h4>Our Solution:</h4>
-        <p>Early planning gives you control. Whether you're:</p>
-        <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
-          <li>Exploring options with no immediate plans</li>
-          <li>Evaluating an unsolicited offer from a PE firm or strategic buyer</li>
-          <li>Working with a specific buyer already in discussions</li>
-          <li>Planning a transaction 2-5 years out</li>
-        </ul>
-        <p style="margin-top: var(--spacing-md);">
-          ...we meet you where you are and create a roadmap that puts you in the strongest possible position.
-        </p>
+
+      <div class="challenge-slider-wrapper">
+        <!-- Accessible slider region -->
+        <div class="challenge-slider" role="region" aria-label="How RTO Advisory solves these challenges">
+          <div class="challenge-track" aria-live="polite" aria-atomic="true" aria-relevant="additions text">
+
+            <!-- Slide 1 -->
+            <article class="challenge-slide" data-index="1">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 1</span>
+                <h3 class="challenge-slide-title">You Don't Know Where to Start</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                <span class="stats-highlight">32%</span> of owners cite "lack of knowledge on where to start" as their biggest barrier.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  We begin with a comprehensive business assessment and develop a customized 2–5 year roadmap
+                  that transforms your business from where it is today to maximum market readiness. You'll know
+                  exactly what needs to happen, when, and why—whether you already have a buyer in mind or are
+                  just beginning to explore your options.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="challenge-slide" data-index="2">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 2</span>
+                <h3 class="challenge-slide-title">You've Been Approached, But Don't Know If It's the Right Deal</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                PE firms, strategic acquirers, or brokers have reached out, but you're unsure if their offer is fair or if you're prepared.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>We provide independent transaction readiness assessment and offer evaluation to help you understand:</p>
+                <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
+                  <li>Whether your business is truly buyer‑ready or if preparation would increase value</li>
+                  <li>How the offer compares to market benchmarks and your business's potential</li>
+                  <li>What gaps exist in financial reporting, operations, or documentation</li>
+                  <li>Whether now is the right time or if strategic preparation would yield better outcomes</li>
+                </ul>
+                <p style="margin-top: var(--spacing-md); font-weight: var(--font-weight-semibold);">
+                  You gain clarity and leverage—whether you proceed, decline, or negotiate from a position of strength.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="challenge-slide" data-index="3">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 3</span>
+                <h3 class="challenge-slide-title">You're Too Busy Running the Business</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                <span class="stats-highlight">45%</span> of owners say they're "too busy" to plan their exit.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  We work alongside you and your team, implementing improvements without disrupting daily operations.
+                  Our systematic approach handles the strategic planning while you maintain focus on running your business profitably.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 4 -->
+            <article class="challenge-slide" data-index="4">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 4</span>
+                <h3 class="challenge-slide-title">You're Worried About Leaving Money on the Table</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                Most owners underestimate their business value or accept suboptimal deals due to lack of preparation.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  Our multi‑year value optimization process systematically enhances your business worth through financial
+                  performance improvements, operational efficiency, and strategic positioning. Businesses in the lower‑middle
+                  market sell for <span class="stats-highlight">4–15x EBITDA</span>—proper preparation can mean millions in additional proceeds.
+                </p>
+                <p style="margin-top: var(--spacing-md);">
+                  Getting buyer‑ready means more than clean financials—it means documented processes, scalable operations,
+                  strong management teams, and strategic positioning that maximizes competitive tension and valuation multiples.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 5 -->
+            <article class="challenge-slide" data-index="5">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 5</span>
+                <h3 class="challenge-slide-title">You're Overwhelmed By the Complexity</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                Exit transactions require coordinating attorneys, CPAs, wealth advisors, lenders, insurance professionals, and industry specialists.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  We serve as your <strong>transaction quarterback</strong>—the single point of coordination managing all
+                  professional service providers throughout the entire process. We:
+                </p>
+                <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
+                  <li>Assemble and manage your advisory team</li>
+                  <li>Coordinate due diligence requests and responses</li>
+                  <li>Ensure all parties stay aligned on timeline and objectives</li>
+                  <li>Translate complex legal, tax, and financial concepts into actionable decisions</li>
+                  <li>Keep the process moving forward while you focus on business operations</li>
+                </ul>
+                <p style="margin-top: var(--spacing-md); font-weight: var(--font-weight-semibold);">
+                  You maintain one relationship with one trusted advisor, while we orchestrate the symphony of specialists required for a successful exit.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 6 -->
+            <article class="challenge-slide" data-index="6">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 6</span>
+                <h3 class="challenge-slide-title">You Fear Losing Control of Your Legacy</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                Your business reflects your values, standards, and commitment to employees and community.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  Whether you're working with a buyer you've identified, evaluating inbound offers, or preparing for a future transaction, we help you:
+                </p>
+                <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
+                  <li>Define your non‑negotiable legacy priorities upfront</li>
+                  <li>Structure transactions that protect what matters most</li>
+                  <li>Evaluate buyer cultural fit and operational philosophy</li>
+                  <li>Negotiate employment protections for key team members</li>
+                  <li>Design earn‑outs and transition agreements that preserve institutional knowledge</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Slide 7 -->
+            <article class="challenge-slide" data-index="7">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 7</span>
+                <h3 class="challenge-slide-title">You're Weary of Commission-Based Brokers</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                Traditional brokers earn more when deals close quickly, creating conflicts with your long‑term interests.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>
+                  Our fee‑based advisory model means we
+                  earn compensation for providing sound strategic advice—not for rushing you into suboptimal transactions.
+                  We save you <span class="stats-highlight">50–90%</span> versus traditional broker commissions while ensuring
+                  recommendations serve only your interests.
+                </p>
+                <p style="margin-top: var(--spacing-md); font-style: italic; color: var(--color-text-secondary);">
+                  <strong>Important distinction:</strong> We're not a matchmaking service or buyer‑sourcing firm. We're strategic
+                  advisors who prepare you for success regardless of how your buyer emerges—through your own relationships,
+                  inbound approaches, or if you later choose to engage a broker or investment banker for formal buyer identification.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 8 -->
+            <article class="challenge-slide" data-index="8">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Challenge 8</span>
+                <h3 class="challenge-slide-title">You Want to Exit on Your Terms</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                You've earned the right to retire when and how you choose, not when the market or a buyer dictates.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Our Solution</h4>
+                <p>Early planning gives you control. Whether you're:</p>
+                <ul class="checkmark-list" style="margin-top: var(--spacing-md);">
+                  <li>Exploring options with no immediate plans</li>
+                  <li>Evaluating an unsolicited offer from a PE firm or strategic buyer</li>
+                  <li>Working with a specific buyer already in discussions</li>
+                  <li>Planning a transaction 2–5 years out</li>
+                </ul>
+                <p style="margin-top: var(--spacing-md);">
+                  We meet you where you are and create a roadmap that puts you in the strongest possible position.
+                </p>
+              </div>
+            </article>
+
+            <!-- Slide 9 -->
+            <article class="challenge-slide challenge-slide-cta" data-index="9">
+              <header class="challenge-slide-header">
+                <span class="challenge-step">Next Step</span>
+                <h3 class="challenge-slide-title">Schedule Your Free Consultation</h3>
+              </header>
+              <p class="challenge-slide-sub">
+                Pick a time that works for you and get clear guidance on your next best steps.
+              </p>
+              <div class="challenge-slide-body">
+                <h4>Ready to Talk?</h4>
+                <button type="button" class="btn btn-accent schedule-consultation-btn">Schedule Your Free Consultation</button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Slider navigation -->
+        <div class="challenge-slider-nav">
+          <button class="challenge-slider-btn prev" type="button" aria-label="Previous challenges">
+            ‹
+          </button>
+          <div class="challenge-slider-status" aria-hidden="true">
+            <span id="challenge-slider-position">Item 1 of 8</span>
+          </div>
+          <button class="challenge-slider-btn next" type="button" aria-label="Next challenges">
+            ›
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -482,15 +1137,22 @@
         think about your eventual transition, RTO Advisory helps you get buyer-ready and positioned for maximum success.
       </p>
       <div class="flex justify-center gap-md" style="margin-top: var(--spacing-2xl);">
-        <a href="contact.html" class="btn btn-accent btn-lg">Schedule Free Consultation</a>
-        <a href="fee-structure.html" class="btn btn-secondary btn-lg">View Our Fees</a>
+        <button type="button" class="btn btn-accent btn-lg schedule-consultation-btn">Schedule Free Consultation</button>
       </div>
-      <p style="margin-top: var(--spacing-2xl); font-size: var(--font-size-lg); max-width: 900px; margin-left: auto; margin-right: auto;">
-        <strong>Because your life's work deserves more than a quick sale</strong>—it deserves strategic preparation, 
-        expert coordination, and a buyer-ready business that commands premium value.
-      </p>
     </div>
   </section>
+
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="schedule-modal-dialog" role="document">
+      <div class="schedule-modal-header">
+        <h3 class="schedule-modal-title">Schedule a Free Consultation</h3>
+        <button type="button" class="schedule-modal-close" id="schedule-modal-close" aria-label="Close scheduler">&times;</button>
+      </div>
+      <div class="schedule-modal-body">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min"></div>
+      </div>
+    </div>
+  </div>
   
     <!-- ============================
        FOOTER
@@ -558,6 +1220,207 @@
   <!-- JavaScript -->
   <script src="../assets/js/navigation.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <script>
+    (function () {
+      const openButtons = document.querySelectorAll('.schedule-consultation-btn');
+      const modal = document.getElementById('schedule-modal');
+      const closeBtn = document.getElementById('schedule-modal-close');
+
+      if (!openButtons.length || !modal || !closeBtn) return;
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      openButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+      });
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    const timelineCards = document.querySelectorAll('.timeline-card');
+
+    timelineCards.forEach(card => {
+      const toggleCard = () => {
+        const isExpanded = card.classList.contains('expanded');
+
+        timelineCards.forEach(otherCard => {
+          otherCard.classList.remove('expanded');
+          otherCard.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isExpanded) {
+          card.classList.add('expanded');
+          card.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      card.addEventListener('click', toggleCard);
+
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleCard();
+        }
+      });
+    });
+  </script>
+  
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.challenge-slide');
+
+      slides.forEach(slide => {
+        // Click to toggle open (close all others first)
+        slide.addEventListener('click', function (e) {
+          const wasExpanded = this.classList.contains('expanded');
+
+          // Close all slides
+          slides.forEach(s => s.classList.remove('expanded'));
+
+          // If it wasn't already open, open it
+          if (!wasExpanded) {
+            this.classList.add('expanded');
+          }
+        });
+
+        // Auto-close when mouse leaves the card
+        slide.addEventListener('mouseleave', function () {
+          this.classList.remove('expanded');
+        });
+
+        // Keyboard accessibility
+        slide.setAttribute('tabindex', '0');
+        slide.setAttribute('role', 'button');
+        slide.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const track = document.querySelector('.challenge-track');
+      const originalSlides = Array.from(document.querySelectorAll('.challenge-slide'));
+      const prevBtn = document.querySelector('.challenge-slider-btn.prev');
+      const nextBtn = document.querySelector('.challenge-slider-btn.next');
+      const statusEl = document.getElementById('challenge-slider-position');
+
+      if (!track || originalSlides.length === 0 || !prevBtn || !nextBtn || !statusEl) return;
+
+      const visibleCount = 3;
+      const totalOriginal = originalSlides.length;
+
+      // 1) Clone slides at both ends so we can scroll past the edges
+      originalSlides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add('clone');
+        clone.classList.remove('expanded');
+        track.appendChild(clone);
+      });
+
+      originalSlides.slice(-visibleCount).forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add('clone');
+        clone.classList.remove('expanded');
+        track.insertBefore(clone, track.firstChild);
+      });
+
+      const allSlides = Array.from(track.querySelectorAll('.challenge-slide'));
+      let currentIndex = visibleCount;
+      let slideWidth = 0;
+
+      function measureSlideWidth() {
+        if (allSlides.length < 2) return;
+        const firstRect = allSlides[0].getBoundingClientRect();
+        const secondRect = allSlides[1].getBoundingClientRect();
+        slideWidth = secondRect.left - firstRect.left;
+      }
+
+      function updatePosition(animate = true) {
+        if (!slideWidth) measureSlideWidth();
+        if (!slideWidth) return;
+
+        if (!animate) {
+          track.style.transition = 'none';
+        } else {
+          track.style.transition = 'transform 0.4s ease';
+        }
+
+        const offset = -currentIndex * slideWidth;
+        track.style.transform = 'translateX(' + offset + 'px)';
+
+        const logicalIndex = ((currentIndex - visibleCount) % totalOriginal + totalOriginal) % totalOriginal;
+        statusEl.textContent = 'Item ' + (logicalIndex + 1) + ' of ' + totalOriginal;
+      }
+
+      function goTo(delta) {
+        currentIndex += delta;
+        updatePosition(true);
+      }
+
+      prevBtn.addEventListener('click', function () {
+        goTo(-1);
+      });
+
+      nextBtn.addEventListener('click', function () {
+        goTo(1);
+      });
+
+      prevBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(-1); }
+      });
+
+      nextBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(1); }
+      });
+
+      // When we cross clone boundaries, snap back to the equivalent real slide with no animation
+      track.addEventListener('transitionend', function () {
+        if (currentIndex >= totalOriginal + visibleCount) {
+          currentIndex = visibleCount;
+          updatePosition(false);
+        } else if (currentIndex < visibleCount) {
+          currentIndex = totalOriginal + visibleCount - 1;
+          updatePosition(false);
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        measureSlideWidth();
+        updatePosition(false);
+      });
+
+      measureSlideWidth();
+      updatePosition(false);
+    })();
+  </script>
   
   <!-- Netlify Identity Redirect -->
   <script>
