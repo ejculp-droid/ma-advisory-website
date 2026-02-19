@@ -43,6 +43,24 @@
   gap: var(--spacing-sm);
 }
 
+.site-logo .logo-image {
+  height: 32px;
+  width: auto;
+  max-height: 32px;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+.site-logo img {
+  height: 32px;
+  width: auto;
+  max-height: 32px;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
 .site-logo:hover {
   color: var(--color-accent-500);
 }
@@ -57,6 +75,20 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+  }
+
+  .site-logo .logo-image {
+    height: 36px;
+    max-height: 36px;
+    max-width: 220px;
+    object-fit: contain;
+  }
+
+  .site-logo img {
+    height: 36px;
+    max-height: 36px;
+    max-width: 220px;
+    object-fit: contain;
   }
 }
 
