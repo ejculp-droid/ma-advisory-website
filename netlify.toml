@@ -9,6 +9,7 @@
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=UTF-8"
+    Content-Security-Policy = "script-src 'self' https://assets.calendly.com; object-src 'none'"
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
