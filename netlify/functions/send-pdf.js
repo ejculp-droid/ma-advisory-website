@@ -1,50 +1,23 @@
 const nodemailer = require('nodemailer');
 
-const TENANT_ID = process.env.AZURE_TENANT_ID;
-const CLIENT_ID = process.env.AZURE_CLIENT_ID;
-const CLIENT_SECRET = process.env.AZURE_CLIENT_SECRET;
-const SEND_FROM = 'elliott@rtoadvisory.com';
+const EMAIL_USER = process.env.ELLIOTT_EMAIL || 'elliott@rtoadvisory.com';
+const EMAIL_PASS = process.env.ELLIOTT_PASSWORD;
 
-async function getAccessToken() {
-  const tokenUrl = `https://login.microsoftonline.com/${TENANT_ID}/oauth2/v2.0/token`;
-  const params = new URLSearchParams({
-    grant_type: 'client_credentials',
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
-    scope: 'https://outlook.office365.com/.default'
-  });
-
-  const res = await fetch(tokenUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString()
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Token request failed: ${err}`);
-  }
-
-  const data = await res.json();
-  return data.access_token;
-}
-
-async function createTransporter(accessToken) {
+async function createTransporter() {
   return nodemailer.createTransport({
     host: 'smtp.office365.com',
     port: 587,
     secure: false,
     auth: {
-      type: 'OAuth2',
-      user: SEND_FROM,
-      accessToken
+      user: EMAIL_USER,
+      pass: EMAIL_PASS
     }
   });
 }
 
 async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachmentName) {
   const mailOptions = {
-    from: SEND_FROM,
+    from: EMAIL_USER,
     to,
     subject,
     html: bodyHtml,
@@ -83,6 +56,10 @@ exports.handler = async (event) => {
   }
 
   try {
+    if (!EMAIL_PASS) {
+      throw new Error('Missing ELLIOTT_PASSWORD environment variable');
+    }
+
     const body = JSON.parse(event.body);
     const { first_name, last_name, email, company, reader_type, reader_type_other } = body;
 
@@ -93,8 +70,7 @@ exports.handler = async (event) => {
     // Fetch PDF from deployed assets
     const pdfBuffer = await getPdfBuffer();
 
-    const accessToken = await getAccessToken();
-    const transporter = await createTransporter(accessToken);
+    const transporter = await createTransporter();
 
     // Send PDF to requester
     await sendEmail(
@@ -112,7 +88,7 @@ exports.handler = async (event) => {
     // Notify Elliott of new lead
     await sendEmail(
       transporter,
-      SEND_FROM,
+      EMAIL_USER,
       `New White Paper Download: ${first_name} ${last_name}`,
       `<p>A new white paper was requested.</p>
        <ul>
