@@ -3,6 +3,21 @@ const nodemailer = require('nodemailer');
 const EMAIL_USER = process.env.ELLIOTT_EMAIL || 'elliott@rtoadvisory.com';
 const EMAIL_PASS = process.env.ELLIOTT_PASSWORD;
 
+function sanitizeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;');
+}
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 async function createTransporter() {
   return nodemailer.createTransport({
     host: 'smtp.office365.com',
@@ -61,11 +76,21 @@ exports.handler = async (event) => {
     }
 
     const body = JSON.parse(event.body);
-    const { first_name, last_name, email, company, reader_type, reader_type_other } = body;
+    let { first_name, last_name, email, company, reader_type, reader_type_other } = body;
 
     if (!first_name || !last_name || !email || !company || !reader_type) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing required fields' }) };
     }
+
+    if (!validateEmail(email)) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Invalid email format' }) };
+    }
+
+    first_name = sanitizeHtml(first_name.trim());
+    last_name = sanitizeHtml(last_name.trim());
+    company = sanitizeHtml(company.trim());
+    reader_type = sanitizeHtml(reader_type.trim());
+    reader_type_other = reader_type_other ? sanitizeHtml(reader_type_other.trim()) : null;
 
     // Fetch PDF from deployed assets
     const pdfBuffer = await getPdfBuffer();
