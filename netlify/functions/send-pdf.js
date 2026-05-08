@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 const TENANT_ID = process.env.AZURE_TENANT_ID;
 const CLIENT_ID = process.env.AZURE_CLIENT_ID;
@@ -54,20 +56,17 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
 }
 
 async function getPdfBuffer() {
-  // Use Netlify's URL environment variable (the deployed site URL)
-  const siteUrl = process.env.URL || 'https://rtoadvisory.com';
-  const pdfUrl = `${siteUrl}/assets/white-papers/exit-readiness-gap.pdf`;
+  // In Netlify Functions, read PDF directly from file system
+  // Functions dir is netlify/functions/, so go up to root then to assets
+  const pdfPath = path.join(__dirname, '../..', 'assets/white-papers/exit-readiness-gap.pdf');
   
   try {
-    const response = await fetch(pdfUrl);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
+    if (!fs.existsSync(pdfPath)) {
+      throw new Error(`PDF file not found at ${pdfPath}`);
     }
-    
-    return Buffer.from(await response.arrayBuffer());
+    return fs.readFileSync(pdfPath);
   } catch (error) {
-    console.error(`PDF fetch error from ${pdfUrl}:`, error.message);
+    console.error(`PDF read error from ${pdfPath}:`, error.message);
     throw error;
   }
 }
