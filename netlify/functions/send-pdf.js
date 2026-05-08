@@ -58,7 +58,7 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
 async function getPdfBuffer() {
   // In Netlify Functions, read PDF directly from file system
   // Functions dir is netlify/functions/, so go up to root then to assets
-  const pdfPath = path.join(__dirname, '../..', 'assets/white-papers/exit-readiness-gap.pdf');
+  const pdfPath = path.join(__dirname, '../..', 'assets/white-papers/The Exit Readiness Gap Why 75% of Business Owners Are Unprepared (And What It\'s Costing Them).pdf');
   
   try {
     if (!fs.existsSync(pdfPath)) {
@@ -100,7 +100,7 @@ exports.handler = async (event) => {
        <p>Your copy is attached. We look forward to connecting with you.</p>
        <p>Best regards,<br />RTO Advisory</p>`,
       pdfBuffer,
-      'exit-readiness-gap.pdf'
+      'The Exit Readiness Gap Why 75% of Business Owners Are Unprepared (And What It\'s Costing Them).pdf'
     );
 
     // Notify Elliott of new lead
