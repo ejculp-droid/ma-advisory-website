@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const nodemailer = require('nodemailer');
 
 const TENANT_ID = process.env.AZURE_TENANT_ID;
@@ -55,6 +53,18 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
   await transporter.sendMail(mailOptions);
 }
 
+async function getPdfBuffer() {
+  // Fetch PDF from the deployed site
+  const pdfUrl = 'https://rtoadvisory.com/assets/white-papers/exit-readiness-gap.pdf';
+  const response = await fetch(pdfUrl);
+  
+  if (!response.ok) {
+    throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+  }
+  
+  return Buffer.from(await response.arrayBuffer());
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -68,9 +78,8 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing required fields' }) };
     }
 
-    // Read PDF
-    const pdfPath = path.join(process.cwd(), 'assets/white-papers/exit-readiness-gap.pdf');
-    const pdfBuffer = fs.readFileSync(pdfPath);
+    // Fetch PDF from deployed assets
+    const pdfBuffer = await getPdfBuffer();
 
     const accessToken = await getAccessToken();
     const transporter = await createTransporter(accessToken);
