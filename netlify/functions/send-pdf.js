@@ -56,7 +56,7 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
 async function getPdfBuffer() {
   // Fetch PDF from the site's public assets
   const siteUrl = process.env.URL || process.env.DEPLOY_URL || 'https://rtoadvisory.com';
-  const pdfPath = encodeURI('/assets/white-papers/The Exit Readiness Gap Why 75% of Business Owners Are Unprepared (And What It\'s Costing Them).pdf');
+  const pdfPath = '/assets/white-papers/exit-readiness-gap.pdf';
   const pdfUrl = `${siteUrl}${pdfPath}`;
   
   console.log(`Fetching PDF from: ${pdfUrl}`);
@@ -106,7 +106,7 @@ exports.handler = async (event) => {
        <p>Your copy is attached. We look forward to connecting with you.</p>
        <p>Best regards,<br />RTO Advisory</p>`,
       pdfBuffer,
-      'The Exit Readiness Gap Why 75% of Business Owners Are Unprepared (And What It\'s Costing Them).pdf'
+      'exit-readiness-gap.pdf'
     );
 
     // Notify Elliott of new lead
