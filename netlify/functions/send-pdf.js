@@ -54,15 +54,22 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
 }
 
 async function getPdfBuffer() {
-  // Fetch PDF from the deployed site
-  const pdfUrl = 'https://rtoadvisory.com/assets/white-papers/exit-readiness-gap.pdf';
-  const response = await fetch(pdfUrl);
+  // Use Netlify's URL environment variable (the deployed site URL)
+  const siteUrl = process.env.URL || 'https://rtoadvisory.com';
+  const pdfUrl = `${siteUrl}/assets/white-papers/exit-readiness-gap.pdf`;
   
-  if (!response.ok) {
-    throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+  try {
+    const response = await fetch(pdfUrl);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch PDF: ${response.status} ${response.statusText}`);
+    }
+    
+    return Buffer.from(await response.arrayBuffer());
+  } catch (error) {
+    console.error(`PDF fetch error from ${pdfUrl}:`, error.message);
+    throw error;
   }
-  
-  return Buffer.from(await response.arrayBuffer());
 }
 
 exports.handler = async (event) => {
