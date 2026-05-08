@@ -82,7 +82,7 @@ Based on 8-point grid system (4px base unit):
 ✅ Mobile navigation menu  
 ✅ Dropdown menus with keyboard support  
 ✅ Animated statistics counters  
-✅ Carousel components (transactions, testimonials)  
+✅ Carousel components (optional, currently disabled)  
 ✅ Scroll animations  
 ✅ Form validation  
 ✅ Smooth scrolling  
@@ -126,7 +126,6 @@ Based on 8-point grid system (4px base unit):
 - **Stats**: Lines 211-230 (update data-counter values)
 - **Services**: Lines 237-299 (customize 4 service cards)
 - **Transactions**: Lines 304-396 (add your deal examples)
-- **Testimonials**: Lines 401-471 (add client quotes)
 
 ### 4. Add Images
 

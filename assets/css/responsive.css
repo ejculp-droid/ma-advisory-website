@@ -1,452 +1,55 @@
-/**
- * Responsive Design
- * Mobile-first breakpoints and adjustments
- */
-
-/* ============================
-   BASE / MOBILE (< 640px)
-   Default styles are mobile-first
-   ============================ */
-
-/* Mobile Navigation */
-.main-nav {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--color-bg-primary);
-  padding: var(--spacing-xl);
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.main-nav.active {
-  display: block;
-}
-
-.nav-menu {
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.nav-item {
-  width: 100%;
-}
-
-.nav-link {
-  display: block;
-  padding: var(--spacing-md);
-  font-size: var(--font-size-lg);
-}
-
-.dropdown-menu {
-  position: static;
-  display: none;
-  background-color: var(--color-bg-secondary);
-  padding: var(--spacing-sm) 0;
-  margin-top: var(--spacing-sm);
-  border-radius: var(--border-radius-md);
-}
-
-.dropdown.active .dropdown-menu {
-  display: block;
-}
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-}
-
-.mobile-menu-btn span {
-  width: 100%;
-  height: 3px;
-  background-color: var(--color-primary-500);
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.mobile-menu-btn.active span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-
-.mobile-menu-btn.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-btn.active span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-/* Ensure mobile content stacks properly */
-.hero-cta {
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.hero-cta .btn {
-  width: 100%;
-}
-
-/* ============================
-   SMALL (640px+)
-   ============================ */
-
-@media (min-width: 640px) {
-  /* Typography adjustments */
-  :root {
-    --font-size-base: 1rem;
+@media (max-width: 1024px) {
+  .main-nav-list {
+    gap: var(--space-2);
   }
 
-  /* Hero adjustments */
-  .hero-cta {
-    flex-direction: row;
+  .hero-grid,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .mobile-toggle {
+    display: inline-flex;
     align-items: center;
-  }
-
-  .hero-cta .btn {
-    width: auto;
-  }
-
-  /* Footer adjustments */
-  .newsletter-form {
-    flex-direction: row;
-  }
-}
-
-/* ============================
-   MEDIUM (768px+)
-   Tablet portrait
-   ============================ */
-
-@media (min-width: 768px) {
-  /* Container padding */
-  :root {
-    --section-padding-x: 2rem;
-    --section-padding-y: 6rem;
-  }
-
-  /* Typography scale up */
-  .hero-title {
-    font-size: var(--font-size-5xl);
-  }
-
-  .section-title {
-    font-size: var(--font-size-4xl);
-  }
-
-  /* Grid improvements */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Footer grid */
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Transaction logos side by side */
-  .transaction-logos {
-    flex-direction: row;
-  }
-}
-
-/* ============================
-   LARGE (1024px+)
-   Tablet landscape / Desktop
-   ============================ */
-
-@media (min-width: 1024px) {
-  /* Container padding */
-  :root {
-    --section-padding-x: 3rem;
-  }
-
-  /* Typography */
-  .hero-title {
-    font-size: var(--font-size-6xl);
-  }
-
-  /* Desktop Navigation */
-  .main-nav {
-    display: flex !important;
-    position: static;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent;
-  }
-
-  .mobile-menu-btn {
-    display: none !important;
-  }
-
-  .nav-menu {
-    flex-direction: row;
-    gap: var(--spacing-lg);
-  }
-
-  .nav-item {
-    width: auto;
-  }
-
-  .nav-link {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-base);
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    display: none;
-    background-color: var(--color-bg-primary);
-    padding: var(--spacing-md);
-    margin-top: 0;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-
-  /* Stats grid full */
-  .stats-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  /* Services grid */
-  .services-section .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Footer full grid */
-  .footer-content {
-    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-  }
-
-  /* Carousel improvements */
-  .carousel-slide {
-    padding: var(--spacing-2xl);
-  }
-}
-
-/* ============================
-   X-LARGE (1280px+)
-   Desktop
-   ============================ */
-
-@media (min-width: 1280px) {
-  /* Container max width enforced */
-  .container {
-    max-width: var(--container-max-width);
-  }
-
-  /* Larger sections */
-  :root {
-    --section-padding-y: 7rem;
-  }
-
-  /* Better service cards */
-  .services-section .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* ============================
-   2X-LARGE (1536px+)
-   Large Desktop
-   ============================ */
-
-@media (min-width: 1536px) {
-  /* Even larger containers */
-  .container-wide {
-    max-width: var(--container-wide);
-  }
-
-  /* Typography scale */
-  .hero-title {
-    font-size: var(--font-size-7xl);
-  }
-}
-
-/* ============================
-   PRINT STYLES
-   ============================ */
-
-@media print {
-  /* Hide navigation and non-essential elements */
-  .site-header,
-  .mobile-menu-btn,
-  .carousel-controls,
-  .cta-section,
-  .site-footer {
-    display: none;
-  }
-
-  /* Adjust colors for print */
-  body {
-    color: #000;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
     background: #fff;
   }
 
-  /* Remove backgrounds and shadows */
-  .card,
-  .stat-card,
-  .transaction-card {
-    box-shadow: none;
-    border: 1px solid #000;
+  .main-nav {
+    display: none;
+    position: absolute;
+    inset: 74px 1rem auto 1rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-3);
   }
 
-  /* Page breaks */
-  .section {
-    page-break-inside: avoid;
-  }
-
-  /* Links */
-  a[href^="http"]:after {
-    content: " (" attr(href) ")";
-    font-size: 0.8em;
-  }
-}
-
-/* ============================
-   REDUCED MOTION
-   ============================ */
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .carousel-track {
-    transition: none;
-  }
-
-  .header-hidden {
-    transition: none;
-  }
-}
-
-/* ============================
-   HIGH CONTRAST MODE
-   ============================ */
-
-@media (prefers-contrast: high) {
-  :root {
-    --color-primary-500: #000066;
-    --color-accent-500: #CC9900;
-    --color-border-medium: #000;
-  }
-
-  .card,
-  .btn,
-  .form-input {
-    border-width: var(--border-width-medium);
-  }
-}
-
-/* ============================
-   LANDSCAPE ORIENTATION
-   ============================ */
-
-@media (max-height: 600px) and (orientation: landscape) {
-  .hero {
-    min-height: auto;
-    padding: var(--spacing-3xl) var(--section-padding-x);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-base);
-  }
-}
-
-/* ============================
-   TOUCH DEVICE ADJUSTMENTS
-   ============================ */
-
-@media (hover: none) and (pointer: coarse) {
-  /* Larger touch targets */
-  .btn,
-  .nav-link,
-  .form-input,
-  .form-textarea {
-    min-height: 44px;
-    padding: var(--spacing-md) var(--spacing-lg);
-  }
-
-  /* Remove hover effects on touch devices */
-  .card:hover {
-    transform: none;
-  }
-
-  /* Dropdown behavior for touch */
-  /* Add specific touch handling in JavaScript */
-}
-
-/* ============================
-   RESPONSIVE UTILITIES
-   ============================ */
-
-/* Hide on mobile */
-.hidden-mobile {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .hidden-mobile {
+  .main-nav.is-open {
     display: block;
   }
-}
 
-/* Hide on desktop */
-.hidden-desktop {
-  display: block;
-}
-
-@media (min-width: 1024px) {
-  .hidden-desktop {
-    display: none;
+  .main-nav-list {
+    flex-direction: column;
+    align-items: stretch;
   }
-}
 
-/* Show only on mobile */
-.mobile-only {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .mobile-only {
-    display: none;
+  .process-strip {
+    grid-template-columns: 1fr 1fr;
   }
-}
 
-/* Show only on desktop */
-.desktop-only {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .desktop-only {
-    display: block;
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,546 +1,823 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <!-- SEO Meta Tags -->
-  <title>Return To Owner Advisory | Strategic Business Advisory & Valuation Services</title>
-  <meta name="description" content="Fee-based business advisory and valuation consultancy for middle-market companies. Strategic exit planning, business valuation, M&A advisory, and value optimization.">
-  <meta name="keywords" content="business advisory, business valuation, exit planning, M&A advisory, strategic consulting, business consultant, enterprise valuation">
-  <meta name="author" content="Return To Owner Advisory">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rtoadvisory.com/">
-  <meta property="og:title" content="Return To Owner Advisory | Strategic Business Advisory & Valuation">
-  <meta property="og:description" content="Fee-based business advisory helping middle-market companies maximize value and prepare for successful exits.">
-  <meta property="og:image" content="/assets/images/og-image.jpg">
-  
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://rtoadvisory.com/">
-  <meta property="twitter:title" content="Return To Owner Advisory">
-  <meta property="twitter:description" content="Fee-based business advisory helping middle-market companies maximize value and prepare for successful exits.">
-  <meta property="twitter:image" content="/assets/images/og-image.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-  
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/typography.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
-  
-  <!-- Schema.org Markup for Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Return To Owner Advisory",
-    "description": "Fee-based business advisory and valuation consultancy for middle-market companies",
-    "url": "https://rtoadvisory.com",
-    "logo": "https://rtoadvisory.com/assets/images/logo.png",
-    "telephone": "+1-555-RTO-ADVS",
-    "priceRange": "$$$",
-    "serviceType": ["Business Valuation", "Exit Planning", "M&A Advisory", "Strategic Consulting"],
-    "areaServed": "United States"
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTO Advisory | Strategic Exit and Transaction Advisory</title>
+  <meta name="description" content="Fee-based advisory helping owners prepare, optimize value, and execute transactions with clarity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/typography.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+  <style>
+    .home-page {
+      background: var(--color-paper);
+      color: #1f1d1a;
+    }
+
+    .home-page .site-header {
+      background: var(--color-header-bg);
+      border-bottom: 1px solid var(--color-header-line);
+      box-shadow: none;
+    }
+
+    .home-page .site-header.is-scrolled {
+      box-shadow: 0 6px 18px var(--color-header-shadow);
+      border-bottom-color: var(--color-header-line-scrolled);
+    }
+
+    .home-page .site-logo__wordmark,
+    .home-page .main-nav-list a,
+    .home-page .nav-dropdown-toggle {
+      color: var(--color-header-ink);
+    }
+
+    .home-page .main-nav-list a.active,
+    .home-page .main-nav-list a:hover {
+      background: rgba(var(--color-brand-rgb), 0.08);
+    }
+
+    .home-page .hero h1 .hero-title-line {
+      display: block;
+      white-space: normal;
+    }
+
+    .home-page .hero h1 .hero-title-line + .hero-title-line {
+      margin-top: 0.12em;
+    }
+
+    .home-page .hero {
+      padding: 60px 0 40px;
+      background: var(--color-paper);
+    }
+
+    .home-page .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .home-page .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(391px, 476px);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .home-page .hero-copy {
+      max-width: 62ch;
+    }
+
+    .home-page .hero h1 {
+      font-size: clamp(2.65rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+      margin: 0 0 0.9rem;
+    }
+
+    .home-page .hero .lead {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      font-weight: 400;
+    }
+
+    .home-page .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 476px;
+      height: 459px;
+      margin: 0 auto;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .home-page .hero-visual__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .home-page .section-services > .container > .eyebrow {
+      display: inline-block;
+      margin: 0 0 1rem;
+      font-size: 0.975rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+    }
+
+    .home-page .section-services h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 1.1;
+      color: var(--color-brand);
+      margin: 0;
+      max-width: 22ch;
+    }
+
+    .home-page .section-services .services-layout {
+      margin-top: 2rem;
+    }
+
+    .home-page .section-services .card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-page .next-step-panel h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--color-brand);
+      margin: 0 0 0.45rem;
+    }
+
+    .home-page .section-services .card p {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+    }
+
+    .home-page .section-services .card p > a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-brand);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 46, 42, 0.35);
+      letter-spacing: 0;
+      line-height: 1.5;
+    }
+
+    .home-page .section-services .card p > a:hover {
+      opacity: 0.75;
+    }
+
+    .home-page .section-services .card p.rto_med + p {
+      margin-top: auto;
+      padding-top: 1.35rem;
+    }
+
+    .home-page .section-insight .card h3 ~ p {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--color-ink-700);
+      letter-spacing: 0;
+    }
+
+    .home-page main p:not(.eyebrow),
+    .home-page main li,
+    .home-page main a,
+    .home-page .footer-copy,
+    .home-page .footer-legal a,
+    .home-page .site-footer__brand p,
+    .home-page .site-footer__contact a,
+    .home-page .site-footer__nav a {
+      font-family: var(--font-body);
+    }
+
+    .home-page .section-services .card p.rto_med {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .home-page .section-insight .card p.rto_med {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .home-page .section-insight .card p.rto_med + p.rto_med {
+      margin-top: var(--space-4);
+    }
+
+    .home-page .card {
+      background: var(--color-paper);
+    }
+
+    .home-page .home-resource-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(1.6rem, 3vw, 2.8rem);
+      align-items: start;
+    }
+
+    .home-page .home-next-step-block {
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+      max-width: 47ch;
+    }
+
+    .home-page .home-next-step-block h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.62rem, 1.95vw, 1.95rem);
+      line-height: 1.1;
+      letter-spacing: normal;
+      color: var(--color-brand);
+    }
+
+    .home-page .home-next-step-block p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+    }
+
+    .home-page .home-next-step-actions {
+      margin-top: 0.6rem;
+    }
+
+    .home-page .home-next-step-actions .btn {
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      box-shadow: none;
+    }
+
+    .home-page .home-next-step-actions .btn:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    .home-page .home-research-block {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .home-page .home-whitepaper__cover {
+      margin: 0;
+      border: 1px solid rgba(188, 150, 86, 0.28);
+      border-radius: 16px;
+      background: var(--color-surface);
+      padding: 0.35rem;
+      flex: 0 0 170px;
+      width: 170px;
+      box-shadow: 0 4px 10px rgba(15, 46, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .home-page .home-whitepaper__cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .home-page .home-whitepaper__copy {
+      display: grid;
+      gap: 0.6rem;
+      align-content: start;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .home-page .home-whitepaper__copy h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.1vw, 1.85rem);
+      line-height: 1.12;
+      color: var(--color-brand);
+    }
+
+    .home-page .home-whitepaper__copy p {
+      margin: 0;
+      font-size: 1.03rem;
+      line-height: 1.72;
+      color: var(--color-ink-700);
+    }
+
+    .home-page .home-whitepaper__cta {
+      justify-self: start;
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
+      background: transparent;
+      color: var(--color-brand);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: none;
+    }
+
+    .home-page .home-whitepaper__cta:hover {
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
+    }
+
+    .home-page .services-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .home-page .services-visual {
+      margin: 0;
+      border: 1px solid rgba(31, 29, 26, 0.14);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #efe8dd;
+      min-height: 100%;
+    }
+
+    .home-page .services-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-page .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .home-page .hero-grid,
+      .home-page .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .services-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .services-visual {
+        min-height: 240px;
+      }
+
+      .home-page .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .hero-visual {
+        width: 100%;
+        max-width: 100%;
+        min-height: 459px;
+        margin-top: 1.5rem;
+      }
+
+      .home-page .home-resource-two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .home-research-block {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-page .home-research-block {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .home-page .home-whitepaper__cover {
+        width: min(100%, 210px);
+      }
+
+      .home-page .home-whitepaper__cta {
+        width: 100%;
+      }
+
+      .home-page .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-page .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-<body>
-  
-  <!-- Skip to main content for accessibility -->
-  <a href="#main-content" class="sr-only">Skip to main content</a>
-  
-  <!-- ============================
-       HEADER & NAVIGATION
-       ============================ -->
-  <header class="site-header" role="banner">
-    <div class="header-container">
-      <!-- Logo -->
-      <a href="index.html" class="site-logo" aria-label="Home">
-        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
-        <span>RTO Advisory</span>
-      </a>
-      
-      <!-- Desktop Navigation -->
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link active">Home</a>
+<body class="home-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html"><img src="assets/images/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="pages/why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">&#9662;</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="pages/services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="pages/services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="pages/services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="pages/services/succession-planning.html">Succession Planning</a></li>
+            </ul>
           </li>
-          
-          <li class="nav-item">
-            <a href="pages/why-rto.html" class="nav-link">Why RTO?</a>
-          </li>
-          
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-              Services
-            </a>
-            <div class="dropdown-menu">
-              <a href="pages/services/exit-readiness.html" class="nav-link">Exit Readiness Assessment</a>
-              <a href="pages/services/value-optimization.html" class="nav-link">Strategic Value Optimization</a>
-              <a href="pages/services/transaction-advisory.html" class="nav-link">Transaction Advisory & Management</a>
-              <a href="pages/services/succession-planning.html" class="nav-link">Succession Planning</a>
-            </div>
-          </li>
-          
-          
-          
-          
-          <li class="nav-item">
-            <a href="pages/contact.html" class="btn btn-primary">Contact Us</a>
-          </li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/fee-structure.html">Fee Structure</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
         </ul>
       </nav>
-      
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="index.html" class="nav-link active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="pages/why-rto.html" class="nav-link">Why RTO?</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle">Services</a>
-          <div class="dropdown-menu">
-            <a href="pages/services/exit-readiness.html" class="nav-link">Exit Readiness Assessment</a>
-            <a href="pages/services/value-optimization.html" class="nav-link">Strategic Value Optimization</a>
-            <a href="pages/services/transaction-advisory.html" class="nav-link">Transaction Advisory & Management</a>
-            <a href="pages/services/succession-planning.html" class="nav-link">Succession Planning</a>
-          </div>
-                                      </li>
-                            <li class="nav-item">
-                                <a href="pages/contact.html" class="nav-link">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </header>
-  
-  <!-- ============================
-       MAIN CONTENT
-       ============================ -->
-  <main id="main-content">
-    
-    <!-- HERO SECTION -->
+  </header>
+
+  <main>
     <section class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Maximize Your Business Value. Return To Owner.</h1>
-        <p class="hero-subtitle">
-          Fee-based advisory services helping middle-market companies optimize value, 
-          prepare for exit, and achieve successful transitions—with transparent, 
-          conflict-free guidance every step of the way.
-        </p>
-        <div class="hero-cta">
-          <a href="pages/contact.html" class="btn btn-accent btn-lg">Schedule Consultation</a>
-          <a href="pages/why-rto.html" class="btn btn-secondary btn-lg">Why RTO?</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Middle-Market Owner Advisory</p>
+          <h1>
+            <span class="hero-title-line">Maximize Your Business Value</span>
+            <span class="hero-title-line">Return To Owner Advisory</span>
+          </h1>
+          <p class="rto_body">RTO Advisory is a fee-based strategic partner for owners navigating exit readiness, value optimization, transaction execution, and succession planning. We help you make better decisions before, during, and after a transaction window opens.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/images/Home/index_hero.png" alt="Abstract geometric composition — circle, square, and arc in blush, teal, and warm neutrals" class="hero-visual__image" loading="eager" decoding="async">
         </div>
       </div>
     </section>
-    
-    <!-- STATS SECTION -->
-    <section class="stats-section">
+
+    <section class="section section-services">
       <div class="container">
-        <div class="stats-grid">
-          <div class="stat-card" data-animate>
-            <div class="stat-number" data-counter="100">0</div>
-            <div class="stat-label">Fee-Based Model</div>
-          </div>
-          <div class="stat-card" data-animate>
-            <div class="stat-number" data-counter="25">0</div>
-            <div class="stat-label">Avg. Value Increase %</div>
-          </div>
-          <div class="stat-card" data-animate>
-            <div class="stat-number" data-counter="50">0</div>
-            <div class="stat-label">Middle-Market Clients</div>
-          </div>
-          <div class="stat-card" data-animate>
-            <div class="stat-number" data-counter="0">0</div>
-            <div class="stat-label">Commission Conflicts</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- SERVICES SECTION -->
-    <section class="services-section" id="services">
-      <div class="container">
-        <div class="section-header" data-animate>
-          <h2 class="section-title">Core Advisory Services</h2>
-          <p class="section-subtitle">
-            Transparent, fee-based consulting that eliminates conflicts of interest 
-            and ensures our recommendations are purely in your best interests.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-4">
-          <div class="card" data-animate>
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 11l3 3L22 4"></path>
-              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
-            </svg>
-            <h3 class="service-title">Business Valuation & Analysis</h3>
-            <p class="service-description">
-              Comprehensive enterprise valuations using industry-standard methodologies 
-              including DCF, market multiples, and asset-based approaches.
-            </p>
-            <a href="pages/services/business-valuation.html" class="btn btn-ghost">Learn More →</a>
-          </div>
-          
-          <div class="card" data-animate>
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 11l3 3L22 4"></path>
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-            <h3 class="service-title">Strategic Exit Planning</h3>
-            <p class="service-description">
-              Multi-year preparation strategies to maximize business value and 
-              optimize transaction readiness for successful exits.
-            </p>
-            <a href="pages/services/exit-planning.html" class="btn btn-ghost">Learn More →</a>
-          </div>
-          
-          <div class="card" data-animate>
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="8.5" cy="7" r="4"></circle>
-              <polyline points="17 11 19 13 23 9"></polyline>
-            </svg>
-            <h3 class="service-title">M&A Process Management</h3>
-            <p class="service-description">
-              Transaction structuring, buyer identification, deal process coordination, 
-              and due diligence support through closing.
-            </p>
-            <a href="pages/services/ma-advisory.html" class="btn btn-ghost">Learn More →</a>
-          </div>
-          
-          <div class="card" data-animate>
-            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-            <h3 class="service-title">Strategic Consulting</h3>
-            <p class="service-description">
-              Financial performance optimization, growth strategy development, 
-              and management advisory services for sustainable value creation.
-            </p>
-            <a href="pages/services/strategic-consulting.html" class="btn btn-ghost">Learn More →</a>
+        <p class="eyebrow">Core Services</p>
+        <h2>Advisory Built Around Outcomes, Not Deal Velocity</h2>
+        <div class="services-layout">
+          <figure class="services-visual">
+            <img src="assets/images/Home/HOME PAGE BLOCKS.png" alt="Advisory visual blocks" />
+          </figure>
+          <div class="services-grid">
+            <article class="card">
+              <h3>Exit Readiness</h3>
+              <p class="rto_med">Evaluate your business against the RTO Exit Readiness Index™. Six domains, one score, a clear roadmap.</p>
+              <p><a href="pages/services/exit-readiness.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Value Optimization</h3>
+              <p class="rto_med">Prioritize the specific initiatives most likely to improve valuation confidence and reduce execution friction.</p>
+              <p><a href="pages/services/value-optimization.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Transaction Advisory</h3>
+              <p class="rto_med">Coordinate diligence, structure discussions, and negotiation preparation so you can move from uncertainty to controlled execution.</p>
+              <p><a href="pages/services/transaction-advisory.html">Explore Service &#8594;</a></p>
+            </article>
+            <article class="card">
+              <h3>Succession Planning</h3>
+              <p class="rto_med">Align ownership transition, leadership continuity, and legacy objectives with a practical phased plan.</p>
+              <p><a href="pages/services/succession-planning.html">Explore Service &#8594;</a></p>
+            </article>
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- TRANSACTIONS SECTION -->
-    <section class="transactions-section" id="transactions">
-      <div class="container">
-        <div class="section-header" data-animate>
-          <h2 class="section-title">Client Success Stories</h2>
-          <p class="section-subtitle">
-            Real results from our fee-based advisory engagements helping middle-market companies achieve their goals.
-          </p>
-        </div>
-        
-        <div class="carousel">
-          <div class="carousel-track">
-            <!-- Transaction 1 -->
-            <div class="carousel-slide">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Company A
-                  </div>
-                  <span class="transaction-separator">→</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Acquirer B
-                  </div>
-                </div>
-                <h3 class="transaction-title">Manufacturing Company Exit</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary">Manufacturing</span>
-                  <span class="badge badge-info">Exit Planning</span>
-                  <span class="badge badge-accent">35% Value Increase</span>
-                </div>
-                <p class="card-body mt-lg">
-                  3-year strategic exit planning engagement. Optimized operations, improved 
-                  financials, and positioned company for premium exit. Client achieved 35% 
-                  higher valuation than initial assessment.
-                </p>
-              </div>
-            </div>
-            
-            <!-- Transaction 2 -->
-            <div class="carousel-slide">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Healthcare Co
-                  </div>
-                  <span class="transaction-separator">+</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Medical Group
-                  </div>
-                </div>
-                <h3 class="transaction-title">Distribution Business Valuation</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary">Distribution</span>
-                  <span class="badge badge-info">Valuation</span>
-                  <span class="badge badge-accent">$45M Enterprise Value</span>
-                </div>
-                <p class="card-body mt-lg">
-                  Comprehensive business valuation for succession planning. Utilized DCF and 
-                  market multiple methodologies to establish fair market value. Enabled smooth 
-                  generational transition with clear financial framework.
-                </p>
-              </div>
-            </div>
-            
-            <!-- Transaction 3 -->
-            <div class="carousel-slide">
-              <div class="transaction-card">
-                <div class="transaction-logos">
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Manufacturing Inc
-                  </div>
-                  <span class="transaction-separator">$</span>
-                  <div class="company-logo" style="background: var(--color-gray-200); padding: 1rem 2rem; border-radius: 8px;">
-                    Growth Capital
-                  </div>
-                </div>
-                <h3 class="transaction-title">Technology Services M&A Advisory</h3>
-                <div class="transaction-meta">
-                  <span class="badge badge-primary">Technology</span>
-                  <span class="badge badge-info">M&A Advisory</span>
-                  <span class="badge badge-accent">Successful Exit</span>
-                </div>
-                <p class="card-body mt-lg">
-                  Fee-based M&A process management for mid-size tech services firm. 
-                  Coordinated buyer identification, due diligence, and transaction structuring. 
-                  Client achieved strategic exit to PE firm at optimal valuation.
-                </p>
-              </div>
-            </div>
+
+    <section class="section section-insight">
+      <div class="container two-col">
+        <article class="card">
+          <p class="eyebrow">Who We Work With</p>
+          <h3>Owners Planning 12 Months To 5 Years Ahead</h3>
+          <p class="rto_med">Best-fit clients are owners who want objective guidance before making irreversible transaction decisions. You may be evaluating inbound interest, preparing for a formal process, or organizing a leadership transition.</p>
+          <p class="rto_med">We do not operate as a broker matchmaking service. Our role is to improve your position, decision quality, and negotiating leverage regardless of how buyer conversations begin.</p>
+        </article>
+        <article class="card">
+          <p class="eyebrow">What You Can Expect</p>
+          <h3>Structured Process, Clear Milestones</h3>
+          <p class="rto_med">Every engagement starts with scope clarity, timeline alignment, and practical deliverables.</p>
+          <p class="rto_med">You get transparent communication, measurable progress checkpoints, and direct coordination with your other advisors when needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container home-resource-two-col">
+        <div class="home-next-step-block">
+          <p class="eyebrow">Next Step</p>
+          <h2>Schedule a focused 30-minute consultation</h2>
+          <p>Bring your current stage, timeline, and top concerns. We will map practical next moves and define whether there is a strong mutual fit.</p>
+          <div class="home-next-step-actions">
+            <button type="button" class="btn btn-primary schedule-consultation-btn">Schedule Consultation</button>
           </div>
-          
-          <div class="carousel-controls"></div>
         </div>
-        
-        <div class="text-center mt-xl" data-animate>
-        </div>
-      </div>
-    </section>
-    
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials-section" id="testimonials">
-      <div class="container">
-        <div class="section-header" data-animate>
-          <h2 class="section-title">Client Testimonials</h2>
-          <p class="section-subtitle">
-            Hear from the business leaders we've helped achieve their goals.
-          </p>
-        </div>
-        
-        <div class="carousel">
-          <div class="carousel-track">
-            <!-- Testimonial 1 -->
-            <div class="carousel-slide">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote">
-                  "The fee-based model was refreshing—no pressure to sell at the wrong time. 
-                  They focused on building our value over three years, and we achieved a 
-                  premium exit when we were ready. Worth every dollar."
-                </blockquote>
-                <div class="testimonial-author">Robert Martinez</div>
-                <div class="testimonial-position">Founder & CEO, Industrial Equipment Co.</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
-            
-            <!-- Testimonial 2 -->
-            <div class="carousel-slide">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote">
-                  "Unlike commission-based brokers, they gave us honest advice about when to 
-                  sell—and when not to. Their strategic planning added millions to our exit 
-                  value. Best investment we made."
-                </blockquote>
-                <div class="testimonial-author">Jennifer Chen</div>
-                <div class="testimonial-position">Owner, Distribution Services LLC</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="carousel-slide">
-              <div class="testimonial-card">
-                <blockquote class="testimonial-quote">
-                  "Their transparent retainer structure meant no conflicts of interest. Every 
-                  recommendation was clearly in our best interests. The business valuation was 
-                  thorough, defensible, and exactly what we needed."
-                </blockquote>
-                <div class="testimonial-author">David Thompson</div>
-                <div class="testimonial-position">President, Technology Solutions Group</div>
-                <div class="testimonial-logo" style="background: var(--color-gray-100); padding: 0.5rem 1.5rem; border-radius: 4px; display: inline-block;">
-                  Client Logo
-                </div>
-              </div>
-            </div>
+        <aside class="home-research-block" aria-label="White paper">
+          <figure class="home-whitepaper__cover">
+            <img src="assets/images/WHITE PAPER THUMB NAIL.png" alt="The Exit Readiness Gap white paper cover" loading="lazy" decoding="async" />
+          </figure>
+          <div class="home-whitepaper__copy">
+            <p class="eyebrow">Read The Research</p>
+            <h3>The Exit Readiness Gap</h3>
+            <p>The companion white paper explains the market evidence, owner risk, and the full methodology behind the RTO Exit Readiness Index.</p>
+            <button class="btn btn-secondary home-whitepaper__cta" type="button" data-pdf-gate>Download the White Paper</button>
           </div>
-          
-          <div class="carousel-controls"></div>
-        </div>
+        </aside>
       </div>
     </section>
-    
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-      <div class="container">
-        <h2 class="cta-title">Ready to Maximize Your Business Value?</h2>
-        <p class="cta-description">
-          Let's discuss how our fee-based advisory approach can help you achieve a successful 
-          exit and Return To Owner on your terms.
-        </p>
-        <div class="flex justify-center gap-md">
-          <a href="pages/contact.html" class="btn btn-accent btn-lg">Schedule Free Consultation</a>
-          <a href="pages/fee-structure.html" class="btn btn-secondary btn-lg">Our Fee Structure</a>
-        </div>
-      </div>
-    </section>
-    
   </main>
-  
-  <!-- ============================
-       FOOTER
-       ============================ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-content">
-        <!-- Company Info -->
-        <div class="footer-column">
-          <h3>Return To Owner Advisory</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
-            Fee-based business advisory helping middle-market companies maximize 
-            value and achieve successful exits through transparent, conflict-free guidance.
-          </p>
-          <div class="mt-lg">
-            <p style="color: rgba(255, 255, 255, 0.8);">
-              <strong>Phone:</strong> +1-555-RTO-ADVS<br>
-              <strong>Email:</strong> admin@rtoadvisory.com
-            </p>
+
+  <div id="pdfGateModal" class="pdf-gate-modal">
+    <div class="pdf-gate-modal__overlay"></div>
+    <div class="pdf-gate-modal__content">
+      <button class="pdf-gate-modal__close" aria-label="Close modal">&times;</button>
+      <h2 class="pdf-gate-modal__title">Get the White Paper</h2>
+      <form id="pdfGateForm" class="pdf-gate-form">
+        <div class="pdf-gate-form__grid">
+          <div>
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="first_name" type="text" required />
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="last_name" type="text" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" required />
+          </div>
+          <div>
+            <label for="readerType">Reader Type</label>
+            <select id="readerType" name="reader_type" required>
+              <option value="">Choose</option>
+              <option>Owner</option>
+              <option>Business Executive</option>
+              <option>CPA</option>
+              <option>Attorney</option>
+              <option>Wealth Advisor/Manager</option>
+              <option>Consultant</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div id="otherReaderInput" style="display:none;">
+            <label for="readerTypeOther">Please specify</label>
+            <input id="readerTypeOther" name="reader_type_other" type="text" />
           </div>
         </div>
-        
-        <!-- Services Links -->
-        <div class="footer-column">
+        <div class="pdf-gate-message" style="display:none;"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1.5rem;">Send White Paper to Email</button>
+      </form>
+    </div>
+  </div>
+
+ <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
           <h3>Services</h3>
-          <ul class="footer-links">
+          <ul class="site-footer__nav">
             <li><a href="pages/services/exit-readiness.html">Exit Readiness Assessment</a></li>
             <li><a href="pages/services/value-optimization.html">Strategic Value Optimization</a></li>
-            <li><a href="pages/services/transaction-advisory.html">Transaction Advisory & Management</a></li>
+            <li><a href="pages/services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
             <li><a href="pages/services/succession-planning.html">Succession Planning</a></li>
           </ul>
         </div>
-        
-        <!-- Resources Links -->
-        <div class="footer-column">
+        <div class="footer-col site-footer__nav-group">
           <h3>Resources</h3>
-          <ul class="footer-links">
+          <ul class="site-footer__nav">
             <li><a href="pages/why-rto.html">Why RTO?</a></li>
             <li><a href="pages/fee-structure.html">Fee Structure</a></li>
-            <li><a href="pages/insights.html">Insights & Articles</a></li>
           </ul>
         </div>
-        
-        <!-- Company Links -->
-        <div class="footer-column">
+        <div class="footer-col site-footer__nav-group">
           <h3>Company</h3>
-          <ul class="footer-links">
+          <ul class="site-footer__nav">
             <li><a href="pages/about.html">About RTO Advisory</a></li>
-            <li><a href="pages/team.html">Our Team</a></li>
-            <li><a href="pages/why-fee-based.html">Why Fee-Based?</a></li>
-            <li><a href="pages/insights.html">Insights</a></li>
+            <li><a href="pages/fee-structure.html">Why Fee-Based?</a></li>
             <li><a href="pages/contact.html">Contact</a></li>
           </ul>
         </div>
-        
-        <!-- Newsletter -->
-        <div class="footer-column">
-          <h3>Stay Connected</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: var(--spacing-md);">
-            Subscribe for business valuation insights, exit planning strategies, and industry updates.
-          </p>
-          <form class="newsletter-form" data-form>
-            <input 
-              type="email" 
-              name="email" 
-              class="form-input" 
-              placeholder="Your email" 
-              required
-              aria-label="Email address"
-            >
-            <button type="submit" class="btn btn-accent">Subscribe</button>
-          </form>
-        </div>
       </div>
-      
-      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p>&copy; 2025 Return To Owner Advisory. All rights reserved.</p>
-        <div class="footer-bottom-links">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
           <a href="pages/privacy.html">Privacy Policy</a>
           <a href="pages/terms.html">Terms of Service</a>
           <a href="pages/cookies.html">Cookie Policy</a>
-        </div>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
       </div>
     </div>
   </footer>
-  
-  <!-- JavaScript -->
+
+  <!-- Schedule Modal -->
+  <div id="schedule-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Schedule a Consultation">
+    <div class="modal-box">
+      <button id="schedule-modal-close" class="modal-close" aria-label="Close">&times;</button>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min" style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+
+  <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.is-open {
+      display: flex;
+    }
+    .modal-box {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      width: min(760px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 1.6rem;
+      line-height: 1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      z-index: 1;
+    }
+
+    .pdf-gate-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .pdf-gate-modal__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .pdf-gate-modal__content {
+      position: relative;
+      background: #fff;
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .pdf-gate-modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pdf-gate-modal__close:hover {
+      color: #333;
+    }
+
+    .pdf-gate-modal__title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-brand);
+    }
+
+    .pdf-gate-form__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .pdf-gate-form__grid > div:nth-child(3),
+    .pdf-gate-form__grid > div:nth-child(4),
+    .pdf-gate-form__grid > div:nth-child(5),
+    .pdf-gate-form__grid > div:nth-child(6) {
+      grid-column: 1 / -1;
+    }
+
+    .pdf-gate-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-ink-900);
+    }
+
+    .pdf-gate-form input,
+    .pdf-gate-form select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-line);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+    }
+
+    .pdf-gate-form input:focus,
+    .pdf-gate-form select:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(15, 46, 42, 0.1);
+    }
+
+    .pdf-gate-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .pdf-gate-message--success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .pdf-gate-message--error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+
   <script src="assets/js/navigation.js"></script>
   <script src="assets/js/main.js"></script>
-  
-  <!-- Netlify Identity Redirect -->
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-  
+  <script src="assets/js/pdf-gate.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+

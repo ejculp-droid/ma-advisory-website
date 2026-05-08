@@ -1,400 +1,213 @@
-/**
- * Main JavaScript Functionality
- * Handles animations, carousels, forms, and interactive features
- */
-
-// ============================
-// INITIALIZATION
-// ============================
-
 document.addEventListener('DOMContentLoaded', () => {
-  initStickyHeader();
-  initAnimations();
-  initCounters();
-  initCarousels();
-  initForms();
+  bindScheduleModal();
+  bindSourcesModal();
+  bindContactForm();
+  bindIntakeSteps();
 });
 
-// ============================
-// STICKY HEADER
-// ============================
+function bindScheduleModal() {
+  const modal = document.getElementById('schedule-modal');
+  const close = document.getElementById('schedule-modal-close');
+  const opens = document.querySelectorAll('.schedule-consultation-btn');
 
-function initStickyHeader() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
+  if (!modal || !close || !opens.length) return;
 
-  let lastScrollY = window.scrollY;
-  let ticking = false;
+  const open = () => {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-        
-        // Hide header when scrolling down, show when scrolling up
-        if (currentScrollY > lastScrollY && currentScrollY > 300) {
-          header.classList.add('header-hidden');
-        } else {
-          header.classList.remove('header-hidden');
-        }
-        
-        lastScrollY = currentScrollY;
-        ticking = false;
+  const shut = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  opens.forEach((b) => b.addEventListener('click', open));
+  close.addEventListener('click', shut);
+  modal.addEventListener('click', (e) => { if (e.target === modal) shut(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) shut();
+  });
+}
+
+function bindContactForm() {
+  const form = document.getElementById('contactForm');
+  const message = document.getElementById('formMessage');
+  if (!form || !message) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submit = form.querySelector('button[type="submit"]');
+    const prior = submit ? submit.textContent : '';
+    if (submit) {
+      submit.disabled = true;
+      submit.textContent = 'Sending...';
+    }
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
       });
-      
-      ticking = true;
+
+      if (!response.ok) throw new Error('submit failed');
+
+      message.className = 'notice notice-success';
+      message.textContent = 'Message sent. We will respond within one business day.';
+      message.hidden = false;
+      form.reset();
+    } catch (err) {
+      message.className = 'notice notice-error';
+      message.textContent = 'Unable to send right now. Please call 844-729-6393.';
+      message.hidden = false;
+    } finally {
+      if (submit) {
+        submit.disabled = false;
+        submit.textContent = prior;
+      }
     }
   });
 }
 
-// ============================
-// SCROLL ANIMATIONS
-// ============================
+function bindSourcesModal() {
+  const triggers = document.querySelectorAll('[data-sources-trigger]');
+  if (!triggers.length) return;
 
-function initAnimations() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+  const pageModal = document.querySelector('[data-sources-modal]');
+  const modal = pageModal || ensureNoSourcesFallbackModal();
+  const close = modal ? modal.querySelector('[data-close-sources]') : null;
+  let lastFocused = null;
+
+  const open = () => {
+    if (!modal || typeof modal.showModal !== 'function') return;
+    lastFocused = document.activeElement;
+    modal.showModal();
+    document.body.style.overflow = 'hidden';
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  const shut = () => {
+    if (!modal || !modal.open) return;
+    modal.close();
+    document.body.style.overflow = '';
+    if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+  };
 
-  // Observe all elements with data-animate attribute
-  document.querySelectorAll('[data-animate]').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      open();
+    });
   });
 
-  // Animation styles
+  if (!modal || !close) return;
+
+  close.addEventListener('click', shut);
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) shut();
+  });
+  modal.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    shut();
+  });
+}
+
+function ensureNoSourcesFallbackModal() {
+  injectNoSourcesFallbackStyles();
+
+  const existing = document.getElementById('sources-fallback-modal');
+  if (existing) return existing;
+
+  const modal = document.createElement('dialog');
+  modal.id = 'sources-fallback-modal';
+  modal.className = 'sources-fallback-modal';
+  modal.setAttribute('aria-labelledby', 'sources-fallback-title');
+  modal.innerHTML = `
+    <div class="sources-fallback-modal__panel">
+      <button class="sources-fallback-modal__close" type="button" data-close-sources aria-label="Close sources">&times;</button>
+      <h2 id="sources-fallback-title">Sources</h2>
+      <p>No sources for this page</p>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  return modal;
+}
+
+function injectNoSourcesFallbackStyles() {
+  if (document.getElementById('sources-fallback-modal-styles')) return;
+
   const style = document.createElement('style');
+  style.id = 'sources-fallback-modal-styles';
   style.textContent = `
-    [data-animate].animate-in {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    .sources-fallback-modal {
+      width: min(460px, calc(100vw - 32px));
+      border: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    .sources-fallback-modal::backdrop {
+      background: rgba(15, 46, 42, 0.52);
+    }
+
+    .sources-fallback-modal__panel {
+      position: relative;
+      border: 1px solid rgba(15, 46, 42, 0.12);
+      border-radius: 18px;
+      padding: 1.25rem 1.25rem 1.1rem;
+      background: #f8f3ea;
+      box-shadow: 0 22px 42px rgba(15, 46, 42, 0.16);
+    }
+
+    .sources-fallback-modal__close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 46, 42, 0.08);
+      color: #0f2e2a;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .sources-fallback-modal__panel h2 {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display, Georgia, serif);
+      font-size: clamp(1.45rem, 2vw, 1.8rem);
+      color: #0f2e2a;
+      line-height: 1.08;
+    }
+
+    .sources-fallback-modal__panel p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #414141;
     }
   `;
+
   document.head.appendChild(style);
 }
 
-// ============================
-// ANIMATED COUNTERS
-// ============================
+function bindIntakeSteps() {
+  const blocks = document.querySelectorAll('[data-intake-step]');
+  if (!blocks.length) return;
 
-function initCounters() {
-  const counters = document.querySelectorAll('[data-counter]');
-  const observerOptions = {
-    threshold: 0.5
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-        entry.target.classList.add('counted');
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  counters.forEach(counter => observer.observe(counter));
-}
-
-function animateCounter(element) {
-  const target = parseInt(element.getAttribute('data-counter'));
-  const duration = 2000;
-  const increment = target / (duration / 16);
-  let current = 0;
-
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      element.textContent = formatNumber(target);
-      clearInterval(timer);
-    } else {
-      element.textContent = formatNumber(Math.floor(current));
-    }
-  }, 16);
-}
-
-function formatNumber(num) {
-  if (num >= 1000) {
-    return (num / 1000).toFixed(0) + 'K';
-  }
-  return num.toString();
-}
-
-// ============================
-// CAROUSELS
-// ============================
-
-function initCarousels() {
-  const carousels = document.querySelectorAll('.carousel');
-  
-  carousels.forEach(carousel => {
-    const track = carousel.querySelector('.carousel-track');
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const dotsContainer = carousel.querySelector('.carousel-controls');
-    
-    if (!track || slides.length === 0) return;
-
-    let currentIndex = 0;
-    const slideCount = slides.length;
-    let autoplayInterval;
-
-    // Create dots
-    if (dotsContainer) {
-      slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.classList.add('carousel-dot');
-        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        if (index === 0) dot.classList.add('active');
-        
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
+  const buttons = document.querySelectorAll('[data-step-to]');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-step-to');
+      blocks.forEach((block) => {
+        block.hidden = block.getAttribute('data-intake-step') !== target;
       });
-    }
-
-    function goToSlide(index) {
-      currentIndex = index;
-      const offset = -100 * currentIndex;
-      track.style.transform = `translateX(${offset}%)`;
-      
-      // Update dots
-      const dots = dotsContainer?.querySelectorAll('.carousel-dot');
-      dots?.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slideCount;
-      goToSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-      goToSlide(currentIndex);
-    }
-
-    // Auto-advance
-    function startAutoplay() {
-      autoplayInterval = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoplay() {
-      clearInterval(autoplayInterval);
-    }
-
-    // Touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoplay();
-    });
-
-    carousel.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-      startAutoplay();
-    });
-
-    function handleSwipe() {
-      const swipeThreshold = 50;
-      const diff = touchStartX - touchEndX;
-      
-      if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-      }
-    }
-
-    // Pause on hover
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-
-    // Start autoplay
-    startAutoplay();
-  });
-}
-
-// ============================
-// FORMS
-// ============================
-
-function initForms() {
-  const forms = document.querySelectorAll('form[data-form]');
-  
-  forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      
-      // Validate
-      const errors = validateForm(data, form);
-      if (errors.length > 0) {
-        showErrors(form, errors);
-        return;
-      }
-      
-      // Clear previous errors
-      clearErrors(form);
-      
-      // Submit
-      const submitBtn = form.querySelector('[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      try {
-        // Replace with your actual API endpoint
-        const response = await fetch('/api/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-        
-        if (response.ok) {
-          showMessage(form, 'Thank you! Your message has been sent.', 'success');
-          form.reset();
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        showMessage(form, 'Sorry, there was an error. Please try again.', 'error');
-      } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }
+      window.scrollTo({ top: document.getElementById('intake-start').offsetTop - 90, behavior: 'smooth' });
     });
   });
-}
-
-function validateForm(data, form) {
-  const errors = [];
-  
-  // Email validation
-  if (data.email && !validateEmail(data.email)) {
-    errors.push({ field: 'email', message: 'Please enter a valid email address' });
-  }
-  
-  // Required fields
-  form.querySelectorAll('[required]').forEach(field => {
-    if (!data[field.name] || data[field.name].trim() === '') {
-      errors.push({ 
-        field: field.name, 
-        message: `${field.labels[0]?.textContent || field.name} is required` 
-      });
-    }
-  });
-  
-  return errors;
-}
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-function showErrors(form, errors) {
-  clearErrors(form);
-  
-  errors.forEach(error => {
-    const field = form.querySelector(`[name="${error.field}"]`);
-    if (field) {
-      field.classList.add('form-error');
-      
-      const errorMsg = document.createElement('span');
-      errorMsg.classList.add('form-error-message');
-      errorMsg.textContent = error.message;
-      field.parentNode.appendChild(errorMsg);
-    }
-  });
-}
-
-function clearErrors(form) {
-  form.querySelectorAll('.form-error').forEach(field => {
-    field.classList.remove('form-error');
-  });
-  
-  form.querySelectorAll('.form-error-message').forEach(msg => {
-    msg.remove();
-  });
-}
-
-function showMessage(form, message, type) {
-  const messageEl = document.createElement('div');
-  messageEl.className = `form-message form-message-${type}`;
-  messageEl.textContent = message;
-  messageEl.style.cssText = `
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    background-color: ${type === 'success' ? '#d4edda' : '#f8d7da'};
-    color: ${type === 'success' ? '#155724' : '#721c24'};
-  `;
-  
-  form.appendChild(messageEl);
-  
-  setTimeout(() => {
-    messageEl.remove();
-  }, 5000);
-}
-
-// ============================
-// UTILITY FUNCTIONS
-// ============================
-
-function throttle(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Export functions for use in other modules if needed
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    initStickyHeader,
-    initAnimations,
-    initCounters,
-    initCarousels,
-    initForms,
-    validateEmail
-  };
 }
