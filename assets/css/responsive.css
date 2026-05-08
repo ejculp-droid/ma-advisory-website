@@ -46,6 +46,8 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     padding: var(--space-3);
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
   }
 
   .main-nav.is-open {
