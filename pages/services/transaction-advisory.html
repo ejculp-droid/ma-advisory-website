@@ -1021,6 +1021,20 @@
         width: 100%;
         max-width: 60ch;
       }
+
+      /* Reorder intro section on mobile so the section heading text precedes the image */
+      body.service-page--light .value-opt-intro-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      body.service-page--light .value-opt-intro-copy {
+        display: contents;
+      }
+      body.service-page--light .value-opt-intro-copy .section-eyebrow { order: 1; }
+      body.service-page--light .value-opt-intro-copy .display-lg      { order: 2; }
+      body.service-page--light .value-opt-intro-grid .value-opt-intro-visual { order: 3; margin-top: 0; }
+      body.service-page--light .value-opt-intro-copy .rto_body         { order: 4; }
     }
   </style>
 </head>
