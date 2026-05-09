@@ -2261,6 +2261,24 @@
       color: #721c24;
       border: 1px solid #f5c6cb;
     }
+
+    @media (max-width: 480px) {
+      .fee-page .fee-hero__grid,
+      .fee-page .comparison-row,
+      .fee-page .retainer-layout,
+      .fee-page .project-layout,
+      .fee-page .section-heading {
+        grid-template-columns: 1fr !important;
+      }
+
+      .fee-page .fee-hero__title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+      }
+
+      .fee-page .fee-hero {
+        padding: 32px 0 24px;
+      }
+    }
   </style>
 </head>
 <body class="fee-page">
