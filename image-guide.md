@@ -182,7 +182,22 @@ Current HTML uses styled divs. Replace with actual logos:
 
 ---
 
-### 6. Office/Location Photos
+### 6. Testimonial Client Logos
+
+#### Client Company Logos
+- **Size**: Height 50px max
+- **Format**: PNG (transparent) or SVG
+- **Style**: Grayscale preferred for consistency
+- **Location**: `/assets/images/logos/testimonials/`
+
+**Example Files:**
+- `techventures-logo.svg`
+- `healthcare-partners-logo.png`
+- `innovation-labs-logo.svg`
+
+---
+
+### 7. Office/Location Photos
 
 #### Office Images (for About page)
 - **Size**: 1200x800px (3:2 ratio)
@@ -196,7 +211,7 @@ Current HTML uses styled divs. Replace with actual logos:
 
 ---
 
-### 7. Social Media / OG Images
+### 8. Social Media / OG Images
 
 #### Open Graph Image
 - **Size**: 1200x630px (1.91:1 ratio)
@@ -230,6 +245,7 @@ Current HTML uses styled divs. Replace with actual logos:
 
 ### Important (High Priority)
 - [ ] 3-6 Transaction company logos
+- [ ] 3-6 Client testimonial logos
 - [ ] 5-10 Team member headshots (800x800)
 
 ### Nice to Have

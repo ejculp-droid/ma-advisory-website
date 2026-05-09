@@ -11,6 +11,44 @@
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .home-page .challenge-section > .container > .challenge-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
+  .home-page .challenge-col--odds {
+    justify-content: flex-start;
+    padding: 0.5rem 0 0;
+  }
+
+  .home-page .wondering-section > .container > .wondering-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
+  .home-page .wondering-col--questions {
+    justify-content: flex-start;
+    padding: 0.5rem 0 0;
+  }
+
+  .home-page main > .section > .container > .challenges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page main > .section > .container > .challenges-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .challenge-tile--cta {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 760px) {
@@ -65,6 +103,10 @@
   }
 
   .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page main > .section > .container > .challenges-grid {
     grid-template-columns: 1fr;
   }
 }
