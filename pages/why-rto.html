@@ -478,6 +478,7 @@
       .home-page .wondering-col--questions { justify-content: flex-start; padding: 0.5rem 0 0; }
       .wondering-section .challenge-col__eyebrow { margin-top: 0.5rem; }
       .wondering-section .challenge-item { padding: 1rem 0; }
+      .home-page main > .section > .container > .challenges-grid { grid-template-columns: 1fr; }
 
       .home-page .sources-modal {
         width: min(100vw, calc(100vw - 20px));
@@ -488,7 +489,14 @@
         padding-inline: 1.15rem;
       }
     }
-  </style>
+
+    @media (max-width: 767px) {
+      .home-page .hero { padding: 48px 0 32px; }
+      .home-page .challenge-section { padding: 56px 0; }
+      .home-page .wondering-section { padding: 48px 0; }
+      .home-page main > .section { padding: 56px 0; }
+      .home-page .challenge-heading { font-size: clamp(1.5rem, 4vw, 2.25rem); max-width: 20ch; }
+    }
 </head>
 <body class="home-page">
   <header class="site-header">
