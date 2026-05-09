@@ -735,6 +735,35 @@
       border-top: 1px solid var(--color-line);
       padding-top: 48px;
     }
+
+    @media (max-width: 760px) {
+      .service-page .container,
+      .fee-page .container {
+        width: min(100%, calc(100vw - 32px));
+        max-width: calc(100vw - 32px);
+        box-sizing: border-box;
+      }
+
+      .resource-faq-layout,
+      .resource-left-stack,
+      .resource-faq-rail,
+      .intake-cta-block,
+      .value-whitepaper-block {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .resource-faq-rail .section-heading h2 {
+        white-space: normal;
+      }
+
+      .lever-modal-scrim,
+      .framework-modal-scrim,
+      .engagement-modal-scrim {
+        width: 100vw;
+        max-width: 100vw;
+      }
+    }
   </style>
 </head>
 <body class="service-page service-page--light">
