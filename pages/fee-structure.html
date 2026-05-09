@@ -1756,7 +1756,8 @@
       .fee-page .fee-hero__visual {
         width: 100%;
         max-width: 100%;
-        min-height: 459px;
+        height: auto;
+        max-height: 400px;
         margin-top: 1.5rem;
       }
 
@@ -1823,6 +1824,11 @@
     @media (max-width: 640px) {
       .fee-page .fee-hero {
         padding: 32px 0 24px;
+      }
+
+      .fee-page .fee-hero__image {
+        height: auto;
+        aspect-ratio: 4 / 3;
       }
 
       .fee-page .section-heading--tight h2,
@@ -2310,9 +2316,7 @@
           <p class="fee-hero__eyebrow">Return To Owner Advisory - Fee Structure</p>
             <h1 class="fee-hero__title">Transparent, Fee-Based Pricing</h1>
             <p class="fee-hero__lead rto_body">
-              Unlike traditional commission-based business brokers, <br> Return To Owner Advisory
-              operates on a transparent <br>fee-based model that eliminates conflicts of interest
-              and <br>ensures all recommendations are purely in your best interests.
+              Unlike traditional commission-based business brokers, Return To Owner Advisory operates on a transparent fee-based model that eliminates conflicts of interest and ensures all recommendations are purely in your best interests.
             </p>
           </div>
           <div class="fee-hero__visual">
