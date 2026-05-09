@@ -276,13 +276,11 @@
     }
 
     .founder-copy {
-      order: 1;
       max-width: 62ch;
     }
 
     .founder-photo-wrap {
       position: relative;
-      order: 2;
       justify-self: end;
       width: 100%;
       max-width: 420px;
@@ -541,6 +539,17 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Footer brand label: visually mirrors prior <h3> while remaining a non-heading element */
+    .footer-col .footer-brand-label {
+      font-family: "Times New Roman", Times, serif;
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .footer-col .footer-brand-label strong { font-weight: inherit; }
   </style>
 </head>
 <body class="about-page">
@@ -631,20 +640,20 @@
     <section class="founder-section" aria-labelledby="founder-heading">
       <div class="founder-section__inner">
         <div class="founder-grid">
-          <div class="founder-photo-wrap">
-            <img class="founder-photo" src="../assets/images/About/RS%20B%26W.png" alt="Elliott Culp, Founder of RTO Advisory" loading="lazy" decoding="async" />
-            <div class="founder-photo-accent" aria-hidden="true"></div>
-            <div class="founder-photo-rule" aria-hidden="true"></div>
-          </div>
           <div class="founder-copy">
             <span class="founder-copy__eyebrow">About the Founder</span>
             <h2 class="founder-copy__name" id="founder-heading">Elliott J. Culp</h2>
             <p class="founder-copy__title">Founder, RTO Advisory</p>
-            <hr class="founder-copy__divider" />
+            <hr class="founder-copy__divider" role="presentation" aria-hidden="true" />
             <p class="founder-copy__body">Elliott J. Culp is the Founder of RTO Advisory. He brings more than a decade of experience across commercial banking, wealth management, and transaction advisory, with work spanning capital structure evaluation, credit analysis, financial modeling, transaction structuring, diligence coordination, and strategic guidance for privately held companies.</p>
             <p class="founder-copy__body">Before founding RTO Advisory, Elliott worked with owners through mergers, acquisitions, divestitures, succession planning, and broader transition initiatives. Across those engagements, he saw a recurring gap. Many owners bring extraordinary discipline to building and operating their companies, yet give far less attention to how they will one day transition from them. RTO Advisory was created to close that gap.</p>
             <p class="founder-copy__body">Elliott has also owned and operated businesses himself, giving him a personal understanding of the time, risk, and identity owners pour into their companies. His approach combines institutional finance experience, practical ownership perspective, analytical discipline, and a deep respect for the human dynamics behind every business transition.</p>
             <p class="founder-copy__body">Elliott holds degrees in psychology and sociology and earned an MBA in international business and finance. Originally from Northern California, he now lives in Greensboro, North Carolina. Outside the firm, he spends time with his two boys, ages 9 and 12, and his partner Amanda.</p>
+          </div>
+          <div class="founder-photo-wrap">
+            <img class="founder-photo" src="../assets/images/About/RS%20B%26W.png" alt="Elliott Culp, Founder of RTO Advisory" loading="lazy" decoding="async" />
+            <div class="founder-photo-accent" aria-hidden="true"></div>
+            <div class="founder-photo-rule" aria-hidden="true"></div>
           </div>
         </div>
       </div>
@@ -657,7 +666,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="site-footer__brand">
-            <h3>Return To Owner Advisory</h3>
+            <p class="footer-brand-label"><strong>Return To Owner Advisory</strong></p>
             <p>
               Fee-based business advisory helping middle-market companies maximize value and achieve
               successful exits through transparent, conflict-free guidance.
