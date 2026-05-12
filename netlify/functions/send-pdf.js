@@ -76,7 +76,7 @@ exports.handler = async (event) => {
     }
 
     const body = JSON.parse(event.body);
-    let { first_name, last_name, email, company, reader_type, reader_type_other } = body;
+    let { first_name, last_name, email, company, reader_type, reader_type_other, pdf_url } = body;
 
     if (!first_name || !last_name || !email || !company || !reader_type) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing required fields' }) };
@@ -91,9 +91,38 @@ exports.handler = async (event) => {
     company = sanitizeHtml(company.trim());
     reader_type = sanitizeHtml(reader_type.trim());
     reader_type_other = reader_type_other ? sanitizeHtml(reader_type_other.trim()) : null;
+    pdf_url = pdf_url ? String(pdf_url).trim() : '';
 
-    // Fetch PDF from deployed assets
-    const pdfBuffer = await getPdfBuffer();
+    let parsedPdfUrl = null;
+    if (pdf_url) {
+      try {
+        parsedPdfUrl = new URL(pdf_url);
+      } catch (_error) {
+        return { statusCode: 400, body: JSON.stringify({ error: 'Invalid PDF URL' }) };
+      }
+
+      if (!['http:', 'https:'].includes(parsedPdfUrl.protocol)) {
+        return { statusCode: 400, body: JSON.stringify({ error: 'Invalid PDF URL protocol' }) };
+      }
+    }
+
+    let pdfBuffer = null;
+    let attachmentName = null;
+    let requesterHtml = `<p>Hi ${first_name},</p>
+       <p>Thank you for your interest in the Exit Readiness Gap Assessment white paper.</p>`;
+
+    if (parsedPdfUrl) {
+      const safePdfUrl = sanitizeHtml(parsedPdfUrl.toString());
+      requesterHtml += `<p>Access your copy here: <a href="${safePdfUrl}">${safePdfUrl}</a></p>`;
+    } else {
+      // Backward compatible fallback for pages that still expect an attachment.
+      pdfBuffer = await getPdfBuffer();
+      attachmentName = 'exit-readiness-gap.pdf';
+      requesterHtml += `<p>Your copy is attached.</p>`;
+    }
+
+    requesterHtml += `<p>We look forward to connecting with you.</p>
+       <p>Best regards,<br />RTO Advisory</p>`;
 
     const transporter = await createTransporter();
 
@@ -102,12 +131,9 @@ exports.handler = async (event) => {
       transporter,
       email,
       'Your RTO Advisory White Paper: Exit Readiness Gap Assessment',
-      `<p>Hi ${first_name},</p>
-       <p>Thank you for your interest in the Exit Readiness Gap Assessment white paper.</p>
-       <p>Your copy is attached. We look forward to connecting with you.</p>
-       <p>Best regards,<br />RTO Advisory</p>`,
+      requesterHtml,
       pdfBuffer,
-      'exit-readiness-gap.pdf'
+      attachmentName
     );
 
     // Notify Elliott of new lead
@@ -121,6 +147,7 @@ exports.handler = async (event) => {
          <li><strong>Email:</strong> ${email}</li>
          <li><strong>Company:</strong> ${company}</li>
          <li><strong>Reader Type:</strong> ${reader_type}${reader_type_other ? ` (${reader_type_other})` : ''}</li>
+         <li><strong>PDF Source:</strong> ${parsedPdfUrl ? sanitizeHtml(parsedPdfUrl.toString()) : 'Attached file fallback'}</li>
        </ul>`,
       null,
       null

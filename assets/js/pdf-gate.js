@@ -6,6 +6,7 @@ function initPdfGateModal() {
   const otherReaderInput = document.getElementById('otherReaderInput');
   const downloadButtons = document.querySelectorAll('[data-pdf-gate]');
   const closeBtn = modal.querySelector('.pdf-gate-modal__close');
+  let activePdfUrl = '';
 
   // Show/hide "Other" input based on selection
   if (readerTypeSelect) {
@@ -24,6 +25,7 @@ function initPdfGateModal() {
   downloadButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      activePdfUrl = btn.getAttribute('data-pdf-url') || '';
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     });
@@ -61,7 +63,8 @@ function initPdfGateModal() {
           email: formData.get('email'),
           company: formData.get('company'),
           reader_type: formData.get('reader_type'),
-          reader_type_other: formData.get('reader_type_other') || null
+          reader_type_other: formData.get('reader_type_other') || null,
+          pdf_url: activePdfUrl || null
         };
 
         const response = await fetch('/.netlify/functions/send-pdf', {
