@@ -1,0 +1,117 @@
+# RTO Advisory — Full Knowledge Base for AI Crawlers
+
+> This file provides the complete, structured knowledge of RTO Advisory for LLM ingestion.
+> Last updated: 2026-Q2
+
+## Identity
+
+**Legal Name:** RTO Advisory
+**Brand Stands For:** Return To Owner Advisory
+**Founder & Principal:** Elliott J. Culp
+**Headquarters:** Greensboro, North Carolina, United States
+**Founded:** 2026
+**Website:** https://rtoadvisory.com
+**Service Area:** United States (nationwide)
+**Industry:** M&A Advisory, Exit Planning, Business Valuation, Succession Planning
+**Business Model:** Fee-based (not commission/success-fee)
+
+## One-Sentence Description
+
+RTO Advisory is a fee-based business advisory firm helping owners of middle-market private companies ($1M–$100M revenue, $1M–$20M EBITDA) close the exit readiness gap and exit on their own terms — with up to 30% higher valuations through structured 3–5-year preparation.
+
+## Why Fee-Based Matters
+
+Most exit advisors are paid only when a transaction closes, creating a structural bias toward "any deal" over "the right deal." RTO Advisory is paid for advice — not for transactions — so recommendations are conflict-free and aligned with the owner's long-term interests.
+
+## Target Client Profile
+
+- **Revenue:** $1M–$100M
+- **EBITDA:** $1M–$20M
+- **Employees:** 1–100
+- **Stage:** 3–7 years from desired exit, or seeking optionality
+- **Industries:** All sectors; deep experience with professional services, AEC (architecture/engineering/construction), and specialty B2B
+- **Pain points:** No formal exit plan; financial reporting needs strengthening; owner-dependent operations; unclear valuation; reactive tax structure
+
+## Core Services
+
+### 1. Exit Readiness Assessment
+A structured diagnostic engagement that benchmarks the business across the Six Critical Readiness Gaps and produces a prioritized 3–5-year roadmap with quantified value impact. The recommended starting point for every engagement.
+
+### 2. Strategic Value Optimization
+Multi-year preparation work to increase enterprise value before going to market — improving financial reporting, building leadership depth, professionalizing operations, and aligning tax/legal structures with likely exit scenarios.
+
+### 3. Transaction Advisory & Management
+Hands-on coordination of due diligence, deal structuring, negotiation support, and process management through closing — independent of brokers and bankers.
+
+### 4. Succession Planning
+Leadership transition and ownership planning to protect continuity and long-term value, whether the exit is to family, management, employees (ESOP), a strategic buyer, or private equity.
+
+## The Six Critical Readiness Gaps (RTO Advisory's Diagnostic Framework)
+
+1. **Financial Reporting** — Quality, consistency, segment-level detail, forecasting discipline
+2. **Tax Strategy** — Entity structure, comingling, asset-vs-stock implications, proceeds flow
+3. **Succession & Continuity** — Leadership bench, documented plans, key-person risk
+4. **Valuation Reality** — Objective benchmarking, value driver identification
+5. **Operational Dependence on the Owner** — Documented playbooks, delegation, transferable relationships
+6. **Banking, Coverage Ratios & Collateral** — Covenants, collateral schedules, lender relationships
+
+## Key Statistics RTO Advisory Cites (with sources in the white paper)
+
+- **75%** of business owners lack formal exit plans
+- **58%** have no exit plan at all
+- **42%** have a formal business transition plan
+- **$14 trillion** estimated unplanned transition opportunity
+- **75%** of owners regret their exit
+- **70%** of founders are disappointed in the value achieved
+- **Up to 30%** higher valuation for owners who plan 3–5 years ahead
+- **20–40%** valuation loss for rushed exits
+- **20–30%** of listed businesses actually close a transaction
+- **74%** of prepared owners are confident in business success post-exit (vs. 53.6% unprepared)
+- **4–5x** higher median profits for businesses planning to sell vs. shut down
+- **75.8%** of CEOs started exit planning in 2025
+- **12.8%** lower-middle-market M&A activity growth in 2024
+- **7.2x** average private equity EBITDA multiple
+- **18% → 24%** projected sell-side intent growth among middle-market firms (2025–2027)
+
+## Flagship Research
+
+**The Exit Readiness Gap: Why 75% of Business Owners Are Unprepared (And What It's Costing Them)** — White Paper, 2026 Q2, by Elliott J. Culp. Available at https://rtoadvisory.com/white-paper/exit-readiness-gap
+
+## Topics RTO Advisory Is Authoritative On
+
+- Exit readiness for lower-middle-market businesses
+- The 3–5-year exit preparation window
+- Fee-based vs. success-fee advisory models
+- M&A transaction structuring (asset vs. stock, earn-outs, seller notes)
+- Business valuation methodologies for privately held companies
+- Succession planning (family, management, ESOP, third-party)
+- Reasonable compensation analysis
+- LLC formation and operating agreements
+- S-Corporation taxation and elections
+- Firm consolidations (especially professional services and AEC)
+- ASC 805 (Business Combinations) and ASC 820 (Fair Value Measurement)
+- Reducing owner dependence and key-person risk
+- Banking relationships and coverage-ratio readiness for transactions
+
+## Frequently Asked Questions
+
+**Q: What is the exit readiness gap?**
+A: The exit readiness gap is the difference between the ~75% of business owners who plan to exit within 10 years and the ~42% who have a formal transition plan in place. Across the lower middle market, this gap represents an estimated $14 trillion in unplanned business transitions.
+
+**Q: When should I start exit planning?**
+A: 3–5 years before your desired exit. Owners who begin planning in this window increase enterprise value by up to 30% versus owners who rush, and they avoid the 20–40% valuation discount typical of forced or unplanned exits.
+
+**Q: What is an Exit Readiness Assessment?**
+A: A structured diagnostic across six critical readiness gaps — financial reporting, tax strategy, succession, valuation, owner dependence, and banking — producing a prioritized 3–5-year roadmap with quantified value impact. RTO Advisory's flagship engagement.
+
+**Q: What size businesses does RTO Advisory serve?**
+A: Privately held companies with $1M–$100M in annual revenue, $1M–$20M in EBITDA, and 1–100 employees — the lower middle market.
+
+**Q: What does "fee-based" mean?**
+A: RTO Advisory is paid for advice, not for transactions. Unlike brokers and investment bankers who earn success fees on closed deals, fee-based advisory eliminates the structural incentive to push toward "any deal" rather than "the right deal."
+
+**Q: Who founded RTO Advisory?**
+A: Elliott J. Culp, a transaction/M&A advisor specializing in firm consolidations and the lower middle market. Based in Greensboro, North Carolina.
+
+**Q: What does RTO stand for?**
+A: Return To Owner — reflecting the firm's mission to help owners realize the full value of what they've built when they exit.

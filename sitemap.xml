@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — rtoadvisory.com
+  Replace <lastmod> values when you update each page.
+  Submit this URL in Google Search Console + Bing Webmaster Tools after deployment.
+  NOTE: Pillar (/exit-readiness-gap), white paper landing (/white-paper/exit-readiness-gap),
+  and /insights are intentionally omitted until those pages are published.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ============== HOMEPAGE ============== -->
+  <url>
+    <loc>https://rtoadvisory.com/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ============== CORE PAGES ============== -->
+  <url>
+    <loc>https://rtoadvisory.com/about</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtoadvisory.com/contact</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ============== SERVICES ============== -->
+  <url>
+    <loc>https://rtoadvisory.com/services/exit-readiness-assessment</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rtoadvisory.com/services/strategic-value-optimization</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtoadvisory.com/services/transaction-advisory</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtoadvisory.com/services/succession-planning</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ============== LEGAL ============== -->
+  <url>
+    <loc>https://rtoadvisory.com/privacy</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtoadvisory.com/terms</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

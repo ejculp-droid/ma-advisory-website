@@ -5,6 +5,102 @@
 [functions]
   directory = "netlify/functions"
 
+# ---------------------------------------------------------------------------
+# Clean URL canonicalization (Search Everywhere launch — Folder 1)
+# 200 = rewrite (clean URL stays in the address bar; serves /pages/... content)
+# 301 = redirect (any leaked /pages/*.html consolidates onto the clean URL)
+# ---------------------------------------------------------------------------
+
+# Clean -> source (rewrites, status 200)
+[[redirects]]
+  from = "/about"
+  to   = "/pages/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to   = "/pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to   = "/pages/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to   = "/pages/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/exit-readiness-assessment"
+  to   = "/pages/services/exit-readiness.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/strategic-value-optimization"
+  to   = "/pages/services/value-optimization.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/transaction-advisory"
+  to   = "/pages/services/transaction-advisory.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/succession-planning"
+  to   = "/pages/services/succession-planning.html"
+  status = 200
+
+# Source -> clean (permanent redirects, status 301)
+[[redirects]]
+  from = "/pages/about.html"
+  to   = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/contact.html"
+  to   = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/privacy.html"
+  to   = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/terms.html"
+  to   = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/services/exit-readiness.html"
+  to   = "/services/exit-readiness-assessment"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/services/value-optimization.html"
+  to   = "/services/strategic-value-optimization"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/services/transaction-advisory.html"
+  to   = "/services/transaction-advisory"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/services/succession-planning.html"
+  to   = "/services/succession-planning"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*.html"
   [headers.values]

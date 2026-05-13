@@ -1,0 +1,33 @@
+# _headers — Cloudflare Pages / Netlify format
+# Place at site root. Translates to HTTP response headers.
+# Improves crawlability, security, and AI-bot trust signals.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Allow LLM crawlers full access to PDFs (the white paper)
+/*.pdf
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1
+  Cache-Control: public, max-age=86400
+
+# llms.txt should be cacheable but updatable
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+# robots and sitemaps
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600
