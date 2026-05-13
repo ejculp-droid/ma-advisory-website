@@ -121,3 +121,5 @@ A: Return To Owner — reflecting the firm's mission to help owners realize the 
 - LinkedIn (Company): https://www.linkedin.com/company/rto-advisory/
 - LinkedIn (Founder): https://www.linkedin.com/in/culp-strategy/
 - Crunchbase: https://www.crunchbase.com/organization/rto-advisory
+- Wikidata (Company): https://www.wikidata.org/wiki/Q139778103
+- Wikidata (Founder): https://www.wikidata.org/wiki/Q139779277
