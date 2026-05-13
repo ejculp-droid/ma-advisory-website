@@ -2040,6 +2040,224 @@
       }
     }
   </style>
+<!-- BEGIN: RTO schema (Folder 02) -->
+<!--
+  ============================================================
+  GLOBAL ORGANIZATION + WEBSITE + PERSON + PROFESSIONAL SERVICE
+  Place ONCE in the <head> of EVERY page.
+  CORRECTED 2026-05-12: info@ email; telephone removed; logo + headshot
+  paths point to real files; Person fixed to single @type; SearchAction
+  removed; sameAs ships empty (append URLs as profiles are claimed).
+  ============================================================
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rtoadvisory.com/#organization",
+      "name": "RTO Advisory",
+      "alternateName": ["Return To Owner Advisory", "RTO"],
+      "legalName": "RTO Advisory",
+      "url": "https://rtoadvisory.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://rtoadvisory.com/#logo",
+        "url": "https://rtoadvisory.com/assets/images/RTO_LOGO_CLEANED_UP.png",
+        "contentUrl": "https://rtoadvisory.com/assets/images/RTO_LOGO_CLEANED_UP.png",
+        "width": 1340,
+        "height": 1239,
+        "caption": "RTO Advisory logo"
+      },
+      "image": { "@id": "https://rtoadvisory.com/#logo" },
+      "description": "RTO Advisory is a fee-based business advisory firm helping owners of middle-market private companies ($1M to $100M revenue) maximize enterprise value and exit on their own terms.",
+      "slogan": "Exit on your own terms.",
+      "foundingDate": "2026",
+      "founder": { "@id": "https://rtoadvisory.com/#elliott-culp" },
+      "knowsAbout": [
+        "Exit Planning",
+        "Business Valuation",
+        "Mergers and Acquisitions",
+        "Succession Planning",
+        "Transaction Advisory",
+        "Lower Middle Market M&A",
+        "Owner Dependence Reduction",
+        "Strategic Value Optimization",
+        "Tax Strategy",
+        "ASC 805 Business Combinations",
+        "ASC 820 Fair Value Measurement"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Greensboro",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "info@rtoadvisory.com",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish"]
+      }],
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rtoadvisory.com/#website",
+      "url": "https://rtoadvisory.com",
+      "name": "RTO Advisory",
+      "description": "Fee-based business advisory for middle-market exit readiness, valuation, and transaction success.",
+      "publisher": { "@id": "https://rtoadvisory.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://rtoadvisory.com/#elliott-culp",
+      "name": "Elliott J. Culp",
+      "givenName": "Elliott",
+      "additionalName": "J.",
+      "familyName": "Culp",
+      "jobTitle": "Founder & Principal",
+      "worksFor": { "@id": "https://rtoadvisory.com/#organization" },
+      "url": "https://rtoadvisory.com/about",
+      "image": "https://rtoadvisory.com/assets/images/About/RS%20B%26W.png",
+      "description": "Elliott J. Culp is the founder of RTO Advisory and a transaction/M&A advisor specializing in firm consolidations and exit readiness for lower-middle-market business owners.",
+      "knowsAbout": [
+        "M&A Transaction Structuring",
+        "Business Valuation",
+        "Exit Readiness",
+        "Reasonable Compensation Analysis",
+        "S-Corporation Taxation",
+        "LLC Operating Agreements",
+        "Firm Consolidations",
+        "Succession Planning"
+      ],
+      "knowsLanguage": ["English", "Spanish"],
+      "sameAs": []
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://rtoadvisory.com/#service-business",
+      "name": "RTO Advisory",
+      "image": { "@id": "https://rtoadvisory.com/#logo" },
+      "url": "https://rtoadvisory.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Greensboro",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "serviceType": [
+        "Exit Readiness Assessment",
+        "Strategic Value Optimization",
+        "Transaction Advisory",
+        "Succession Planning",
+        "Business Valuation"
+      ],
+      "parentOrganization": { "@id": "https://rtoadvisory.com/#organization" }
+    }
+  ]
+}
+</script>
+
+<!--
+  PAGE: /services/exit-readiness-assessment  (live: /pages/services/exit-readiness.html)
+  Adds Service + HowTo. The global Organization block must already be present.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://rtoadvisory.com/services/exit-readiness-assessment#service",
+      "name": "Exit Readiness Assessment",
+      "alternateName": ["Exit Planning Diagnostic", "Sale Readiness Assessment"],
+      "serviceType": "Business Exit Planning",
+      "category": "Business Advisory",
+      "url": "https://rtoadvisory.com/services/exit-readiness-assessment",
+      "provider": { "@id": "https://rtoadvisory.com/#organization" },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Privately held middle-market business owners",
+        "geographicArea": { "@type": "Country", "name": "United States" }
+      },
+      "description": "A structured diagnostic engagement that benchmarks a privately held business across the Six Critical Readiness Gaps (financial reporting, tax strategy, succession, valuation, owner dependence, and banking) and produces a prioritized 3 to 5 year roadmap with quantified value impact.",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://rtoadvisory.com/contact",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "description": "Fixed-fee engagement; pricing scoped after a complimentary discovery call."
+        },
+        "availability": "https://schema.org/InStock",
+        "businessFunction": "https://schema.org/ProvideService"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Exit Readiness Assessment Components",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objectives & Constraints Clarification" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Six Readiness Gaps Diagnostic Review" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Indicative Valuation Range" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prioritized 3 to 5 Year Roadmap" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Value-Impact Quantification" } }
+        ]
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://rtoadvisory.com/services/exit-readiness-assessment#howto",
+      "name": "How the RTO Advisory Exit Readiness Assessment Works",
+      "description": "A four-phase engagement that delivers a benchmarked, prioritized exit readiness roadmap.",
+      "totalTime": "P30D",
+      "supply": [
+        { "@type": "HowToSupply", "name": "Last 3 years of financial statements" },
+        { "@type": "HowToSupply", "name": "Current cap table and entity structure" },
+        { "@type": "HowToSupply", "name": "Banking facility documents" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Discovery Call",
+          "text": "A 45-minute complimentary call to understand the owner's goals, timeline, and constraints, and confirm fit."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Information Intake",
+          "text": "Secure exchange of financial, operational, tax, and banking documentation under NDA."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Diagnostic Review",
+          "text": "Benchmarking across the six readiness gaps, indicative valuation range, and identification of value drivers and detractors."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Roadmap Delivery",
+          "text": "Written report and live working session covering prioritized actions, value impact estimates, and 3 to 5 year sequencing."
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- END: RTO schema (Folder 02) -->
 </head>
 <body class="fee-page">
   <header class="site-header">
