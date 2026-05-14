@@ -26,7 +26,7 @@
     .wp-header {
       background: #fff;
       border-bottom: 1px solid var(--color-line);
-      padding: 1.25rem 0;
+      padding: 1rem 0;
     }
     .wp-header__inner {
       max-width: var(--container);
@@ -38,30 +38,36 @@
     .wp-header__brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       text-decoration: none;
       color: var(--color-brand);
     }
     .wp-header__brand img {
-      width: 36px;
-      height: 36px;
+      width: 30px;
+      height: 30px;
       display: block;
     }
     .wp-header__brand span {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       letter-spacing: -0.01em;
     }
 
     .wp-hero {
-      padding: 64px 0 32px;
+      padding: 72px 0 96px;
     }
     .wp-hero__inner {
-      max-width: 880px;
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 0 2rem;
-      text-align: center;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: start;
+    }
+    .wp-hero__copy {
+      max-width: 60ch;
     }
     .wp-hero__eyebrow {
       display: inline-block;
@@ -71,97 +77,136 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #7a746c;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     .wp-hero__title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-size: clamp(2.6rem, 5vw, 4rem);
       font-weight: 600;
-      line-height: 1.05;
+      line-height: 1.02;
       letter-spacing: -0.02em;
       color: var(--color-brand);
-      margin: 0 0 1rem;
+      margin: 0 0 1.25rem;
     }
     .wp-hero__subtitle {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
       font-weight: 500;
       line-height: 1.4;
       color: var(--color-ink-700);
-      margin: 0 0 2rem;
+      margin: 0 0 1.75rem;
     }
     .wp-hero__abstract {
       font-family: var(--font-body);
-      font-size: 1.075rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       color: var(--color-ink-700);
-      margin: 0 auto 2.25rem;
-      max-width: 64ch;
+      margin: 0 0 1.25rem;
     }
 
-    .wp-actions {
+    .wp-aside {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 4rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .wp-aside__cover {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 1px solid var(--color-line);
     }
     .wp-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.95rem 1.75rem;
+      justify-content: center;
+      padding: 1rem 2rem;
       font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       text-decoration: none;
       border-radius: 4px;
-      border: 1px solid var(--color-brand);
-      transition: background 180ms ease, color 180ms ease;
-    }
-    .wp-btn--primary {
-      background: var(--color-brand);
-      color: #fff;
-    }
-    .wp-btn--primary:hover {
-      background: #1a2a2e;
-    }
-    .wp-btn--ghost {
+      border: 1.5px solid var(--color-brand);
       background: transparent;
       color: var(--color-brand);
+      transition: background 180ms ease, color 180ms ease;
+      white-space: nowrap;
     }
-    .wp-btn--ghost:hover {
+    .wp-btn:hover {
       background: var(--color-brand);
       color: #fff;
     }
 
+    /* Compact dark footer */
     .wp-footer {
-      background: #fff;
-      border-top: 1px solid var(--color-line);
-      padding: 2rem 0;
-      text-align: center;
+      background: #0f1f23;
+      color: rgba(255,255,255,0.7);
+      padding: 1.5rem 0;
     }
     .wp-footer__inner {
       max-width: var(--container);
       margin: 0 auto;
       padding: 0 2rem;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--color-ink-500);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-    .wp-footer__inner a {
-      color: var(--color-brand);
-      text-decoration: none;
+    .wp-footer__brand {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 0.95rem;
       font-weight: 600;
+      color: #fff;
+      margin: 0 0 0.35rem;
+      letter-spacing: 0.02em;
     }
-    .wp-footer__inner a:hover {
-      text-decoration: underline;
+    .wp-footer__tag {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.55);
+      margin: 0 0 0.4rem;
+      max-width: 38ch;
+    }
+    .wp-footer__contact a {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+    }
+    .wp-footer__contact a:hover { color: #fff; }
+    .wp-footer__copy {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      text-align: right;
+      margin: 0;
+    }
+    .wp-footer__copy a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+
+    @media (max-width: 1023px) {
+      .wp-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .wp-aside { align-items: flex-start; }
     }
 
     @media (max-width: 767px) {
-      .wp-hero { padding: 40px 0 64px; }
+      .wp-hero { padding: 48px 0 64px; }
+      .wp-hero__inner { padding: 0 1.5rem; }
+      .wp-aside__cover { max-width: 280px; margin: 0 auto; }
+      .wp-aside { align-items: center; }
+      .wp-footer__inner { flex-direction: column; align-items: flex-start; }
+      .wp-footer__copy { text-align: left; }
     }
   </style>
 
@@ -188,24 +233,35 @@
   <main>
     <section class="wp-hero">
       <div class="wp-hero__inner">
-        <span class="wp-hero__eyebrow">White Paper &middot; Q2 2026</span>
-        <h1 class="wp-hero__title">The Exit Readiness Gap</h1>
-        <p class="wp-hero__subtitle">Why 75% of Business Owners Are Unprepared (And What It's Costing Them)</p>
-        <p class="wp-hero__abstract">
-          Are you one of the 75% of business owners who lack a formal exit plan? This white paper reveals the costly risks of being unprepared and shows how a strategic, multi-year approach can boost your business value by up to 30%, helping you exit on your own terms, not the market's. Discover the six critical gaps that derail deals and learn how The RTO Exit Readiness Index&trade; can turn uncertainty into confidence, options, and lasting success.
-        </p>
-        <div class="wp-actions">
-          <a class="wp-btn wp-btn--primary" href="/assets/white-papers/exit-readiness-gap-2026-q2.pdf" download="The-Exit-Readiness-Gap-RTO-Advisory-2026-Q2.pdf">
-            Download PDF
-          </a>
+        <div class="wp-hero__copy">
+          <span class="wp-hero__eyebrow">White Paper &middot; Q2 2026</span>
+          <h1 class="wp-hero__title">The Exit Readiness Gap</h1>
+          <p class="wp-hero__subtitle">Why 75% of Business Owners Are Unprepared (And What It's Costing Them)</p>
+          <p class="wp-hero__abstract">
+            Are you one of the 75% of business owners who lack a formal exit plan? This white paper reveals the costly risks of being unprepared and shows how a strategic, multi-year approach can boost your business value by up to 30%, helping you exit on your own terms, not the market's.
+          </p>
+          <p class="wp-hero__abstract">
+            Discover the six critical gaps that derail deals and learn how <strong>The RTO Exit Readiness Index&trade;</strong> can turn uncertainty into confidence, options, and lasting success.
+          </p>
         </div>
+        <aside class="wp-aside">
+          <img class="wp-aside__cover" src="/assets/images/WHITE%20PAPER%20THUMB%20NAIL.png" alt="The Exit Readiness Gap white paper cover" />
+          <a class="wp-btn" href="/assets/white-papers/exit-readiness-gap-2026-q2.pdf" download="The-Exit-Readiness-Gap-RTO-Advisory-2026-Q2.pdf">
+            Download the White Paper
+          </a>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer class="wp-footer">
     <div class="wp-footer__inner">
-      <p>&copy; 2026 Return To Owner Advisory. All rights reserved. <a href="/index.html">rtoadvisory.com</a></p>
+      <div class="wp-footer__brand-block">
+        <p class="wp-footer__brand">Return To Owner Advisory</p>
+        <p class="wp-footer__tag">Fee-based business advisory helping middle-market companies maximize value and achieve successful exits through transparent, conflict-free guidance.</p>
+        <p class="wp-footer__contact"><a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a></p>
+      </div>
+      <p class="wp-footer__copy">&copy; 2026 Return To Owner Advisory. All rights reserved. <a href="/index.html">rtoadvisory.com</a></p>
     </div>
   </footer>
 
