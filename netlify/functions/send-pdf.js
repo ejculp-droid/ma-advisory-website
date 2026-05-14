@@ -117,7 +117,7 @@ exports.handler = async (event) => {
     const BRAND_COLOR = '#0F2E2A';
     const FONT_BODY = "Calibri, Arial, sans-serif";
     const FONT_SERIF = "'Cormorant Garamond', Georgia, 'Times New Roman', serif";
-    const LOGO_URL = 'https://rtoadvisory.com/assets/images/RTO_LOGO_CLEANED_UP.png';
+    const LOGO_URL = 'https://rtoadvisory.com/assets/images/RTO_LOGO_email.png';
     const SITE_URL = 'https://rtoadvisory.com/';
     const CALENDLY_URL = 'https://calendly.com/elliott-rtoadvisory/30min?month=2026-05';
 
