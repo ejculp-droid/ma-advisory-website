@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Exit Readiness Gap | RTO Advisory White Paper</title>
+  <meta name="description" content="Why 75% of business owners are unprepared, and what it's costing them. Read the RTO Advisory white paper on the Exit Readiness Gap." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/variables.css" />
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/typography.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+  <style>
+    body {
+      background: #faf8f5;
+      color: var(--color-ink-800);
+    }
+
+    .wp-header {
+      background: #fff;
+      border-bottom: 1px solid var(--color-line);
+      padding: 1.25rem 0;
+    }
+    .wp-header__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+    }
+    .wp-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-brand);
+    }
+    .wp-header__brand img {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
+    .wp-header__brand span {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .wp-hero {
+      padding: 64px 0 32px;
+    }
+    .wp-hero__inner {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .wp-hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin-bottom: 1.25rem;
+    }
+    .wp-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 1rem;
+    }
+    .wp-hero__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-ink-700);
+      margin: 0 0 2rem;
+    }
+    .wp-hero__abstract {
+      font-family: var(--font-body);
+      font-size: 1.075rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      margin: 0 auto 2.25rem;
+      max-width: 64ch;
+    }
+
+    .wp-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .wp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-radius: 4px;
+      border: 1px solid var(--color-brand);
+      transition: background 180ms ease, color 180ms ease;
+    }
+    .wp-btn--primary {
+      background: var(--color-brand);
+      color: #fff;
+    }
+    .wp-btn--primary:hover {
+      background: #1a2a2e;
+    }
+    .wp-btn--ghost {
+      background: transparent;
+      color: var(--color-brand);
+    }
+    .wp-btn--ghost:hover {
+      background: var(--color-brand);
+      color: #fff;
+    }
+
+    .wp-viewer {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 2rem;
+    }
+    .wp-viewer__frame {
+      width: 100%;
+      height: 85vh;
+      min-height: 600px;
+      border: 1px solid var(--color-line);
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .wp-viewer__fallback {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--color-ink-500);
+    }
+    .wp-viewer__fallback a {
+      color: var(--color-brand);
+      font-weight: 600;
+    }
+
+    .wp-footer {
+      background: #fff;
+      border-top: 1px solid var(--color-line);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .wp-footer__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--color-ink-500);
+    }
+    .wp-footer__inner a {
+      color: var(--color-brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .wp-footer__inner a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+      .wp-hero { padding: 40px 0 24px; }
+      .wp-viewer__frame { height: 75vh; min-height: 480px; }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MN2VVJVGN0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MN2VVJVGN0');
+  </script>
+</head>
+<body>
+
+  <header class="wp-header">
+    <div class="wp-header__inner">
+      <a class="wp-header__brand" href="../index.html">
+        <img src="../assets/images/favicon.png" alt="" />
+        <span>RTO Advisory</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="wp-hero">
+      <div class="wp-hero__inner">
+        <span class="wp-hero__eyebrow">White Paper &middot; Q2 2026</span>
+        <h1 class="wp-hero__title">The Exit Readiness Gap</h1>
+        <p class="wp-hero__subtitle">Why 75% of Business Owners Are Unprepared (And What It's Costing Them)</p>
+        <p class="wp-hero__abstract">
+          Are you one of the 75% of business owners who lack a formal exit plan? This white paper reveals the costly risks of being unprepared and shows how a strategic, multi-year approach can boost your business value by up to 30%, helping you exit on your own terms, not the market's. Discover the six critical gaps that derail deals and learn how The RTO Exit Readiness Index&trade; can turn uncertainty into confidence, options, and lasting success.
+        </p>
+        <div class="wp-actions">
+          <a class="wp-btn wp-btn--primary" href="../assets/white-papers/exit-readiness-gap-2026-q2.pdf" download>
+            Download PDF
+          </a>
+          <a class="wp-btn wp-btn--ghost" href="../assets/white-papers/exit-readiness-gap-2026-q2.pdf" target="_blank" rel="noopener">
+            Open in new tab
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp-viewer" aria-label="White paper preview">
+      <iframe
+        class="wp-viewer__frame"
+        src="../assets/white-papers/exit-readiness-gap-2026-q2.pdf#view=FitH&toolbar=1"
+        title="The Exit Readiness Gap white paper"
+        loading="lazy">
+      </iframe>
+      <p class="wp-viewer__fallback">
+        Trouble viewing the embed?
+        <a href="../assets/white-papers/exit-readiness-gap-2026-q2.pdf" target="_blank" rel="noopener">Open the PDF directly</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wp-footer">
+    <div class="wp-footer__inner">
+      <p>&copy; 2026 Return To Owner Advisory. All rights reserved. <a href="../index.html">rtoadvisory.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
