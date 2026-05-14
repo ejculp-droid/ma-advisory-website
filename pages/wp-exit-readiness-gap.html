@@ -123,22 +123,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 2rem;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      border-radius: 4px;
-      border: 1.5px solid var(--color-brand);
+      min-height: 48px;
+      padding-inline: 1.35rem;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 46, 42, 0.34);
       background: transparent;
       color: var(--color-brand);
-      transition: background 180ms ease, color 180ms ease;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow: none;
+      transition: background 180ms ease;
       white-space: nowrap;
     }
     .wp-btn:hover {
-      background: var(--color-brand);
-      color: #fff;
+      background: rgba(15, 46, 42, 0.06);
+      color: var(--color-brand);
     }
 
     /* Compact dark footer (matches site brand) */
