@@ -44,7 +44,7 @@ async function sendEmail(transporter, to, subject, bodyHtml, pdfBuffer, attachme
 async function getPdfBuffer() {
   // Fetch PDF from the site's public assets
   const siteUrl = process.env.URL || process.env.DEPLOY_URL || 'https://rtoadvisory.com';
-  const pdfPath = '/assets/white-papers/exit-readiness-gap.pdf';
+  const pdfPath = '/assets/white-papers/exit-readiness-gap-2026-q2.pdf';
   const pdfUrl = `${siteUrl}${pdfPath}`;
   
   console.log(`Fetching PDF from: ${pdfUrl}`);
@@ -117,7 +117,7 @@ exports.handler = async (event) => {
     } else {
       // Backward compatible fallback for pages that still expect an attachment.
       pdfBuffer = await getPdfBuffer();
-      attachmentName = 'exit-readiness-gap.pdf';
+      attachmentName = 'The-Exit-Readiness-Gap-RTO-Advisory-2026-Q2.pdf';
       requesterHtml += `<p>Your copy is attached.</p>`;
     }
 
