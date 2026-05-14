@@ -14,6 +14,11 @@
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1
   Cache-Control: public, max-age=86400
 
+# Force PDF download instead of in-browser viewer
+/assets/white-papers/*.pdf
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=86400
+
 # llms.txt should be cacheable but updatable
 /llms.txt
   Content-Type: text/plain; charset=utf-8
