@@ -18,6 +18,21 @@
   status = 200
 
 [[redirects]]
+  from = "/why-rto"
+  to   = "/pages/why-rto.html"
+  status = 200
+
+[[redirects]]
+  from = "/fee-structure"
+  to   = "/pages/fee-structure.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookies"
+  to   = "/pages/cookies.html"
+  status = 200
+
+[[redirects]]
   from = "/contact"
   to   = "/pages/contact.html"
   status = 200
@@ -56,6 +71,24 @@
 [[redirects]]
   from = "/pages/about.html"
   to   = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/why-rto.html"
+  to   = "/why-rto"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/fee-structure.html"
+  to   = "/fee-structure"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pages/cookies.html"
+  to   = "/cookies"
   status = 301
   force = true
 
