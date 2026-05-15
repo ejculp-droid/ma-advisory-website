@@ -12,7 +12,22 @@ function bindScheduleModal() {
 
   if (!modal || !close || !opens.length) return;
 
+  let calendlyLoaded = false;
+  const loadCalendly = () => {
+    if (calendlyLoaded) return;
+    calendlyLoaded = true;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(link);
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+  };
+
   const open = () => {
+    loadCalendly();
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
