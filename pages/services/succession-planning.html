@@ -103,8 +103,26 @@
     .sp-intro-grid {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
-      gap: clamp(2rem, 4vw, 4rem);
-      align-items: center;
+      grid-template-areas:
+        "visual heading"
+        "visual body";
+      column-gap: clamp(2rem, 4vw, 4rem);
+      row-gap: 1.25rem;
+      align-items: start;
+    }
+
+    .sp-intro-visual { grid-area: visual; align-self: center; }
+    .sp-intro-heading { grid-area: heading; }
+    .sp-intro-body { grid-area: body; }
+
+    .sp-intro-heading .section-eyebrow { margin-bottom: 0.6rem; }
+
+    .sp-intro-heading h2 {
+      margin: 0 0 1rem;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      color: var(--color-brand);
     }
 
     .sp-intro-visual img {
@@ -114,17 +132,7 @@
       border-radius: 18px;
     }
 
-    .sp-intro-copy .section-eyebrow { margin-bottom: 0.6rem; }
-
-    .sp-intro-copy h2 {
-      margin: 0 0 1rem;
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.05;
-      color: var(--color-brand);
-    }
-
-    .sp-intro-copy p {
+    .sp-intro-body p {
       margin: 0 0 1rem;
       font-size: 1.08rem;
       line-height: 1.8;
@@ -132,7 +140,7 @@
       max-width: 58ch;
     }
 
-    .sp-intro-copy p:last-child { margin-bottom: 0; }
+    .sp-intro-body p:last-child { margin-bottom: 0; }
 
     .sp-stat-row {
       display: flex;
@@ -1031,7 +1039,13 @@
     }
 
     @media (max-width: 1023px) {
-      .sp-intro-grid { grid-template-columns: 1fr; }
+      .sp-intro-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "heading"
+          "visual"
+          "body";
+      }
       .sp-process-panel { grid-template-columns: 1fr; }
       .sp-process-heading { border-right: none; padding-right: 0; padding-bottom: 1rem; border-bottom: 1px solid var(--color-line); margin-bottom: 1rem; }
       .advantage-panel { grid-template-columns: 1fr; }
@@ -1338,12 +1352,14 @@
     <section class="fee-section">
       <div class="container">
         <div class="sp-intro-grid">
+          <div class="sp-intro-heading">
+            <p class="section-eyebrow">Why It Matters</p>
+            <h2>Most Businesses Don&rsquo;t Survive the Transition</h2>
+          </div>
           <div class="sp-intro-visual">
             <img src="../../assets/images-optimized/succession-planning/succession-why-it-matters.webp" alt="Succession and business continuity" loading="lazy" decoding="async" />
           </div>
-          <div class="sp-intro-copy">
-            <p class="section-eyebrow">Why It Matters</p>
-            <h2>Most Businesses Don&rsquo;t Survive the Transition</h2>
+          <div class="sp-intro-body">
             <p>Only 34% of family businesses have documented succession plans, and fewer than 15% successfully transition to the next generation. The difference is not luck. It is strategic planning, early preparation, and disciplined execution.</p>
             <p>Succession and exit planning are not mutually exclusive. Many owners pursue internal succession first while preserving external sale optionality. We help you design structures that keep every path open.</p>
             <div class="sp-stat-row">
