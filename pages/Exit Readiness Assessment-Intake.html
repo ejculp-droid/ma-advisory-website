@@ -1,0 +1,742 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exit Readiness Assessment Intake | RTO Advisory</title>
+  <meta name="description" content="Request your Exit Readiness Assessment through the RTO Exit Readiness Index and identify where value is exposed before the market does." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <style>
+    body {
+      background: #fff;
+      color: var(--color-ink-800);
+    }
+    .wp-intake {
+      padding: 72px 0 96px;
+    }
+    .wp-intake__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .wp-intake__copy {
+      max-width: 64ch;
+    }
+    .wp-intake__eyebrow {
+      display: inline-block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7a746c;
+      margin-bottom: 1rem;
+    }
+    .wp-intake__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4.8vw, 3.9rem);
+      font-weight: 600;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      color: var(--color-brand);
+      margin: 0 0 1.25rem;
+    }
+    .wp-intake__subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.45;
+      color: var(--color-ink-700);
+      margin: 0 0 1.5rem;
+    }
+    .wp-intake__copy p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-ink-700);
+      margin: 0 0 1rem;
+    }
+    .wp-sample {
+      margin-top: 1.6rem;
+    }
+    .wp-sample__eyebrow {
+      display: inline-block;
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a746c;
+      font-weight: 600;
+    }
+    .wp-sample__title {
+      margin: 0 0 0.85rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+      line-height: 1.15;
+      color: var(--color-brand);
+    }
+    .wp-sample-card {
+      border: 1px solid var(--color-line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    }
+    .wp-sample-card__header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.8rem;
+      align-items: start;
+      margin-bottom: 0.8rem;
+    }
+    .wp-sample-card__title {
+      margin: 0 0 0.2rem;
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      color: var(--color-brand);
+    }
+    .wp-sample-card__meta {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: var(--color-ink-700);
+    }
+    .wp-sample-card__score {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .wp-sample-card__score-value {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      line-height: 0.95;
+      color: var(--color-brand);
+    }
+    .wp-sample-card__status {
+      display: inline-block;
+      margin-top: 0.35rem;
+      padding: 0.3rem 0.58rem;
+      border-radius: 999px;
+      background: #f0ece2;
+      color: #956e23;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .wp-sample-bars {
+      display: grid;
+      gap: 0.42rem;
+      margin-bottom: 0.7rem;
+    }
+    .wp-sample-row {
+      display: grid;
+      grid-template-columns: minmax(74px, 95px) minmax(0, 1fr) 28px;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: var(--color-ink-800);
+    }
+    .wp-sample-row__track {
+      height: 9px;
+      border-radius: 999px;
+      background: #e5e1da;
+      overflow: hidden;
+    }
+    .wp-sample-row__fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+    .wp-sample-row__fill--red { background: #b94735; }
+    .wp-sample-row__fill--orange { background: #d7862e; }
+    .wp-sample-row__fill--yellow { background: #d0aa37; }
+    .wp-sample-row__fill--green { background: #4c8a58; }
+    .wp-sample-row__value {
+      text-align: right;
+      font-weight: 600;
+      color: #5d5548;
+    }
+    .wp-sample-legend {
+      border-top: 1px solid var(--color-line);
+      padding-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.85rem;
+      font-size: 0.74rem;
+      color: #5f5a51;
+    }
+    .wp-sample-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-right: 0.35rem;
+      position: relative;
+      top: -0.03rem;
+    }
+    .wp-sample-legend .legend-red::before { background: #b94735; }
+    .wp-sample-legend .legend-orange::before { background: #d7862e; }
+    .wp-sample-legend .legend-yellow::before { background: #d0aa37; }
+    .wp-sample-legend .legend-green::before { background: #4c8a58; }
+    .wp-intake__form-card {
+      background: #fff;
+      border: 1px solid var(--color-line);
+      border-radius: 14px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+    }
+    .wp-intake__form-card h2 {
+      margin: 0 0 0.35rem;
+      font-size: 1.35rem;
+      color: var(--color-brand);
+    }
+    .wp-intake__form-card p {
+      margin: 0 0 1rem;
+      color: var(--color-ink-700);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .wp-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+    }
+    .wp-form-grid .full {
+      grid-column: 1 / -1;
+    }
+    .wp-intake__form-card label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--color-ink-900);
+    }
+    .wp-intake__form-card input,
+    .wp-intake__form-card select,
+    .wp-intake__form-card textarea {
+      width: 100%;
+      padding: 0.72rem;
+      border: 1px solid var(--color-line);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: var(--font-body);
+      background: #fff;
+    }
+    .wp-intake__form-card select[multiple] {
+      min-height: 170px;
+    }
+    .wp-intake__form-card input:focus,
+    .wp-intake__form-card select:focus,
+    .wp-intake__form-card textarea:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(15, 46, 42, 0.1);
+    }
+    .wp-checkbox-group {
+      display: grid;
+      gap: 0.55rem;
+      border: 1px solid var(--color-line);
+      border-radius: 8px;
+      padding: 0.8rem;
+      background: #fff;
+    }
+    .wp-checkbox-option {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: start;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--color-ink-800);
+      cursor: pointer;
+      line-height: 1.35;
+    }
+    .wp-checkbox-option input {
+      width: 18px;
+      height: 18px;
+      margin: 0.1rem 0 0;
+      accent-color: var(--color-brand);
+    }
+    .wp-radio-group {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.2rem 0;
+    }
+    .wp-radio-option {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.95rem;
+      color: var(--color-ink-800);
+      cursor: pointer;
+    }
+    .wp-radio-option input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--color-brand);
+      margin: 0;
+    }
+    .wp-intake__help {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--color-ink-600);
+    }
+    .wp-intake__error {
+      margin-top: 0.45rem;
+      font-size: 0.84rem;
+      color: #a11d2f;
+      display: none;
+    }
+    .wp-intake__submit {
+      margin-top: 1rem;
+      width: 100%;
+    }
+    @media (max-width: 1023px) {
+      .wp-intake__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 767px) {
+      .wp-intake {
+        padding: 52px 0 68px;
+      }
+      .wp-intake__inner {
+        padding: 0 1.3rem;
+      }
+      .wp-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<!-- BEGIN: RTO schema (Folder 02) -->
+<!--
+  ============================================================
+  GLOBAL ORGANIZATION + WEBSITE + PERSON + PROFESSIONAL SERVICE
+  Place ONCE in the <head> of EVERY page.
+  CORRECTED 2026-05-12: info@ email; telephone removed; logo + headshot
+  paths point to real files; Person fixed to single @type; SearchAction
+  removed; sameAs ships empty (append URLs as profiles are claimed).
+  ============================================================
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rtoadvisory.com/#organization",
+      "name": "RTO Advisory",
+      "alternateName": ["Return To Owner Advisory", "RTO"],
+      "legalName": "RTO Advisory",
+      "url": "https://rtoadvisory.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://rtoadvisory.com/#logo",
+        "url": "https://rtoadvisory.com/assets/images-optimized/logo/rto-logo-1024.png",
+        "contentUrl": "https://rtoadvisory.com/assets/images-optimized/logo/rto-logo-1024.png",
+        "width": 1340,
+        "height": 1239,
+        "caption": "RTO Advisory logo"
+      },
+      "image": { "@id": "https://rtoadvisory.com/#logo" },
+      "description": "RTO Advisory is a fee-based business advisory firm helping owners of middle-market private companies ($1M to $100M revenue) maximize enterprise value and exit on their own terms.",
+      "slogan": "Exit on your own terms.",
+      "foundingDate": "2026",
+      "founder": { "@id": "https://rtoadvisory.com/#elliott-culp" },
+      "knowsAbout": [
+        "Exit Planning",
+        "Business Valuation",
+        "Mergers and Acquisitions",
+        "Succession Planning",
+        "Transaction Advisory",
+        "Lower Middle Market M&A",
+        "Owner Dependence Reduction",
+        "Strategic Value Optimization",
+        "Tax Strategy",
+        "ASC 805 Business Combinations",
+        "ASC 820 Fair Value Measurement"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Greensboro",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "info@rtoadvisory.com",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish"]
+      }],
+      "sameAs": ["https://www.linkedin.com/company/rto-advisory/", "https://www.crunchbase.com/organization/rto-advisory", "https://www.wikidata.org/wiki/Q139778103"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rtoadvisory.com/#website",
+      "url": "https://rtoadvisory.com",
+      "name": "RTO Advisory",
+      "description": "Fee-based business advisory for middle-market exit readiness, valuation, and transaction success.",
+      "publisher": { "@id": "https://rtoadvisory.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://rtoadvisory.com/#elliott-culp",
+      "name": "Elliott J. Culp",
+      "givenName": "Elliott",
+      "additionalName": "J.",
+      "familyName": "Culp",
+      "jobTitle": "Founder & Principal",
+      "worksFor": { "@id": "https://rtoadvisory.com/#organization" },
+      "url": "https://rtoadvisory.com/about",
+      "image": "https://rtoadvisory.com/assets/images-optimized/about/elliott-portrait.jpg",
+      "description": "Elliott J. Culp is the founder of RTO Advisory and a transaction/M&A advisor specializing in firm consolidations and exit readiness for lower-middle-market business owners.",
+      "knowsAbout": [
+        "M&A Transaction Structuring",
+        "Business Valuation",
+        "Exit Readiness",
+        "Reasonable Compensation Analysis",
+        "S-Corporation Taxation",
+        "LLC Operating Agreements",
+        "Firm Consolidations",
+        "Succession Planning"
+      ],
+      "knowsLanguage": ["English", "Spanish"],
+      "sameAs": ["https://www.linkedin.com/in/culp-strategy/", "https://www.wikidata.org/wiki/Q139779277"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://rtoadvisory.com/#service-business",
+      "name": "RTO Advisory",
+      "image": { "@id": "https://rtoadvisory.com/#logo" },
+      "url": "https://rtoadvisory.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Greensboro",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "parentOrganization": { "@id": "https://rtoadvisory.com/#organization" }
+    }
+  ]
+}
+</script>
+
+<!-- END: RTO schema (Folder 02) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MN2VVJVGN0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MN2VVJVGN0');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="../index.html"><img src="../assets/images-optimized/shared/favicon.png" alt="RTO" /><span class="site-logo__wordmark">RTO Advisory</span></a>
+      <button class="mobile-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="main-nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="why-rto.html">Why RTO?</a></li>
+          <li class="has-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services <span class="nav-caret" aria-hidden="true">&#9662;</span>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li><a role="menuitem" href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+              <li><a role="menuitem" href="services/value-optimization.html">Strategic Value Optimization</a></li>
+              <li><a role="menuitem" href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+              <li><a role="menuitem" href="services/succession-planning.html">Succession Planning</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="fee-structure.html">Fee Structure</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wp-intake" id="intake-start">
+      <div class="wp-intake__inner">
+        <div class="wp-intake__copy">
+          <span class="wp-intake__eyebrow">White Paper &middot; Q2 2026</span>
+          <h1 class="wp-intake__title">The Exit Readiness Gap</h1>
+          <p class="wp-intake__subtitle">Why 75% of Business Owners Are Unprepared (And What It's Costing Them)</p>
+          <p>
+            Are you one of the 75% of business owners who lack a formal exit plan? This white paper reveals the costly risks of being unprepared and shows how a strategic, multi-year approach can boost your business value by up to 30%, helping you exit on your own terms, not the market's.
+          </p>
+          <p>
+            Discover the six critical gaps that derail deals and learn how <strong>The RTO Exit Readiness Index&trade;</strong> can turn uncertainty into confidence, options, and lasting success.
+          </p>
+
+          <div class="wp-sample" aria-label="Sample index output card">
+            <h2 class="wp-sample__title">Sample RTO Exit Readiness Index&trade; Output</h2>
+            <div class="wp-sample-card">
+              <div class="wp-sample-card__header">
+                <div>
+                  <h3 class="wp-sample-card__title">Buyer-Style Readiness View</h3>
+                  <p class="wp-sample-card__meta">Each gap reflects a weighted contribution to overall exit preparedness.</p>
+                </div>
+                <div class="wp-sample-card__score">
+                  <span class="wp-sample-card__score-value">52/100</span>
+                  <span class="wp-sample-card__status">Strategic Preparation Recommended</span>
+                </div>
+              </div>
+              <div class="wp-sample-bars" aria-label="Sample readiness scores by gap">
+                <div class="wp-sample-row"><span>Financial</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--orange" style="width:45%"></span></span><span class="wp-sample-row__value">45</span></div>
+                <div class="wp-sample-row"><span>Tax</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--red" style="width:35%"></span></span><span class="wp-sample-row__value">35</span></div>
+                <div class="wp-sample-row"><span>Succession</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--red" style="width:25%"></span></span><span class="wp-sample-row__value">25</span></div>
+                <div class="wp-sample-row"><span>Valuation</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--yellow" style="width:70%"></span></span><span class="wp-sample-row__value">70</span></div>
+                <div class="wp-sample-row"><span>Operations</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--orange" style="width:55%"></span></span><span class="wp-sample-row__value">55</span></div>
+                <div class="wp-sample-row"><span>Banking</span><span class="wp-sample-row__track"><span class="wp-sample-row__fill wp-sample-row__fill--green" style="width:80%"></span></span><span class="wp-sample-row__value">80</span></div>
+              </div>
+              <div class="wp-sample-legend">
+                <span class="legend-red">Red &lt; 40</span>
+                <span class="legend-orange">Orange 40-60</span>
+                <span class="legend-yellow">Yellow 60-75</span>
+                <span class="legend-green">Green 75+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="wp-intake__form-card">
+          <h2>Request Your Exit Readiness Assessment</h2>
+          <p>Complete this short intake and our team will follow up with next steps based on your priorities.</p>
+
+          <form name="exit-readiness-assessment-intake" action="/pages/wp-exit-readiness-gap-lead.html" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="exit-readiness-assessment-intake" />
+            <p style="display:none;">
+              <label>Do not fill this out if you are human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="wp-form-grid">
+              <div>
+                <label for="first-name">First Name</label>
+                <input id="first-name" name="first_name" type="text" required />
+              </div>
+              <div>
+                <label for="last-name">Last Name</label>
+                <input id="last-name" name="last_name" type="text" required />
+              </div>
+              <div class="full">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div class="full">
+                <label for="phone">Phone (Optional)</label>
+                <input id="phone" name="phone" type="tel" />
+              </div>
+              <div class="full">
+                <label for="preferred-contact-method">Preferred Contact Method</label>
+                <select id="preferred-contact-method" name="preferred_contact_method" required>
+                  <option value="">Choose</option>
+                  <option>Email</option>
+                  <option>Phone</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="gaps-concern">Which of the six gaps are you most concerned about?</label>
+                <div class="wp-checkbox-group" id="gaps-concern">
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Financial Reporting" />
+                    <span>Financial Reporting</span>
+                  </label>
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Tax Strategy" />
+                    <span>Tax Strategy</span>
+                  </label>
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Succession and Continuity" />
+                    <span>Succession and Continuity</span>
+                  </label>
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Valuation Reality" />
+                    <span>Valuation Reality</span>
+                  </label>
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Operational Dependence on the Owner" />
+                    <span>Operational Dependence on the Owner</span>
+                  </label>
+                  <label class="wp-checkbox-option">
+                    <input type="checkbox" name="gaps_concern[]" value="Banking, Coverage Ratios and Collateral Documentation" />
+                    <span>Banking, Coverage Ratios and Collateral Documentation</span>
+                  </label>
+                </div>
+                <p class="wp-intake__help">Select all that apply.</p>
+                <p class="wp-intake__error" id="gaps-concern-error">Please select at least one readiness gap.</p>
+              </div>
+
+              <div class="full">
+                <label>Would you like to receive a copy of The Exit Readiness Gap White Paper?</label>
+                <div class="wp-radio-group" role="radiogroup" aria-label="White paper opt in">
+                  <label class="wp-radio-option">
+                    <input type="radio" name="white_paper_opt_in" value="yes" />
+                    <span>Yes</span>
+                  </label>
+                  <label class="wp-radio-option">
+                    <input type="radio" name="white_paper_opt_in" value="no" checked />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary wp-intake__submit" type="submit">Submit Intake</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fee-footer-dark">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="site-footer__brand">
+            <h3>Return To Owner Advisory</h3>
+            <p>
+              Fee-based business advisory helping middle-market companies maximize value and achieve
+              successful exits through transparent, conflict-free guidance.
+            </p>
+            <div class="site-footer__contact">
+              <a href="mailto:info@rtoadvisory.com">info@rtoadvisory.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Services</h3>
+          <ul class="site-footer__nav">
+            <li><a href="services/exit-readiness.html">Exit Readiness Assessment</a></li>
+            <li><a href="services/value-optimization.html">Strategic Value Optimization</a></li>
+            <li><a href="services/transaction-advisory.html">Transaction Advisory &amp; Management</a></li>
+            <li><a href="services/succession-planning.html">Succession Planning</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Resources</h3>
+          <ul class="site-footer__nav">
+            <li><a href="why-rto.html">Why RTO?</a></li>
+            <li><a href="fee-structure.html">Fee Structure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col site-footer__nav-group">
+          <h3>Company</h3>
+          <ul class="site-footer__nav">
+            <li><a href="about.html">About RTO Advisory</a></li>
+            <li><a href="fee-structure.html">Why Fee-Based?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Return To Owner Advisory. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="#" data-sources-trigger>Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="schedule-modal" id="schedule-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="schedule-modal-dialog">
+      <div class="schedule-modal-header">
+        <h3 style="margin:0;">Schedule Your Consultation</h3>
+        <button type="button" class="schedule-modal-close" id="schedule-modal-close">&times;</button>
+      </div>
+      <div class="schedule-modal-body"><div class="calendly-inline-widget" data-url="https://calendly.com/elliott-rtoadvisory/30min"></div></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/navigation.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function () {
+      var form = document.querySelector('form[name="exit-readiness-assessment-intake"]');
+      if (!form) return;
+
+      var checkboxes = form.querySelectorAll('input[name="gaps_concern[]"]');
+      var error = document.getElementById('gaps-concern-error');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var isSubmitting = false;
+
+      form.addEventListener('submit', async function (event) {
+        if (isSubmitting) {
+          return;
+        }
+
+        var hasSelection = Array.prototype.some.call(checkboxes, function (cb) {
+          return cb.checked;
+        });
+
+        if (!hasSelection) {
+          event.preventDefault();
+          if (error) error.style.display = 'block';
+          if (checkboxes.length > 0) checkboxes[0].focus();
+          return;
+        }
+
+        if (error) error.style.display = 'none';
+
+        event.preventDefault();
+        isSubmitting = true;
+        if (submitBtn) submitBtn.disabled = true;
+
+        var whitePaperChoice = form.querySelector('input[name="white_paper_opt_in"]:checked');
+        var shouldSendWhitePaper = whitePaperChoice && whitePaperChoice.value === 'yes';
+
+        if (shouldSendWhitePaper) {
+          try {
+            var firstName = form.querySelector('input[name="first_name"]').value;
+            var lastName = form.querySelector('input[name="last_name"]').value;
+            var email = form.querySelector('input[name="email"]').value;
+
+            await fetch('/.netlify/functions/send-pdf', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                company: 'Exit Readiness Assessment Intake',
+                reader_type: 'Owner',
+                reader_type_other: null
+              })
+            });
+          } catch (e) {
+            // Intake should still submit even if white paper email fails.
+            console.error('White paper send failed:', e);
+          }
+        }
+
+        form.submit();
+      });
+    })();
+  </script>
+</body>
+</html>
